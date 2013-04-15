@@ -127,9 +127,9 @@ typedef struct _ADV_INFO
 #include "Util.h"
 using namespace DuiLib;
 #ifdef _DEBUG
-#pragma comment(lib, "..\\Lib\\DuiLib_ud.lib")
+#pragma comment(lib, "..\\Lib\\DuiLib_d.lib")
 #else
-#pragma comment(lib, "..\\Lib\\DuiLib_u.lib")
+#pragma comment(lib, "..\\Lib\\DuiLib.lib")
 #endif
 
 //{{AFX_INSERT_LOCATION}}
