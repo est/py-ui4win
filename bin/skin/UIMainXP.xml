@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="800,576" caption="0,0,0,90">
+    <Font name="宋体" size="19" bold="false" italic="false" />
+    <Font name="宋体" size="16" bold="false" italic="false" />
+    <Font name="宋体" size="14" bold="false" italic="false" />
+    <Font name="SimSun" size="12" bold="false" italic="false" default="true" />
+    <VerticalLayout width="1024" bkimage="vistabg.png">
+        <VerticalLayout height="86">
+            <Button name="BtnClose" tooltip="退出程序" float="true" pos="773,0,0,0" width="27" height="22" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;sys_button_close.png&apos; source=&apos;27,0,53,22&apos;" hotimage="file=&apos;sys_button_close.png&apos; source=&apos;54,0,80,22&apos;" />
+            <Label name="LblIcon" float="true" pos="20,21,0,0" width="48" height="48" bkimage="xiaoniu48.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+            <Option name="btnDriverInstall" text="驱动安装" float="true" pos="214,21,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnBugDiagnose" text="bug检测" float="true" pos="350,21,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnDriverDiagnose" text="驱动报告" float="true" pos="78,21,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnPyTest" text="测试2" float="true" pos="488,21,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+        </VerticalLayout>
+        <TabLayout name="FunctionTabs" selectedid="3">
+            <VerticalLayout name="BasicInfoTab">
+                <Label text="Name : " float="true" pos="33,33,0,0" width="124" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblPhoneName" text="Galaxy Nexet" float="true" pos="167,33,0,0" width="289" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label text="Androil Version : " float="true" pos="33,87,0,0" width="125" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblAndroilVersion" text="4.1.2" float="true" pos="167,88,0,0" width="288" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Progress name="PrgSdcard" bordersize="1" float="true" pos="167,142,0,0" width="536" height="32" bordercolor="#00008000" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" foreimage="progress.png" min="0" max="100" value="40" hor="true" />
+                <Label text="2nd SD Card : " float="true" pos="33,140,0,0" width="121" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblWarn" text="You must insert another sdcard to flush rom." float="true" pos="169,179,0,0" width="450" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+            </VerticalLayout>
+            <VerticalLayout name="DriverInstallTab">
+                <Button name="BtnChooseRom" text="选择" visible="false" float="true" pos="547,73,0,0" width="112" height="43" padding="1,1,1,1" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+                <Edit name="EditRomPath" bordersize="1" float="true" pos="87,73,0,0" width="440" height="43" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label name="Label201" text="选择inf驱动文件:" visible="false" float="true" pos="87,35,0,0" width="337" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="1" />
+                <Button text="安装驱动" visible="false" float="true" pos="523,346,0,0" width="175" height="53" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="0" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
+                <Text visible="false" bordersize="1" float="true" pos="86,131,0,0" width="611" height="201" bordercolor="#00008000" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" align="wrap" />
+            </VerticalLayout>
+            <VerticalLayout name="FlushRomTab">
+                <Label name="AmaPhase1" float="true" pos="92,35,0,0" width="48" height="48" bkimage="xiaoniu48.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="txtPhase1" text="下载已经完成。按开始安装按钮开始安装。安装过程中会自动重启动计算机。" float="true" pos="149,37,0,0" width="481" height="45" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label name="AmaPhase2" float="true" pos="94,96,0,0" width="48" height="48" bkimage="xiaoniu48.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="txtPhase2" text="下载已经完成。按开始安装按钮开始安装。安装过程中会自动重启动计算机。" float="true" pos="151,98,0,0" width="481" height="45" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label name="AmaPhase3" float="true" pos="96,157,0,0" width="48" height="48" bkimage="xiaoniu48.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="txtPhase3" text="下载已经完成。按开始安装按钮开始安装。安装过程中会自动重启动计算机。" float="true" pos="153,159,0,0" width="481" height="45" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label name="AmaPhase4" float="true" pos="98,217,0,0" width="48" height="48" bkimage="xiaoniu48.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="txtPhase4" text="下载已经完成。按开始安装按钮开始安装。安装过程中会自动重启动计算机。" float="true" pos="155,219,0,0" width="481" height="45" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+            </VerticalLayout>
+            <VerticalLayout name="DriverDiagnoseTab">
+                <Text name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" width="631" height="370" bordercolor="#00008000" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" align="wrap" />
+            </VerticalLayout>
+        </TabLayout>
+        <Container height="77">
+            <Label name="LblStatus" text="刷机助手开发辅助工具" float="true" pos="16,25,0,0" width="774" height="29" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+        </Container>
+    </VerticalLayout>
+</Window>
