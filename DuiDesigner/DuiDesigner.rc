@@ -16,7 +16,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 中文(中华人民共和国) resources
+// Chinese (P.R.C.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -580,13 +580,13 @@ FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     CONTROL         346,IDC_STATIC,"Static",SS_BITMAP,0,0,229,57
     LTEXT           "UIDesigner",IDC_STATIC,7,61,37,8,SS_NOPREFIX
-    LTEXT           "贡献者:  achellies,Thinker,Daviyang35",IDC_STATIC,7,89,130,8
+    LTEXT           "贡献者:  踏雪流云, achellies,Thinker,Daviyang35",IDC_STATIC,7,89,205,8
     DEFPUSHBUTTON   "确定",IDOK,174,98,50,14,WS_GROUP
     LTEXT           "版本号",IDC_STATIC_CURRENT_VERSION,46,61,178,8
-    LTEXT           "作者:  踏雪流云",IDC_STATIC,7,75,49,8
+    LTEXT           "作者:  编码的风景",IDC_STATIC,7,75,56,8
     LTEXT           "博客: ",IDC_STATIC,65,75,19,8
-    PUSHBUTTON      "http://www.taxue.org/",IDC_BUTTON_MY_BLOG_LINK,85,74,92,14
-    PUSHBUTTON      "http://code.google.com/p/duilib/",IDC_BUTTON_DUILIB_LINK,7,101,120,14
+    PUSHBUTTON      "http://blog.csdn.net/cryptsoft/",IDC_BUTTON_MY_BLOG_LINK,85,74,112,14
+    PUSHBUTTON      "http://code.google.com/p/py-ui4win/",IDC_BUTTON_DUILIB_LINK,7,101,131,14
 END
 
 IDD_DIALOG_IMAGE DIALOGEX 0, 0, 316, 250
@@ -1075,7 +1075,7 @@ BEGIN
     ID_EDIT_DELETE          "删除选中的控件\\删除"
 END
 
-#endif    // 中文(中华人民共和国) resources
+#endif    // Chinese (P.R.C.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

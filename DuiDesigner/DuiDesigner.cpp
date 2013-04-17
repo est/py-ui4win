@@ -169,11 +169,11 @@ BOOL CAboutDlg::OnInitDialog()
 
 	// TODO:  在此添加额外的初始化
 	this->GetDlgItem(IDC_STATIC_CURRENT_VERSION)->SetWindowText(UIDESIGNER_VERSION);
-	m_btnMyBlogURL.SetURL(_T("http://www.taxue.org/"));
-	m_btnMyBlogURL.SetTooltip(_T("踏雪流云的博客"));
+	m_btnMyBlogURL.SetURL(_T("http://blog.csdn.net/cryptsoft"));
+	m_btnMyBlogURL.SetTooltip(_T("编码的风景的博客"));
 	m_btnMyBlogURL.SizeToContent();
-	m_btnDuiLibURL.SetURL(_T("http://code.google.com/p/duilib/"));
-	m_btnDuiLibURL.SetTooltip(_T("DuiLib开源项目"));
+	m_btnDuiLibURL.SetURL(_T("http://code.google.com/p/py-ui4win/"));
+	m_btnDuiLibURL.SetTooltip(_T("py-ui4win开源项目"));
 	m_btnDuiLibURL.SizeToContent();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
