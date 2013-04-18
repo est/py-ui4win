@@ -32,6 +32,9 @@ public:
     virtual CDuiString GetText() const;
     virtual void SetText(LPCTSTR pstrText);
 
+	// 供编辑器使用
+	bool IsVisibleOnlyForDesigner() {return m_bVisible;};
+
     // 图形相关
     DWORD GetBkColor() const;
     void SetBkColor(DWORD dwBackColor);
