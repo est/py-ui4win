@@ -17,6 +17,7 @@ using namespace boost::python;
 
 typedef boost::shared_ptr < PyFrameCreator > PyFrame_ptr;  
 typedef boost::shared_ptr < PyControlUI > PyControlUI_ptr;  
+typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;  
 BOOST_PYTHON_MODULE(PyUI)
 {
 	class_<PyControlUI>("PyControlUI", init<ULONG>())
@@ -28,6 +29,18 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetEnabled", &PyControlUI::SetEnabled)
 		.def("IsFocused", &PyControlUI::IsFocused)
 		.def("SetFocus", &PyControlUI::SetFocus)
+		; 
+
+	class_<PyTabLayoutUI>("PyTabLayoutUI", init<ULONG>())
+		.def("SetText", &PyTabLayoutUI::SetText)
+		.def("GetText", &PyTabLayoutUI::GetText)
+		.def("IsVisible", &PyTabLayoutUI::IsVisible)
+		.def("SetVisible", &PyTabLayoutUI::SetVisible)
+		.def("IsEnabled", &PyTabLayoutUI::IsEnabled)
+		.def("SetEnabled", &PyTabLayoutUI::SetEnabled)
+		.def("IsFocused", &PyTabLayoutUI::IsFocused)
+		.def("SetFocus", &PyTabLayoutUI::SetFocus)
+		.def("SelectItem", &PyTabLayoutUI::SelectItem)
 		; 
 
 	//class_<PyUIBase, boost::noncopyable>("PyFrame")
@@ -99,6 +112,7 @@ BOOST_PYTHON_MODULE(PyUI)
 
 	register_ptr_to_python <PyFrame_ptr>();  
 	register_ptr_to_python <PyControlUI_ptr>();  
+	register_ptr_to_python <PyTabLayoutUI_ptr>();  
 }
 
 void PyExtentInit()

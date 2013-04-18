@@ -29,6 +29,31 @@ protected:
 };
 
 // An abstract base class
+class PyTabLayoutUI
+{
+public:
+	PyTabLayoutUI(ULONG pControlUI) {m_pyControlUI = (CTabLayoutUI*)pControlUI;}
+	~PyTabLayoutUI() {}
+
+	void SetText(LPCSTR caption) { m_pyControlUI->SetText(caption); }
+	std::string GetText() { return std::string(m_pyControlUI->GetText().GetData()); }
+	bool IsVisible() {return m_pyControlUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyControlUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyControlUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
+	bool IsFocused() {return m_pyControlUI->IsFocused();}
+	void SetFocus(){m_pyControlUI->SetFocus();}
+
+	bool SelectItem(int iIndex)
+	{	
+		return m_pyControlUI->SelectItem(iIndex);
+	}
+
+protected:
+	CTabLayoutUI* m_pyControlUI;   // dui中实现的ui对象
+};
+
+// An abstract base class
 class PyUIBase : public boost::noncopyable
 {
 public:
