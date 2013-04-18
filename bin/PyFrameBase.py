@@ -12,6 +12,9 @@ class PyFrameBase(PyUIBase):
     def PyFindControl(self, controlName):
         return PyControlUI(self.FindControl(controlName))
 
+    def PyFindTabLayout(self, controlName):
+        return PyTabLayoutUI(self.FindControl(controlName))
+
     #virtual void OnFinalMessage(HWND hWnd);
     def OnFinalMessage(self, hWnd):
         pass
