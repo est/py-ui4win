@@ -48,7 +48,7 @@ class MainFrame(PyFrameBase):
                 obj.SetText("LblCaption", '对话框标题')
                 obj.SetText("txtMsg", '你点击了对话框按钮')
                 mbox1.ShowModal()
-            elif sendor == "btnDriverInstall":
+            elif sendor == "btnDriverInstall1":
                 PyLog().LogText(self.msg)
                 lblStatus = self.PyFindControl("LblStatus")
                 msg = lblStatus.GetText()
@@ -58,10 +58,14 @@ class MainFrame(PyFrameBase):
                 txtDiagnose.SetVisible(not txtDiagnose.IsVisible())
                 txtDiagnose.SetText(txt + '\n' + '你点击了安装驱动按钮')
 
-            elif sendor == "btnBugDiagnose":
+            elif sendor == "btnEncrypt":
+                funcTabLayout = self.PyFindTabLayout("FunctionTabs")
+                funcTabLayout.SelectItem(3)
                 self.SetText("LblStatus", '你点击了bug检测按钮')
                 self.SetText("txtDiagnose", '你点击了bug检测按钮')
             elif sendor == "btnDriverDiagnose":
+                funcTabLayout = self.PyFindTabLayout("FunctionTabs")
+                funcTabLayout.SelectItem(3)
                 txtDiagnose = self.PyFindControl("txtDiagnose")
                 txtDiagnose.SetVisible(True)
                 self.SetText("txtDiagnose", '')
@@ -72,6 +76,9 @@ class MainFrame(PyFrameBase):
             elif sendor == 'btnOpenLog':
                 pass
                 #win32api.ShellExecute(0, 'open', 'e:\\applog.ini', None, "", 1)
+            elif sendor == 'btnDriverInstall':
+                funcTabLayout = self.PyFindTabLayout("FunctionTabs")
+                funcTabLayout.SelectItem(1)
 
 def PyAppInit():
     pyFrameObj = PyFrameCreator()
