@@ -13,7 +13,7 @@
             <Option name="btnDriverInstall" text="驱动安装" float="true" pos="220,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
             <Option name="btnPyTest" text="对话框" float="true" pos="501,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
         </VerticalLayout>
-        <TabLayout name="FunctionTabs">
+        <TabLayout name="FunctionTabs" selectedid="3">
             <VerticalLayout name="BasicInfoTab">
                 <Label text="Name : " float="true" pos="33,33,0,0" width="124" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
                 <Label name="LblPhoneName" text="Galaxy Nexet" float="true" pos="167,33,0,0" width="289" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
