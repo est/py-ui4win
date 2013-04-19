@@ -11,6 +11,7 @@
 
 #include<boost/python.hpp>
 #include "PyFrameCreator.hpp"
+#include "Win32Api.h"
 #include "PyModuleImport.h"
 using namespace std;
 using namespace boost::python;
@@ -102,6 +103,17 @@ BOOST_PYTHON_MODULE(PyUI)
 
 	class_<PyLog>("PyLog")
 		.def("LogText", &PyLog::LogText)
+		;
+
+	class_<CWin32Api>("PyWinUtils")
+		.def("GetExeDirectory", &CWin32Api::GetExeDirectory)
+		.def("SetCurrentDirectory", &CWin32Api::SetCurrentDirectory)
+		.def("SetCurrentDirectoryToExePath", &CWin32Api::SetCurrentDirectoryToExePath)
+		.def("SetWaitCursor", &CWin32Api::SetWaitCursor)
+		.def("SetArrowCursor", &CWin32Api::SetArrowCursor)
+		.def("ShellExcute", &CWin32Api::ShellExcute)
+		.def("SelectFile", &CWin32Api::SelectFile)
+		.def("SelectFolder", &CWin32Api::SelectFolder)
 		;
 
 	class_<PyFrameCreator>("PyFrameCreator")

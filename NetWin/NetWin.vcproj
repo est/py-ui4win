@@ -1075,6 +1075,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Win32Api.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\WinSys.cpp"
 				>
 			</File>
@@ -1117,6 +1121,10 @@
 			</File>
 			<File
 				RelativePath=".\Util.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Win32Api.h"
 				>
 			</File>
 			<File

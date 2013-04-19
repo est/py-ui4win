@@ -43,11 +43,38 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*l
 
 	// 将当前目录加入python环境变量
 	CString pathA = GetExeFolder();
-	pathA.Replace('\\', '/');
+	//pathA.Replace('\\', '/');
 	try
 	{
+/*		PyRun_SimpleString("import sys");
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27')    \n").c_str());
+		PyRun_SimpleString((std::string("if not '") + (LPCSTR)pathA + "\\DLLs' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\DLLs')    \n").c_str()
+			);
+*/
 		PyRun_SimpleString("import sys");
-		PyRun_SimpleString((std::string("if not '") + (LPCSTR)pathA + "' in sys.path: sys.path.append('" + (LPCSTR)pathA + "')").c_str());
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27')    \n").c_str());
+		PyRun_SimpleString(
+			"import pywintypes    \n"
+			"    pywintypes.__import_pywin32_system_module__(\"pythoncom\", globals())         \n"
+			);
+
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27\\win32' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27\\win32')    \n").c_str());
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27\\win32com' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27\\win32com')    \n").c_str());
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27\\win32comext' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27\\win32comext')    \n").c_str());
+		//PyRun_SimpleString((std::string("if not '") + (LPCSTR)pathA + "\\DLLs' in sys.path: \n"
+		//	"    sys.path.append('" + (LPCSTR)pathA + "\\DLLs')    \n").c_str()
+		//	);
 	}
 	catch(boost::python::error_already_set const &)
 	{  
