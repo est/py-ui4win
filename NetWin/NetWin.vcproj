@@ -177,6 +177,7 @@
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="..\libs\python"
+				UACExecutionLevel="2"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\Debug/NetWin.pdb"
 				GenerateMapFile="true"
@@ -962,6 +963,14 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\DriverInstaller.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DriverStatus.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\MDbgHelper.cpp"
 				>
 			</File>
@@ -1087,6 +1096,14 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl"
 			>
+			<File
+				RelativePath=".\DriverInstaller.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DriverStatus.h"
+				>
+			</File>
 			<File
 				RelativePath=".\file.h"
 				>
