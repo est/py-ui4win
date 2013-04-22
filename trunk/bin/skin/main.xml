@@ -13,15 +13,15 @@
             <Option name="btnDriverInstall" text="驱动安装" float="true" pos="220,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
             <Option name="btnPyTest" text="对话框" float="true" pos="501,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
         </VerticalLayout>
-        <TabLayout name="FunctionTabs" selectedid="3">
+        <TabLayout name="FunctionTabs">
             <VerticalLayout name="BasicInfoTab">
-                <Label text="Name : " float="true" pos="33,33,0,0" width="124" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
-                <Label name="LblPhoneName" text="Galaxy Nexet" float="true" pos="167,33,0,0" width="289" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
-                <Label text="Androil Version : " float="true" pos="33,87,0,0" width="125" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
-                <Label name="LblAndroilVersion" text="4.1.2" float="true" pos="167,88,0,0" width="288" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
-                <Progress name="PrgSdcard" bordersize="1" float="true" pos="167,142,0,0" width="536" height="32" bordercolor="#00008000" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" foreimage="progress.png" min="0" max="100" value="40" hor="true" />
-                <Label text="2nd SD Card : " float="true" pos="33,140,0,0" width="121" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
-                <Label name="LblWarn" text="You must insert another sdcard to flush rom." float="true" pos="169,179,0,0" width="450" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label text="Name : " float="true" pos="82,36,0,0" width="124" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblPhoneName" text="Galaxy Nexet" float="true" pos="216,36,0,0" width="289" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label text="Androil Version : " float="true" pos="82,87,0,0" width="125" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblAndroilVersion" text="4.1.2" float="true" pos="216,88,0,0" width="288" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label text="2nd SD Card : " float="true" pos="82,140,0,0" width="121" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Progress name="PrgSdcard" bordersize="1" float="true" pos="216,141,0,0" width="452" height="32" bordercolor="#00008000" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="centerbottom" foreimage="progress.png" min="0" max="100" value="80" hor="true" />
+                <Label text="1G/3G" float="true" pos="220,144,0,0" width="446" height="27" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="center" />
             </VerticalLayout>
             <VerticalLayout name="DriverInstallTab">
                 <Button name="btnChooseInf" text="选择" float="true" pos="547,73,0,0" width="112" height="43" padding="1,1,1,1" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />

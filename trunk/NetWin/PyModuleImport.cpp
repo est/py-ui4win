@@ -12,7 +12,11 @@
 #include<boost/python.hpp>
 #include "PyFrameCreator.hpp"
 #include "Win32Api.h"
+#include "DriverStatus.h"
+#include "DriverInstaller.h"
 #include "PyModuleImport.h"
+#include "PyException.h"
+
 using namespace std;
 using namespace boost::python;
 
@@ -21,6 +25,13 @@ typedef boost::shared_ptr < PyControlUI > PyControlUI_ptr;
 typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;  
 BOOST_PYTHON_MODULE(PyUI)
 {
+	class_<CDriverStatus>("DriverStatus")
+		.def("DriverDiagnose", &CDriverStatus::DriverDiagnose)
+		;
+	class_<CDriverInstaller>("DriverInstaller")
+		.def("InstallDriverFromInf", &CDriverInstaller::InstallDriverFromInf)
+		;
+
 	class_<PyControlUI>("PyControlUI", init<ULONG>())
 		.def("SetText", &PyControlUI::SetText)
 		.def("GetText", &PyControlUI::GetText)
@@ -105,6 +116,10 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("LogText", &PyLog::LogText)
 		;
 
+	class_<PyScript>("PyScript")
+		.def("RunPy", &PyScript::RunPy)
+		;
+
 	class_<CWin32Api>("PyWinUtils")
 		.def("GetExeDirectory", &CWin32Api::GetExeDirectory)
 		.def("SetCurrentDirectory", &CWin32Api::SetCurrentDirectory)
@@ -130,4 +145,37 @@ BOOST_PYTHON_MODULE(PyUI)
 void PyExtentInit()
 {
 	PyImport_AppendInittab("PyUI", initPyUI);
+}
+
+std::string PyScript::RunPy(std::string pyModule, std::string pyFunc)
+{
+	std::string ret = "";
+
+	boost::python::handle<>* _module = NULL; // Module handle.
+
+	try
+	{
+		_module = new boost::python::handle<>(
+			PyImport_ImportModule( pyModule.c_str()));
+		ret = boost::python::call_method<std::string>(_module->get(), pyFunc.c_str());
+	}
+	catch(boost::python::error_already_set const &){  
+		ret = parse_python_exception();
+		PyLog().LogText(ret.c_str());
+		PyErr_Clear();
+	}  
+	catch (...)
+	{
+		if (PyErr_Occurred())
+		{
+			ret = parse_python_exception();
+			PyLog().LogText(ret.c_str());
+			PyErr_Clear();
+		}
+	}
+
+	if (_module)
+		delete _module;
+
+	return ret;
 }

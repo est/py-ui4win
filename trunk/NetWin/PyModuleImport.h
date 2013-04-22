@@ -10,4 +10,10 @@ public:
 	}
 };
 
+class PyScript
+{
+public:
+	std::string RunPy(std::string pyModule, std::string pyFunc);
+};
+
 void PyExtentInit();
