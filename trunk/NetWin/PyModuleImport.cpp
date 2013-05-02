@@ -129,6 +129,9 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("ShellExcute", &CWin32Api::ShellExcute)
 		.def("SelectFile", &CWin32Api::SelectFile)
 		.def("SelectFolder", &CWin32Api::SelectFolder)
+		.def("CreateDirectory", &CWin32Api::CreateDirectory)
+		.def("Sleep", &CWin32Api::Sleep)
+		.def("SetTimer", &CWin32Api::SetTimer)
 		;
 
 	class_<PyFrameCreator>("PyFrameCreator")

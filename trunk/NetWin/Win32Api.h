@@ -7,8 +7,11 @@ public:
 	~CWin32Api(void);
 	std::string GetExeDirectory();
 	void SetCurrentDirectory(std::string dir);
+	bool CreateDirectory(std::string dir);
 	void SetCurrentDirectoryToExePath();
 	void SetWaitCursor();
+	void Sleep(int nMillseconds);
+	int SetTimer(int hWnd, int nIDEvent, int uElapse); 
 	void SetArrowCursor();
 	void ShellExcute(int hwnd,
 		std::string lpOperation,
