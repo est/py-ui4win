@@ -50,6 +50,7 @@ class MainFrame(PyFrameBase):
         self.LblStatus.SetText('辅助工具')
         #self.btnPyTest.SetVisible(False)
         self.btnPyTest.SetText('手机信息')
+        PyWinUtils().SetTimer(self.GetHWnd(), 1, 10)
 
     #virtual LPCSTR GetWindowClassName() const;
     def TestObj(self, msg):
@@ -80,11 +81,12 @@ class MainFrame(PyFrameBase):
 
                 solPath = PyWinUtils().SelectFolder(self.GetHWnd(), "请选择解决方案包:", "solutionpath")
                 if len(solPath):
-                    PyWinUtils().SetWaitCursor()
-                    self.EncryptAndPack(solPath)
-                    PyWinUtils().SetArrowCursor()
-                #t = threading.Thread(target=PyThreadEncrypt,args=(self,solPath))
-                #t.start()
+#                    PyWinUtils().SetWaitCursor()
+#                    self.EncryptAndPack(solPath)
+#                    PyWinUtils().SetArrowCursor()
+                    t = threading.Thread(target=PyThreadEncrypt,args=(self,solPath))
+                    t.start()
+                    #t.join(1)
 
             elif sendor == "btnDriverDiagnose":
                 self.funcTabLayout.SelectItem(3)
@@ -258,8 +260,17 @@ class MainFrame(PyFrameBase):
         if os.path.isdir(tmpdir):
             dir_util.remove_tree(tmpdir)
         PyLog().LogText( '2')
-        dir_util.mkpath(tmpdir)
+        PyWinUtils().CreateDirectory(tmpdir)
+        #dir_util.mkpath(tmpdir)
         PyLog().LogText( '3')
+#        time.sleep(10)
+        PyLog().LogText( '3.5')
+#        i = 0
+#        while i<100:
+#            i = i + 1
+#            self.AppendAndLog('%d' % i )
+#            time.sleep(1)
+
         dir_util.copy_tree(solutionPath, tmpdir)
 
         PyLog().LogText( '4')

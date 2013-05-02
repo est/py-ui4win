@@ -127,3 +127,18 @@ std::string CWin32Api::SelectFolder(int hwnd, std::string title, std::string sav
 
 	return szPath;
 }
+
+bool CWin32Api::CreateDirectory(std::string dir)
+{
+	return ::CreateDirectory(dir.c_str(), NULL);
+}
+
+void CWin32Api::Sleep(int nMillseconds)
+{
+	::Sleep(nMillseconds);
+}
+
+int CWin32Api::SetTimer(int hWnd, int nIDEvent, int uElapse)
+{
+	return ::SetTimer((HWND)hWnd, nIDEvent, uElapse, NULL);
+}
