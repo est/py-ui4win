@@ -270,6 +270,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MyPropertyGridCtrl.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\PropertiesWnd.cpp"
 				>
 			</File>
@@ -417,6 +421,10 @@
 			</File>
 			<File
 				RelativePath=".\MultiUITracker.h"
+				>
+			</File>
+			<File
+				RelativePath=".\MyPropertyGridCtrl.h"
 				>
 			</File>
 			<File
@@ -598,11 +606,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\icon1.ico"
+				RelativePath=".\res\ToolBox\icon1.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\ToolBox\icon1.ico"
+				RelativePath=".\res\icon1.ico"
 				>
 			</File>
 			<File
