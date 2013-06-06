@@ -47,7 +47,7 @@ class MainFrame(PyFrameBase):
         self.txtInstallLog = self.PyFindControl("txtInstallLog")
         self.LblStatus = self.PyFindControl("LblStatus")
         self.btnPyTest = self.PyFindControl("btnPyTest")
-        self.LblStatus.SetText('辅助工具')
+        self.LblStatus.SetText('Python界面开发示例')
         #self.btnPyTest.SetVisible(False)
         self.btnPyTest.SetText('手机信息')
         PyWinUtils().SetTimer(self.GetHWnd(), 1, 10)
@@ -78,7 +78,7 @@ class MainFrame(PyFrameBase):
 
             elif sendor == "btnEncrypt":
                 self.funcTabLayout.SelectItem(3)
-
+                self.txtDiagnose.SetText('')
                 solPath = PyWinUtils().SelectFolder(self.GetHWnd(), "请选择解决方案包:", "solutionpath")
                 if len(solPath):
 #                    PyWinUtils().SetWaitCursor()
