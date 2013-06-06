@@ -1,5 +1,5 @@
 #pragma once
-
+#include "MyPropertyGridCtrl.h"
 //////////////////////////////////////////////////////////////////////////
 //CMFCPropertyGridColor32Property
 
@@ -352,7 +352,7 @@ protected:
 	void ShowTileLayoutProperty(CControlUI* pControl);
 
 protected:
-	CMFCPropertyGridCtrl m_wndPropList;
+	CMyPropertyGridCtrl m_wndPropList;
 	CPropertiesToolBar m_wndToolBar;
 	CFont m_fntPropList;
 
