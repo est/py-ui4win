@@ -4,6 +4,7 @@
     <Font name="微软雅黑" size="16" bold="false" italic="false" />
     <Font name="微软雅黑" size="14" bold="false" italic="false" />
     <Font name="SimSun" size="12" bold="false" italic="false" default="true" />
+	<Include source="scrollbar.xml" />
     <VerticalLayout width="1024" bkimage="vistabg.png">
         <VerticalLayout height="86">
             <Button name="BtnClose" tooltip="退出程序" float="true" pos="765,0,0,0" width="27" height="22" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;sys_button_close.png&apos; source=&apos;27,0,53,22&apos;" hotimage="file=&apos;sys_button_close.png&apos; source=&apos;54,0,80,22&apos;" />
@@ -11,17 +12,17 @@
             <Option name="btnDriverDiagnose" text="检测手机" float="true" pos="79,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
             <Option name="btnEncrypt" text="加密打包" float="true" pos="361,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
             <Option name="btnDriverInstall" text="驱动安装" float="true" pos="220,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
-            <Option name="btnPyTest" text="对话框" float="true" pos="501,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnPyTest" text="自定义测试" float="true" pos="502,19,0,0" width="135" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
         </VerticalLayout>
-        <TabLayout name="FunctionTabs">
+        <TabLayout name="FunctionTabs" selectedid="3">
             <VerticalLayout name="BasicInfoTab">
-                <Label text="Name : " float="true" pos="82,36,0,0" width="124" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
-                <Label name="LblPhoneName" text="Galaxy Nexet" float="true" pos="216,36,0,0" width="289" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
-                <Label text="Androil Version : " float="true" pos="82,87,0,0" width="125" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
-                <Label name="LblAndroilVersion" text="4.1.2" float="true" pos="216,88,0,0" width="288" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
-                <Label text="2nd SD Card : " float="true" pos="82,140,0,0" width="121" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
-                <Progress name="PrgSdcard" bordersize="1" float="true" pos="216,141,0,0" width="452" height="32" bordercolor="#00008000" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="centerbottom" foreimage="progress.png" min="0" max="100" value="80" hor="true" />
-                <Label text="1G/3G" float="true" pos="220,144,0,0" width="446" height="27" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="center" />
+                <Label text="Name : " float="true" pos="33,33,0,0" width="124" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblPhoneName" text="Galaxy Nexet" float="true" pos="167,33,0,0" width="289" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Label text="Androil Version : " float="true" pos="33,87,0,0" width="125" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblAndroilVersion" text="4.1.2" float="true" pos="167,88,0,0" width="288" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
+                <Progress name="PrgSdcard" bordersize="1" float="true" pos="167,142,0,0" width="536" height="32" bordercolor="#00008000" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" foreimage="progress.png" min="0" max="100" value="40" hor="true" />
+                <Label text="2nd SD Card : " float="true" pos="33,140,0,0" width="121" height="34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="right" />
+                <Label name="LblWarn" text="You must insert another sdcard to flush rom." float="true" pos="169,179,0,0" width="450" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
             </VerticalLayout>
             <VerticalLayout name="DriverInstallTab">
                 <Button name="btnChooseInf" text="选择" float="true" pos="547,73,0,0" width="112" height="43" padding="1,1,1,1" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
@@ -41,7 +42,7 @@
                 <Label name="txtPhase4" text="下载已经完成。按开始安装按钮开始安装。安装过程中会自动重启动计算机。" float="true" pos="155,219,0,0" width="481" height="45" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
             </VerticalLayout>
             <VerticalLayout name="DriverDiagnoseTab">
-                <Text name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" width="631" height="328" bordercolor="#00008000" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" align="wrap" />
+				<RichEdit name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" inset="1,1,1,1" width="631" height="328" bordercolor="#00008000" textpadding="2,0,2,0" multiline="true" vscrollbar="true" autovscroll="true" hscrollbar="true" autohscroll="true" enabled="true" rich="true" readonly="true"></RichEdit>			
                 <Button name="btnOpenLog" text="打开日志" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <Button name="btnClearLog" text="清空日志" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
             </VerticalLayout>
