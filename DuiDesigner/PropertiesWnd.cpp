@@ -213,8 +213,8 @@ void CPropertiesWnd::SetUIValue(CMFCPropertyGridProperty* pProp,int nTag)
 			}
 			else
 			{
-				strNewVal=_T("255");
-				pProp->SetValue((_variant_t)(LONG)255);
+				//strNewVal=_T("255");
+				pProp->SetValue((_variant_t)(LONG)alpha);
 			}
 			break;
 		}
