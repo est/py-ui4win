@@ -573,20 +573,20 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 231, 119
+IDD_ABOUTBOX DIALOGEX 0, 0, 231, 174
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于 Dui Designer"
 FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    CONTROL         346,IDC_STATIC,"Static",SS_BITMAP,0,0,229,57
-    LTEXT           "UIDesigner",IDC_STATIC,7,61,37,8,SS_NOPREFIX
-    LTEXT           "贡献者:  踏雪流云, achellies,Thinker,Daviyang35",IDC_STATIC,7,89,205,8
-    DEFPUSHBUTTON   "确定",IDOK,174,98,50,14,WS_GROUP
-    LTEXT           "版本号",IDC_STATIC_CURRENT_VERSION,46,61,178,8
-    LTEXT           "作者:  编码的风景",IDC_STATIC,7,75,56,8
-    LTEXT           "博客: ",IDC_STATIC,65,75,19,8
-    PUSHBUTTON      "http://blog.csdn.net/cryptsoft/",IDC_BUTTON_MY_BLOG_LINK,85,74,112,14
-    PUSHBUTTON      "http://code.google.com/p/py-ui4win/",IDC_BUTTON_DUILIB_LINK,7,101,131,14
+    CONTROL         346,IDC_STATIC,"Static",SS_BITMAP,7,7,73,73
+    LTEXT           "Python User Interface Designer For Win32",IDC_STATIC,7,85,140,8,SS_NOPREFIX
+    LTEXT           "贡献者:  踏雪流云, achellies,Thinker,Daviyang35",IDC_STATIC,7,133,205,8
+    DEFPUSHBUTTON   "确定",IDOK,174,153,50,14,WS_GROUP
+    LTEXT           "版本号",IDC_STATIC_CURRENT_VERSION,7,95,192,8
+    LTEXT           "作者:  编码的风景",IDC_STATIC,7,108,56,8
+    LTEXT           "博客: ",IDC_STATIC,7,119,19,8
+    PUSHBUTTON      "http://blog.csdn.net/cryptsoft/",IDC_BUTTON_MY_BLOG_LINK,27,117,112,14
+    PUSHBUTTON      "http://code.google.com/p/py-ui4win/",IDC_BUTTON_DUILIB_LINK,7,153,131,14
 END
 
 IDD_DIALOG_IMAGE DIALOGEX 0, 0, 316, 250
@@ -782,7 +782,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 224
         TOPMARGIN, 7
-        BOTTOMMARGIN, 112
+        BOTTOMMARGIN, 167
     END
 
     IDD_DIALOG_IMAGE, DIALOG
