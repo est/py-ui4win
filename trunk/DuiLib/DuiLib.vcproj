@@ -594,6 +594,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\UIAnimation.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Control\UIButton.cpp"
 					>
 				</File>
@@ -764,6 +768,10 @@
 				>
 				<File
 					RelativePath=".\Control\UIActiveX.h"
+					>
+				</File>
+				<File
+					RelativePath=".\UIAnimation.h"
 					>
 				</File>
 				<File
