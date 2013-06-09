@@ -213,12 +213,6 @@ void CControlUI::SetBorderSize(int nSize)
     Invalidate();
 }
 
-//************************************
-// 函数名称: SetBorderSize
-// 返回类型: void
-// 参数信息: RECT rc
-// 函数说明: 
-//************************************
 void CControlUI::SetBorderSize( RECT rc )
 {
 	m_rcBorderSize = rc;
@@ -998,110 +992,55 @@ void CControlUI::DoPostPaint(HDC hDC, const RECT& rcPaint)
     return;
 }
 
-//************************************
-// 函数名称: GetLeftBorderSize
-// 返回类型: int
-// 函数说明: 
-//************************************
 int CControlUI::GetLeftBorderSize() const
 {
 	return m_rcBorderSize.left;
 }
 
-//************************************
-// 函数名称: SetLeftBorderSize
-// 返回类型: void
-// 参数信息: int nSize
-// 函数说明: 
-//************************************
 void CControlUI::SetLeftBorderSize( int nSize )
 {
 	m_rcBorderSize.left = nSize;
 	Invalidate();
 }
 
-//************************************
-// 函数名称: GetTopBorderSize
-// 返回类型: int
-// 函数说明: 
-//************************************
 int CControlUI::GetTopBorderSize() const
 {
 	return m_rcBorderSize.top;
 }
 
-//************************************
-// 函数名称: SetTopBorderSize
-// 返回类型: void
-// 参数信息: int nSize
-// 函数说明: 
-//************************************
 void CControlUI::SetTopBorderSize( int nSize )
 {
 	m_rcBorderSize.top = nSize;
 	Invalidate();
 }
 
-//************************************
-// 函数名称: GetRightBorderSize
-// 返回类型: int
-// 函数说明: 
-//************************************
 int CControlUI::GetRightBorderSize() const
 {
 	return m_rcBorderSize.right;
 }
 
-//************************************
-// 函数名称: SetRightBorderSize
-// 返回类型: void
-// 参数信息: int nSize
-// 函数说明: 
-//************************************
 void CControlUI::SetRightBorderSize( int nSize )
 {
 	m_rcBorderSize.right = nSize;
 	Invalidate();
 }
 
-//************************************
-// 函数名称: GetBottomBorderSize
-// 返回类型: int
-// 函数说明: 
-//************************************
 int CControlUI::GetBottomBorderSize() const
 {
 	return m_rcBorderSize.bottom;
 }
 
-//************************************
-// 函数名称: SetBottomBorderSize
-// 返回类型: void
-// 参数信息: int nSize
-// 函数说明: 
-//************************************
 void CControlUI::SetBottomBorderSize( int nSize )
 {
 	m_rcBorderSize.bottom = nSize;
 	Invalidate();
 }
 
-//************************************
-// 函数名称: GetBorderStyle
-// 返回类型: int
-// 函数说明: 
-//************************************
 int CControlUI::GetBorderStyle() const
 {
 	return m_nBorderStyle;
 }
 
-//************************************
-// 函数名称: SetBorderStyle
-// 返回类型: void
-// 参数信息: int nStyle
-// 函数说明: 
-//************************************
 void CControlUI::SetBorderStyle( int nStyle )
 {
 	m_nBorderStyle = nStyle;
