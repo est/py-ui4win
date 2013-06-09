@@ -447,6 +447,9 @@ void CRenderEngine::FreeImage(const TImageInfo* bitmap)
 	delete bitmap ;
 }
 
+// rc 目标区域
+// rcPaint 画布
+// uFade 透明值
 void CRenderEngine::DrawImage(HDC hDC, HBITMAP hBitmap, const RECT& rc, const RECT& rcPaint,
                                     const RECT& rcBmpPart, const RECT& rcCorners, bool alphaChannel, 
                                     BYTE uFade, bool hole, bool xtiled, bool ytiled)
@@ -896,8 +899,10 @@ void CRenderEngine::DrawImage(HDC hDC, HBITMAP hBitmap, const RECT& rc, const RE
     ::DeleteDC(hCloneDC);
 }
 
-
-bool DrawImage(HDC hDC, CPaintManagerUI* pManager, const RECT& rc, const RECT& rcPaint, const CDuiString& sImageName, \
+// rc 目标区域
+// rcItem 修正后的目标区域
+// rcBmpPart 图像的部分区域，表示把图像的这部分区域贴到hDC
+bool CRenderEngine::DrawImage(HDC hDC, CPaintManagerUI* pManager, const RECT& rc, const RECT& rcPaint, const CDuiString& sImageName, \
 		const CDuiString& sImageResType, RECT rcItem, RECT rcBmpPart, RECT rcCorner, DWORD dwMask, BYTE bFade, \
 		bool bHole, bool bTiledX, bool bTiledY)
 {
@@ -924,11 +929,13 @@ bool DrawImage(HDC hDC, CPaintManagerUI* pManager, const RECT& rc, const RECT& r
 	if( !::IntersectRect(&rcTemp, &rcItem, &rc) ) return true;
 	if( !::IntersectRect(&rcTemp, &rcItem, &rcPaint) ) return true;
 
+	// 到这里不再需要rc，只需要修正后的rcItem
 	CRenderEngine::DrawImage(hDC, data->hBitmap, rcItem, rcPaint, rcBmpPart, rcCorner, data->alphaChannel, bFade, bHole, bTiledX, bTiledY);
 
 	return true;
 }
 
+// rc 目标区域
 bool CRenderEngine::DrawImageString(HDC hDC, CPaintManagerUI* pManager, const RECT& rc, const RECT& rcPaint, 
                                           LPCTSTR pStrImage, LPCTSTR pStrModify)
 {
@@ -985,7 +992,7 @@ bool CRenderEngine::DrawImageString(HDC hDC, CPaintManagerUI* pManager, const RE
             if( !sValue.IsEmpty() ) {
                 if( sItem == _T("file") || sItem == _T("res") ) {
 					if( image_count > 0 )
-						DuiLib::DrawImage(hDC, pManager, rc, rcPaint, sImageName, sImageResType,
+						DrawImage(hDC, pManager, rc, rcPaint, sImageName, sImageResType,
 							rcItem, rcBmpPart, rcCorner, dwMask, bFade, bHole, bTiledX, bTiledY);
 
                     sImageName = sValue;
@@ -994,7 +1001,7 @@ bool CRenderEngine::DrawImageString(HDC hDC, CPaintManagerUI* pManager, const RE
                 }
                 else if( sItem == _T("restype") ) {
 					if( image_count > 0 )
-						DuiLib::DrawImage(hDC, pManager, rc, rcPaint, sImageName, sImageResType,
+						DrawImage(hDC, pManager, rc, rcPaint, sImageName, sImageResType,
 							rcItem, rcBmpPart, rcCorner, dwMask, bFade, bHole, bTiledX, bTiledY);
 
                     sImageResType = sValue;
@@ -1041,7 +1048,7 @@ bool CRenderEngine::DrawImageString(HDC hDC, CPaintManagerUI* pManager, const RE
         }
     }
 
-	DuiLib::DrawImage(hDC, pManager, rc, rcPaint, sImageName, sImageResType,
+	DrawImage(hDC, pManager, rc, rcPaint, sImageName, sImageResType,
 		rcItem, rcBmpPart, rcCorner, dwMask, bFade, bHole, bTiledX, bTiledY);
 
     return true;

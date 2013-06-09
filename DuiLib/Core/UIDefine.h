@@ -250,6 +250,7 @@ protected:                                                                \
 #define  DUI_CTR_WEBBROWSER                      (_T("WebBrowser"))
 
 #define  DUI_CTR_CHILDLAYOUT                     (_T("ChildLayout"))
+#define  DUI_CTR_ANIMATION						 (_T("Animation"))
 #define  DUI_CTR_LISTELEMENT                     (_T("ListElement"))
 
 #define  DUI_CTR_DIALOGLAYOUT                    (_T("DialogLayout"))

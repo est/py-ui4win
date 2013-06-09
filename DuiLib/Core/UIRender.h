@@ -36,6 +36,9 @@ public:
         bool hole = false, bool xtiled = false, bool ytiled = false);
     static bool DrawImageString(HDC hDC, CPaintManagerUI* pManager, const RECT& rcItem, const RECT& rcPaint, 
         LPCTSTR pStrImage, LPCTSTR pStrModify = NULL);
+	static bool DrawImage(HDC hDC, CPaintManagerUI* pManager, const RECT& rc, const RECT& rcPaint, const CDuiString& sImageName, \
+		const CDuiString& sImageResType, RECT rcItem, RECT rcBmpPart, RECT rcCorner, DWORD dwMask, BYTE bFade, \
+		bool bHole, bool bTiledX, bool bTiledY);
     static void DrawColor(HDC hDC, const RECT& rc, DWORD color);
     static void DrawGradient(HDC hDC, const RECT& rc, DWORD dwFirst, DWORD dwSecond, bool bVertical, int nSteps);
 

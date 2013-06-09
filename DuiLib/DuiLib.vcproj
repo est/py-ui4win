@@ -594,7 +594,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\UIAnimation.cpp"
+					RelativePath=".\Control\UIAnimation.cpp"
 					>
 				</File>
 				<File
@@ -771,7 +771,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\UIAnimation.h"
+					RelativePath=".\Control\UIAnimation.h"
 					>
 				</File>
 				<File
