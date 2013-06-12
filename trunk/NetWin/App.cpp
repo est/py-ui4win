@@ -41,6 +41,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*l
 	// 初始化python
 	Py_Initialize();
 
+	PyEval_InitThreads();
+
 	// 将当前目录加入python环境变量
 	CString pathA = GetExeFolder();
 	//pathA.Replace('\\', '/');
