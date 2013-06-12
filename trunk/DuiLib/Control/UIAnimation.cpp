@@ -6,7 +6,8 @@ namespace DuiLib
 	CAnimationUI::CAnimationUI(void) : 
 		m_dwFrameInterval(0), 
 		m_dwTimerID(0),
-		m_nFrameCount(0)
+		m_nFrameCount(0),
+		m_nFrameIndex(0)
 	{
 	}
 
@@ -37,23 +38,20 @@ namespace DuiLib
 
 	void CAnimationUI::StartAnimation()
 	{
-		m_nFrameIndex = 0;
-		m_dwTimerID = GetTickCount();
+		if (m_dwTimerID == 0)
+			m_dwTimerID = GetTickCount();
 		m_pManager->SetTimer(this, m_dwTimerID, 50);
 	}
 
 	void CAnimationUI::StopAnimation()
 	{
 		ASSERT(m_dwTimerID);
-		m_pManager->KillTimer(this);
+		m_pManager->KillTimer(this, m_dwTimerID);
 	}
 
 	void CAnimationUI::DoInit()
 	{
-		if (m_bEnabled)
-		{
-			StartAnimation();
-		}
+		if (m_bEnabled) StartAnimation();
 	}
 
 	void CAnimationUI::SetAnimationImg(LPCTSTR pStrImage)
@@ -79,13 +77,10 @@ namespace DuiLib
 		rcBmpPart.top = 0;
 		rcBmpPart.right = (m_nFrameIndex + 1)* m_sizeFrame.cx - 1;
 		rcBmpPart.bottom = m_sizeFrame.cy;
-		//CRenderEngine::DrawImage(hDC, HBITMAP hBitmap, m_rcItem, m_rcPaint,
-		//	rcBmpPart, rcCorners, false, 
-		//	255, false, false, false);
+
 		CDuiString nullString;
 		CRenderEngine::DrawImage(hDC, m_pManager, m_rcItem, m_rcPaint, m_sAnimationImage, nullString,
 			m_rcItem, rcBmpPart, rcCorners, false, 255, false, false, false);
-
 	}
 
 	void CAnimationUI::SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue)
@@ -111,8 +106,7 @@ namespace DuiLib
 
 	void CAnimationUI::DoEvent(TEventUI& event)
 	{
-		if( event.Type == UIEVENT_TIMER )
-		{
+		if( event.Type == UIEVENT_TIMER ) {
 			ASSERT(m_nFrameCount);
 			m_nFrameIndex = (++m_nFrameIndex) % m_nFrameCount;
 			Invalidate();
