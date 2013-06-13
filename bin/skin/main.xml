@@ -15,9 +15,9 @@
             <Option name="btnDriverInstall" text="驱动安装" float="true" pos="220,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
             <Option name="btnPyTest" text="自定义测试" float="true" pos="502,19,0,0" width="135" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
         </VerticalLayout>
-        <TabLayout name="FunctionTabs" selectedid="0">
+        <TabLayout name="FunctionTabs" selectedid="3">
             <VerticalLayout name="FlushRomTab">
-				<Animation name="Juhua" frameinterval="200" float="true" framesize="26,26" animationimg="ruu_ruu_pic_wait.png" pos="300,100,0,0" width="26" height="26"/>
+                <Animation name="Juhua" float="true" pos="300,100,0,0" width="26" height="26" framesize="26,26" animationimage="ruu_ruu_pic_wait.png" frameinterval="200" />
                 <Button name="btnStartAnimation" text="开始动画" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <Button name="btnStopAnimation" text="停止动画" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
             </VerticalLayout>
@@ -40,7 +40,7 @@
                 <Label name="LblWarn" text="You must insert another sdcard to flush rom." float="true" pos="169,179,0,0" width="450" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
             </VerticalLayout>
             <VerticalLayout name="DriverDiagnoseTab">
-				<Animation name="Juhua1" frameinterval="200" float="true" framesize="26,26" animationimg="ruu_ruu_pic_wait.png" pos="100,100,0,0" width="26" height="26"/>
+                <Animation name="Juhua1" float="true" pos="100,100,0,0" width="26" height="26" framesize="26,26" animationimage="ruu_ruu_pic_wait.png" frameinterval="200" />
                 <RichEdit name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" width="631" height="328" bordercolor="#00008000" inset="1,1,1,1" vscrollbar="true" autohscroll="true" autovscroll="true" />
                 <Button name="btnOpenLog" text="打开日志" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <Button name="btnClearLog" text="清空日志" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
