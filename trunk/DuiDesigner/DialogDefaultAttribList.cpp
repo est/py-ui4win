@@ -87,6 +87,9 @@ void CDialogDefaultAttribList::OnBnClickedButtonAttribAdd()
 	case ID_UI_CONTROL_CONTROL:
 		nClass = classControl;
 		break;
+	case ID_UI_CONTROL_ANIMATION:
+		nClass = classAnimation;
+		break;
 	case ID_UI_CONTROL_LABEL:
 		nClass = classLabel;
 		break;

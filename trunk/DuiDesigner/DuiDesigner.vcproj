@@ -498,6 +498,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\res\ToolBox\Animation.ico"
+				>
+			</File>
+			<File
 				RelativePath=".\res\banner.bmp"
 				>
 			</File>

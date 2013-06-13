@@ -296,6 +296,13 @@ enum PropertyTag
 	tagAutoVScroll,
 	tagRichReadOnly,
 	tagRichPassword,
+
+
+	// Animation
+	tagAnimation,
+	tagFrameInterval = tagAnimation,
+	tagFrameSize,
+	tagAnimationImg,
 };
 
 extern UINT WM_UI_PROPERTY_CHANGED;
@@ -332,6 +339,7 @@ protected:
 	void ShowControlProperty(CControlUI* pControl);
 	void ShowLabelProperty(CControlUI* pControl);
 	void ShowButtonProperty(CControlUI* pControl);
+	void ShowAnimationProperty(CControlUI* pControl);
 	void ShowEditProperty(CControlUI* pControl);
 	void ShowRichEditProperty(CControlUI* pControl);
 	void ShowOptionProperty(CControlUI* pControl);

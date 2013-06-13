@@ -677,6 +677,11 @@ CControlUI* CLayoutManager::NewUI(int nClass,CRect& rect,CControlUI* pParent, CL
 		pControl=new CControlUI;
 		pExtended->nClass=classControl;
 		pControl->SetFloat(true);
+		break;	
+	case classAnimation:
+		pControl=new CAnimationUI;
+		pExtended->nClass=classAnimation;
+		pControl->SetFloat(true);
 		break;
 	case classLabel:
 		pControl=new CLabelUI;
@@ -1013,6 +1018,9 @@ CControlUI* CLayoutManager::CloneControl(CControlUI* pControl)
 	{
 	case classControl:
 		pCopyControl = new CControlUI(*static_cast<CControlUI*>(pControl->GetInterface(_T("Control"))));
+		break;	
+	case classAnimation:
+		pCopyControl = new CAnimationUI(*static_cast<CAnimationUI*>(pControl->GetInterface(_T("Animation"))));
 		break;
 	case classLabel:
 		pCopyControl = new CLabelUI(*static_cast<CLabelUI*>(pControl->GetInterface(_T("Label"))));
@@ -1805,6 +1813,28 @@ void CLayoutManager::SaveButtonProperty(CControlUI* pControl, TiXmlElement* pNod
 	}
 }
 
+void CLayoutManager::SaveAnimationProperty(CControlUI* pControl, TiXmlElement* pNode)
+{
+	SaveControlProperty(pControl, pNode);
+
+	CAnimationUI* pAnimationUI = static_cast<CAnimationUI*>(pControl->GetInterface(_T("Animation")));
+
+	TCHAR szBuf[MAX_PATH] = {0};
+
+	CSize rcTextPadding = pAnimationUI->GetFrameSize();
+	if((rcTextPadding.cx != 0) || (rcTextPadding.cy != 0) )
+	{
+		_stprintf_s(szBuf, _T("%d,%d"), rcTextPadding.cx, rcTextPadding.cy);
+		pNode->SetAttribute("framesize", StringConvertor::WideToUtf8(szBuf));
+	}
+
+	if(pAnimationUI->GetAnimationImg() && _tcslen(pAnimationUI->GetAnimationImg()) > 0)
+		pNode->SetAttribute("animationimage", StringConvertor::WideToUtf8(ConvertImageFileName(pAnimationUI->GetAnimationImg())));
+
+	if(pAnimationUI->GetFrameInterval() != 0)
+		pNode->SetAttribute("frameinterval", pAnimationUI->GetFrameInterval());
+}
+
 void CLayoutManager::SaveOptionProperty(CControlUI* pControl, TiXmlElement* pNode)
 {
 	SaveButtonProperty(pControl, pNode);
@@ -2283,6 +2313,9 @@ void CLayoutManager::SaveProperties(CControlUI* pControl, TiXmlElement* pParentN
 	{
 	case classControl:
 		SaveControlProperty(pControl, pNode);
+		break;	
+	case classAnimation:
+		SaveAnimationProperty(pControl, pNode);
 		break;
 	case classLabel:
 	case classText:

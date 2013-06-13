@@ -640,6 +640,30 @@ void CUIProperties::InitPropList()
 	m_wndPropList.AddProperty(pPropUI);
 #pragma endregion Label
 
+	//Animation
+#pragma region Animation
+	pPropUI=new CMFCPropertyGridProperty(_T("Animation"),classAnimation);
+
+	//FrameInterval
+	pProp=new CMFCPropertyGridProperty(_T("FrameInterval"),(_variant_t)(LONG)200,_T("动画每帧时间间隔（毫秒）"),tagFrameInterval);
+	pPropUI->AddSubItem(pProp);
+
+	//FrameSize
+	pValueList=new CMFCPropertyGridProperty(_T("FrameSize"),tagFrameSize,TRUE);
+	pProp=new CMFCPropertyGridProperty(_T("Hight"),(_variant_t)(LONG)0,_T("每帧高度"));
+	pValueList->AddSubItem(pProp);
+	pProp=new CMFCPropertyGridProperty(_T("Width"),(_variant_t)(LONG)0,_T("每帧宽度"));
+	pValueList->AddSubItem(pProp);
+	pPropUI->AddSubItem(pValueList);
+
+	//AnimationImg
+	pProp=new CMFCPropertyGridImageProperty(_T("AnimationImage"),_T(""),_T("动画序列图像"),tagAnimationImg);
+	pProp->AllowEdit(FALSE);
+	pPropUI->AddSubItem(pProp);
+
+	m_wndPropList.AddProperty(pPropUI);
+#pragma endregion Animation
+
 	//Button
 #pragma region Button
 	pPropUI=new CMFCPropertyGridProperty(_T("Button"),classButton);
@@ -1283,6 +1307,9 @@ void CUIProperties::ShowProperty(CControlUI* pControl)
 	case classControl:
 		ShowControlProperty(pControl);
 		break;
+	case classAnimation:
+		ShowAnimationProperty(pControl);
+		break;
 	case classLabel:
 	case classText:
 		ShowLabelProperty(pControl);
@@ -1617,6 +1644,35 @@ void CUIProperties::ShowLabelProperty(CControlUI* pControl)
 	pPropLabel->GetSubItem(tagEndEllipsis-tagLabel)->SetOriginalValue((_variant_t)bEndEllipsis);
 
 	pPropLabel->Show(TRUE,FALSE);
+}
+
+void CUIProperties::ShowAnimationProperty(CControlUI* pControl)
+{
+	ShowControlProperty(pControl);
+
+	ASSERT(pControl);
+	CAnimationUI* pAnimation=static_cast<CAnimationUI*>(pControl->GetInterface(_T("Animation")));
+	ASSERT(pAnimation);
+
+	CMFCPropertyGridProperty* pPropAnimation=m_wndPropList.FindItemByData(classAnimation,FALSE);
+	ASSERT(pPropAnimation);
+
+	//tagAnimationImg
+	pPropAnimation->GetSubItem(tagAnimationImg-tagAnimation)->SetValue((_variant_t)pAnimation->GetAnimationImg());
+	pPropAnimation->GetSubItem(tagAnimationImg-tagAnimation)->SetOriginalValue((_variant_t)pAnimation->GetAnimationImg());
+
+	// tagFrameInterval
+	pPropAnimation->GetSubItem(tagFrameInterval-tagAnimation)->SetValue((_variant_t)(LONG)pAnimation->GetFrameInterval());
+	pPropAnimation->GetSubItem(tagFrameInterval-tagAnimation)->SetOriginalValue((_variant_t)(LONG)pAnimation->GetFrameInterval());
+
+	// tagFrameSize
+	CMFCPropertyGridProperty* pValueList=pPropAnimation->GetSubItem(tagFrameSize-tagAnimation);
+	pValueList->GetSubItem(0)->SetValue((_variant_t)(LONG)pAnimation->GetFrameSize().cx);
+	pValueList->GetSubItem(1)->SetValue((_variant_t)(LONG)pAnimation->GetFrameSize().cy);
+	pValueList->GetSubItem(0)->SetOriginalValue((_variant_t)(LONG)pAnimation->GetFrameSize().cx);
+	pValueList->GetSubItem(1)->SetOriginalValue((_variant_t)(LONG)pAnimation->GetFrameSize().cy);
+
+	pPropAnimation->Show(TRUE,FALSE);
 }
 
 void CUIProperties::ShowButtonProperty(CControlUI* pControl)

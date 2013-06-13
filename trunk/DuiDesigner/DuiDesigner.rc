@@ -102,6 +102,7 @@ IDI_TOOLBOX_TEXT        ICON                    "res\\ToolBox\\Text.ico"
 IDI_TOOLBOX_TILE_LAYOUT ICON                    "res\\ToolBox\\TileLayout.ico"
 IDI_TOOLBOX_VERTICAL_LAYOUT ICON                    "res\\ToolBox\\VerticalLayout.ico"
 IDI_TOOLBOX_RICHEDIT    ICON                    "res\\toolbox\\RichEdit.ico"
+IDI_TOOLBOX_ANIMATION   ICON                    "res\\ToolBox\\Animation.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -313,7 +314,7 @@ BEGIN
     POPUP "帮助(&H)"
     BEGIN
         MENUITEM "检查更新(&U)...",                 ID_APP_CHECK_UPDATE
-        MENUITEM "关于(&A)...", ID_APP_ABOUT
+        MENUITEM "关于(&A)...",                   ID_APP_ABOUT
     END
 END
 
@@ -422,7 +423,7 @@ BEGIN
     POPUP "帮助(&H)"
     BEGIN
         MENUITEM "检查更新(&U)...",                 ID_APP_CHECK_UPDATE
-        MENUITEM "关于...",      ID_APP_ABOUT
+        MENUITEM "关于...",                       ID_APP_ABOUT
     END
 END
 
@@ -493,6 +494,7 @@ BEGIN
     POPUP "UI"
     BEGIN
         MENUITEM "Control",                     ID_UI_CONTROL_CONTROL
+        MENUITEM "Animation",                   32901
         MENUITEM "Label",                       ID_UI_CONTROL_LABEL
         MENUITEM "Text",                        ID_UI_CONTROL_TEXT
         MENUITEM "Edit",                        ID_UI_CONTROL_EDIT

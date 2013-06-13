@@ -42,6 +42,7 @@ int gGetUIClass(LPCTSTR pstrClass)
 		case 11:
 			if( _tcscmp(pstrClass, _T("ContainerUI")) == 0 )              nClass=classContainer;
 			else if( _tcscmp(pstrClass, _T("TabLayoutUI")) == 0 )         nClass=classTabLayout;
+			else if( _tcscmp(pstrClass, _T("AnimationUI")) == 0 )         nClass=classAnimation;
 			break;
 		case 12:
 			if( _tcscmp(pstrClass, _T("ListHeaderUI")) == 0 )             nClass=classListHeader;

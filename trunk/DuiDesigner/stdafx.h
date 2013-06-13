@@ -105,6 +105,7 @@ enum UIClass
 	classPointer=100,
 	classWindow,
 	classControl,
+	classAnimation,
 	classButton,
 	classEdit,
 	classRichEdit,
@@ -172,6 +173,8 @@ using DuiLib::TListInfoUI;
 using DuiLib::CRenderEngine;
 using DuiLib::CDialogBuilder;
 using DuiLib::CControlUI;
+using DuiLib::CAnimationUI;
+using DuiLib::CRichEditUI;
 using DuiLib::CButtonUI;
 using DuiLib::CEditUI;
 using DuiLib::CLabelUI;
