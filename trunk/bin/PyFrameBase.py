@@ -13,6 +13,9 @@ class PyFrameBase(PyUIBase):
     def PyFindControl(self, controlName):
         return PyControlUI(self.FindControl(controlName))
 
+    def PyFindAnimation(self, controlName):
+        return PyAnimationUI(self.FindControl(controlName))
+
     def PyFindTabLayout(self, controlName):
         return PyTabLayoutUI(self.FindControl(controlName))
 

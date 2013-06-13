@@ -47,9 +47,10 @@ class MainFrame(PyFrameBase):
         self.txtInstallLog = self.PyFindControl("txtInstallLog")
         self.LblStatus = self.PyFindControl("LblStatus")
         self.btnPyTest = self.PyFindControl("btnPyTest")
+        self.AnimationJuhua = self.PyFindAnimation("Juhua")
         self.LblStatus.SetText('Python界面开发示例')
         #self.btnPyTest.SetVisible(False)
-        self.btnPyTest.SetText('手机信息')
+        self.btnPyTest.SetText('动画演示')
         PyWinUtils().SetTimer(self.GetHWnd(), 1, 10)
 
     #virtual LPCSTR GetWindowClassName() const;
@@ -72,6 +73,12 @@ class MainFrame(PyFrameBase):
 #                    dirname = dirs[-1]
 #                    module = dirname.split('.')
 #                    PyScript().RunPy(module[0], 'test')
+
+            elif sendor == "btnStartAnimation":
+                self.AnimationJuhua.StartAnimation()
+
+            elif sendor == "btnStopAnimation":
+                self.AnimationJuhua.StopAnimation()
 
             elif sendor == "btnPyTest":
                 self.funcTabLayout.SelectItem(0)
