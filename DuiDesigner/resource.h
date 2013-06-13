@@ -144,6 +144,8 @@
 #define IDI_ICON1                       348
 #define IDI_TOOLBOX_RICHEDIT            348
 #define IDR_MENU_UI                     349
+#define IDI_ICON2                       349
+#define IDI_TOOLBOX_ANIMATION           349
 #define IDD_DIALOG_CHECK_UPDATE         350
 #define IDC_BUTTON_IMAGE_IMPORT         1000
 #define IDC_BUTTON_IMAGE_CLEAR          1001
@@ -246,13 +248,14 @@
 #define ID_View_ToolsBox                32892
 #define ID_View_Property                32893
 #define ID_UI_CONTROL_RICHEDIT          32900
+#define ID_UI_CONTROL_ANIMATION         32901
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        349
-#define _APS_NEXT_COMMAND_VALUE         32901
+#define _APS_NEXT_RESOURCE_VALUE        350
+#define _APS_NEXT_COMMAND_VALUE         32902
 #define _APS_NEXT_CONTROL_VALUE         1043
 #define _APS_NEXT_SYMED_VALUE           351
 #endif

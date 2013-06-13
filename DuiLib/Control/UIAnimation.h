@@ -14,10 +14,13 @@ namespace DuiLib
 		void SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue);
 
 		void SetFrameInterval(DWORD interval);
-		void SetFrameSize(CSize frameSize);
+		DWORD GetFrameInterval(){ return m_dwFrameInterval;}
+		void SetFrameSize(SIZE frameSize);
+		SIZE GetFrameSize() { return m_sizeFrame; }
 		void StartAnimation();
 		void StopAnimation();
 		void SetAnimationImg(LPCTSTR pStrImage);
+		LPCTSTR GetAnimationImg() { return m_sAnimationImage; }
 		void DoInit();
 
 		virtual void DoEvent(TEventUI& event);
@@ -25,7 +28,7 @@ namespace DuiLib
 
 	private:
 		DWORD m_dwFrameInterval;
-		CSize m_sizeFrame; // 获取每帧大小
+		SIZE m_sizeFrame; // 获取每帧大小
 		CDuiString m_sAnimationImage;
 		DWORD m_dwTimerID;
 		int m_nFrameIndex;

@@ -31,7 +31,7 @@ namespace DuiLib
 		m_dwFrameInterval = interval;
 	}
 
-	void CAnimationUI::SetFrameSize(CSize frameSize)
+	void CAnimationUI::SetFrameSize(SIZE frameSize)
 	{
 		m_sizeFrame = frameSize;
 	}
@@ -97,7 +97,7 @@ namespace DuiLib
 			frame.cy = _tcstol(pstr + 1, &pstr, 10);    ASSERT(pstr);    
 			SetFrameSize(frame);
 		}
-		else if( _tcscmp(pstrName, _T("animationimg")) == 0 ) {
+		else if( _tcscmp(pstrName, _T("animationimage")) == 0 ) {
 			SetAnimationImg(pstrValue);
 		} 
 		else CControlUI::SetAttribute(pstrName, pstrValue);

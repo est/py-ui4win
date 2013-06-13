@@ -169,6 +169,7 @@ public:
 protected:
 	static void SaveControlProperty(CControlUI* pControl, TiXmlElement* pNode);
 	static void SaveLabelProperty(CControlUI* pControl, TiXmlElement* pNode);
+	static void SaveAnimationProperty(CControlUI* pControl, TiXmlElement* pNode);
 	static void SaveButtonProperty(CControlUI* pControl, TiXmlElement* pNode);
 	static void SaveOptionProperty(CControlUI* pControl, TiXmlElement* pNode);
 	static void SaveProgressProperty(CControlUI* pControl, TiXmlElement* pNode);

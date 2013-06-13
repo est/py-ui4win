@@ -155,6 +155,9 @@ void CPropertyTabLayoutUI::OnBnClickedButtonTabLayoutUIAdd()
 		break;
 	case ID_UI_CONTROL_LABEL:
 		nClass=classLabel;
+		break;	
+	case ID_UI_CONTROL_ANIMATION:
+		nClass=classAnimation;
 		break;
 	case ID_UI_CONTROL_TEXT:
 		nClass=classText;
