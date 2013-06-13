@@ -8,7 +8,6 @@
 using namespace boost::python;
 
 
-// An abstract base class
 class PyControlUI
 {
 public:
@@ -28,7 +27,6 @@ protected:
 	CControlUI* m_pyControlUI;   // dui中实现的ui对象
 };
 
-// An abstract base class
 class PyTabLayoutUI
 {
 public:
@@ -44,13 +42,27 @@ public:
 	bool IsFocused() {return m_pyControlUI->IsFocused();}
 	void SetFocus(){m_pyControlUI->SetFocus();}
 
-	bool SelectItem(int iIndex)
-	{	
-		return m_pyControlUI->SelectItem(iIndex);
-	}
+	bool SelectItem(int iIndex) { return m_pyControlUI->SelectItem(iIndex); }
 
 protected:
 	CTabLayoutUI* m_pyControlUI;   // dui中实现的ui对象
+};
+
+class PyAnimationUI
+{
+public:
+	PyAnimationUI(ULONG pControlUI) {m_pyAnimationlUI = (CAnimationUI*)pControlUI;}
+	~PyAnimationUI() {}
+
+	bool IsVisible() {return m_pyAnimationlUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyAnimationlUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyAnimationlUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyAnimationlUI->SetEnabled(bEnable);}
+	void StartAnimation(){m_pyAnimationlUI->StartAnimation();}
+	void StopAnimation(){m_pyAnimationlUI->StopAnimation();}
+
+protected:
+	CAnimationUI* m_pyAnimationlUI;   // dui中实现的ui对象
 };
 
 // An abstract base class

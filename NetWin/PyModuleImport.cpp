@@ -43,6 +43,15 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetFocus", &PyControlUI::SetFocus)
 		; 
 
+	class_<PyAnimationUI>("PyAnimationUI", init<ULONG>())
+		.def("IsVisible", &PyAnimationUI::IsVisible)
+		.def("SetVisible", &PyAnimationUI::SetVisible)
+		.def("IsEnabled", &PyAnimationUI::IsEnabled)
+		.def("SetEnabled", &PyAnimationUI::SetEnabled)
+		.def("StopAnimation", &PyAnimationUI::StopAnimation)
+		.def("StartAnimation", &PyAnimationUI::StartAnimation)
+		; 
+
 	class_<PyTabLayoutUI>("PyTabLayoutUI", init<ULONG>())
 		.def("SetText", &PyTabLayoutUI::SetText)
 		.def("GetText", &PyTabLayoutUI::GetText)
