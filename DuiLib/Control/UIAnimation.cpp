@@ -92,7 +92,7 @@ namespace DuiLib
 		}    
 		else if( _tcscmp(pstrName, _T("framesize")) == 0 ) {
 			LPTSTR pstr = NULL;
-			CSize frame;
+			SIZE frame;
 			frame.cx = _tcstol(pstrValue, &pstr, 10);  ASSERT(pstr);    
 			frame.cy = _tcstol(pstr + 1, &pstr, 10);    ASSERT(pstr);    
 			SetFrameSize(frame);
