@@ -40,7 +40,7 @@
                 <Label name="LblWarn" text="You must insert another sdcard to flush rom." float="true" pos="169,179,0,0" width="450" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
             </VerticalLayout>
             <VerticalLayout name="DriverDiagnoseTab">
-                <Animation name="Juhua1" float="true" pos="100,100,0,0" width="26" height="26" framesize="26,26" animationimage="ruu_ruu_pic_wait.png" frameinterval="200" />
+                <Pie name="Pie1" float="true" pos="150,150,0,0" width="800" height="800" corrdinate="100,100" piecolor="#00008000" angle="0,320" radius="100" />
                 <RichEdit name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" width="631" height="328" bordercolor="#00008000" inset="1,1,1,1" vscrollbar="true" autohscroll="true" autovscroll="true" />
                 <Button name="btnOpenLog" text="打开日志" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <Button name="btnClearLog" text="清空日志" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
