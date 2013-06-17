@@ -634,6 +634,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Control\UIPie.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Control\UIProgress.cpp"
 					>
 				</File>
@@ -808,6 +812,10 @@
 				</File>
 				<File
 					RelativePath=".\Control\UIOption.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Control\UIPie.h"
 					>
 				</File>
 				<File

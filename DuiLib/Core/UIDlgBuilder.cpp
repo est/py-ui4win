@@ -328,6 +328,9 @@ CControlUI* CDialogBuilder::_Parse(CMarkupNode* pRoot, CControlUI* pParent, CPai
         else {
             SIZE_T cchLen = _tcslen(pstrClass);
             switch( cchLen ) {
+			case 3:
+                if( _tcscmp(pstrClass, DUI_CTR_PIE) == 0 )                   pControl = new CPieUI;
+                break;
             case 4:
                 if( _tcscmp(pstrClass, DUI_CTR_EDIT) == 0 )                   pControl = new CEditUI;
                 else if( _tcscmp(pstrClass, DUI_CTR_LIST) == 0 )              pControl = new CListUI;
