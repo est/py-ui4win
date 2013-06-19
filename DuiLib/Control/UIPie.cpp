@@ -100,7 +100,7 @@ namespace DuiLib
 			delete mBtmap;
 			mBtmap = NULL;
 		}
-		gr.DrawCachedBitmap(btmp, m_cXY.cx, m_cXY.cy);	
+		gr.DrawCachedBitmap(btmp, m_rcItem.left, m_rcItem.top);	
 		if (btmp){
 			delete btmp;
 			btmp = NULL;
