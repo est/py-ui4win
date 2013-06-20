@@ -90,6 +90,8 @@ public:
 	virtual void CloseWindow() { ::PostMessage((HWND)m_hWnd, WM_CLOSE, 0L, 0L); }
 	virtual void HideWindow() { ::ShowWindow((HWND)m_hWnd, SW_HIDE); }
 	virtual void ExitApp() { PostQuitMessage(0); }
+	ULONG DelphiProcessMessage() { return m_pyFrameUI->DelphiProcessMessage();}
+
 	ULONG FindControl(LPCSTR ControlName)
 	{
 		CControlUI* pControl = m_pyFrameUI->FindControl(ControlName);
@@ -115,6 +117,7 @@ protected:
 struct PyUIBaseWrap : PyUIBase, wrapper<PyUIBase>
 {
 	virtual ULONG FindControl(LPCSTR ControlName) { return this->PyUIBase::FindControl(ControlName); }
+	virtual ULONG DelphiProcessMessage() { return this->PyUIBase::DelphiProcessMessage(); }
 	virtual UINT ShowModal() { return this->PyUIBase::ShowModal(); }
 	UINT default_ShowModal() { return this->PyUIBase::ShowModal(); }
 	virtual void Show() { this->PyUIBase::Show(); }

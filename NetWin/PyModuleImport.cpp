@@ -99,7 +99,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		//.def("CloseWindow", &PyUIBaseWrap::CloseWindow, &PyUIBaseWrap::default_CloseWindow)
 		//.def("HideWindow", &PyUIBaseWrap::HideWindow, &PyUIBaseWrap::default_HideWindow)
 		.def("ExitApp", &PyUIBaseWrap::ExitApp, &PyUIBaseWrap::default_ExitApp)	
-
+		.def("DelphiProcessMessage", &PyUIBaseWrap::DelphiProcessMessage)
 		//.def("Show", &PyUIBaseWrap::Show, &PyUIBaseWrap::default_Show)
 		//.def("ShowModal", &PyUIBaseWrap::ShowModal, &PyUIBaseWrap::default_ShowModal)
 
