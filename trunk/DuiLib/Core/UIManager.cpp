@@ -1227,6 +1227,27 @@ void CPaintManagerUI::MessageLoop()
     }
 }
 
+BOOL CPaintManagerUI::DelphiProcessMessage()
+{
+	MSG msg = { 0 };
+	while ( ::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) ) {
+		if (msg.message == WM_QUIT) return TRUE; 
+		if( !CPaintManagerUI::TranslateMessage(&msg) ) {
+			::TranslateMessage(&msg);
+			try{
+				::DispatchMessage(&msg);
+			} catch(...) {
+				DUITRACE(_T("EXCEPTION: %s(%d)\n"), __FILET__, __LINE__);
+#ifdef _DEBUG
+				throw "CPaintManagerUI::DelphiProcessMessage";
+#endif
+			}
+		}
+	}
+
+	return FALSE;
+}
+
 void CPaintManagerUI::Term()
 {
     if( m_bCachedResourceZip && m_hResourceZip != NULL ) {
