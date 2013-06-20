@@ -3,7 +3,6 @@ __author__ = 'hqh'
 
 import string, time
 from PyUI import *
-import win32api
 
 class PyFrameBase(PyUIBase):
     def __init__(self):
