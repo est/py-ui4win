@@ -1227,7 +1227,7 @@ void CPaintManagerUI::MessageLoop()
     }
 }
 
-BOOL CPaintManagerUI::DelphiProcessMessage()
+BOOL CPaintManagerUI::ProcessMessages()
 {
 	MSG msg = { 0 };
 	while ( ::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) ) {
