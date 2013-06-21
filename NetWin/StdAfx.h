@@ -23,9 +23,19 @@
 #include <atlbase.h>
 #include <atlcoll.h>
 #include <atlstr.h>
+#include <atltypes.h>
 #define _WTL_NO_CSTRING
 #define _WTL_NO_WTYPES
-#include <strsafe.h>
+#include <atlapp.h>
+#include <atlwin.h>
+#include <shellapi.h>
+#include <atldlgs.h>
+#include <atlmisc.h>
+#include <atlcrack.h>
+#include <atlddx.h>
+#include <strSafe.h>
+
+#include <atluser.h>
 
 #include "..\DuiLib\UIlib.h"
 #include "Util.h"

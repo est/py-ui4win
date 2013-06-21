@@ -12,10 +12,13 @@
 #include<boost/python.hpp>
 #include "PyFrameCreator.hpp"
 #include "Win32Api.h"
-#include "DriverStatus.h"
-#include "DriverInstaller.h"
 #include "PyModuleImport.h"
 #include "PyException.h"
+
+#include "DriverStatus.h"
+#include "DriverInstaller.h"
+
+#include "DecEnc.h"
 
 using namespace std;
 using namespace boost::python;
@@ -25,13 +28,6 @@ typedef boost::shared_ptr < PyControlUI > PyControlUI_ptr;
 typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;  
 BOOST_PYTHON_MODULE(PyUI)
 {
-	class_<CDriverStatus>("DriverStatus")
-		.def("DriverDiagnose", &CDriverStatus::DriverDiagnose)
-		;
-	class_<CDriverInstaller>("DriverInstaller")
-		.def("InstallDriverFromInf", &CDriverInstaller::InstallDriverFromInf)
-		;
-
 	class_<PyControlUI>("PyControlUI", init<ULONG>())
 		.def("SetText", &PyControlUI::SetText)
 		.def("GetText", &PyControlUI::GetText)
@@ -99,7 +95,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		//.def("CloseWindow", &PyUIBaseWrap::CloseWindow, &PyUIBaseWrap::default_CloseWindow)
 		//.def("HideWindow", &PyUIBaseWrap::HideWindow, &PyUIBaseWrap::default_HideWindow)
 		.def("ExitApp", &PyUIBaseWrap::ExitApp, &PyUIBaseWrap::default_ExitApp)	
-		.def("DelphiProcessMessage", &PyUIBaseWrap::DelphiProcessMessage)
+		.def("ProcessMessages", &PyUIBaseWrap::ProcessMessages)
 		//.def("Show", &PyUIBaseWrap::Show, &PyUIBaseWrap::default_Show)
 		//.def("ShowModal", &PyUIBaseWrap::ShowModal, &PyUIBaseWrap::default_ShowModal)
 
@@ -154,9 +150,27 @@ BOOST_PYTHON_MODULE(PyUI)
 	register_ptr_to_python <PyTabLayoutUI_ptr>();  
 }
 
+BOOST_PYTHON_MODULE(PyDriverBiz)
+{
+	class_<CDriverStatus>("DriverStatus")
+		.def("DriverDiagnose", &CDriverStatus::DriverDiagnose)
+		;
+	class_<CDriverInstaller>("DriverInstaller")
+		.def("InstallDriverFromInf", &CDriverInstaller::InstallDriverFromInf)
+		;
+}
+
+BOOST_PYTHON_MODULE(PyEncBiz)
+{
+	class_<CDecEnc>("DecEnc")
+		.def("AESDecodeStr", &CDecEnc::AESDecodeStr)
+		;
+}
 void PyExtentInit()
 {
 	PyImport_AppendInittab("PyUI", initPyUI);
+	PyImport_AppendInittab("PyDriverBiz", initPyDriverBiz);
+	PyImport_AppendInittab("PyEncBiz", initPyEncBiz);
 }
 
 std::string PyScript::RunPy(std::string pyModule, std::string pyFunc)
