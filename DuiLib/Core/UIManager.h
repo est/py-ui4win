@@ -309,7 +309,7 @@ public:
     CStdPtrArray* GetSubControlsByClass();
 
     static void MessageLoop();
-	static BOOL DelphiProcessMessage();
+	static BOOL ProcessMessages();
     static bool TranslateMessage(const LPMSG pMsg);
 	static void Term();
 

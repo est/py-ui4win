@@ -94,16 +94,12 @@ namespace DuiLib
 		graphics = NULL;
 
 		Graphics gr(hDC);
-		CachedBitmap* btmp = new CachedBitmap(mBtmap, &gr);
+		//CachedBitmap* btmp = new CachedBitmap(mBtmap, &gr);
 
+		gr.DrawImage(mBtmap, (int)(m_rcItem.left + m_coordinate.cx - m_dwRadius), m_rcItem.top + m_coordinate.cy - m_dwRadius);	
 		if (mBtmap){
 			delete mBtmap;
 			mBtmap = NULL;
-		}
-		gr.DrawCachedBitmap(btmp, m_rcItem.left + m_coordinate.cx - m_dwRadius, m_rcItem.top + m_coordinate.cy - m_dwRadius);	
-		if (btmp){
-			delete btmp;
-			btmp = NULL;
 		}
 	}
 
