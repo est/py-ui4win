@@ -120,27 +120,11 @@ namespace DuiLib
 		Invalidate();
 	}
 
-	//************************************
-	// Method:    GetSelectedHotImage
-	// FullName:  COptionUI::GetSelectedHotImage
-	// Access:    public 
-	// Returns:   LPCTSTR
-	// Qualifier:
-	// Node:	  
-	//************************************
 	LPCTSTR COptionUI::GetSelectedHotImage()
 	{
 		return m_sSelectedHotImage;
 	}
-	//************************************
-	// Method:    SetSelectedHotImage
-	// FullName:  COptionUI::SetSelectedHotImage
-	// Access:    public 
-	// Returns:   void
-	// Qualifier:
-	// Parameter: LPCTSTR pStrImage
-	// Node:	  
-	//************************************
+
 	void COptionUI::SetSelectedHotImage( LPCTSTR pStrImage )
 	{
 		m_sSelectedHotImage = pStrImage;
@@ -158,28 +142,11 @@ namespace DuiLib
 		return m_dwSelectedTextColor;
 	}
 
-	//************************************
-	// Method:    SetSelectedBkColor
-	// FullName:  COptionUI::SetSelectedBkColor
-	// Access:    public 
-	// Returns:   void
-	// Qualifier:
-	// Parameter: DWORD dwBkColor
-	// Note:	  
-	//************************************
 	void COptionUI::SetSelectedBkColor( DWORD dwBkColor )
 	{
 		m_dwSelectedBkColor = dwBkColor;
 	}
 
-	//************************************
-	// Method:    GetSelectBkColor
-	// FullName:  COptionUI::GetSelectBkColor
-	// Access:    public 
-	// Returns:   DWORD
-	// Qualifier:
-	// Note:	  
-	//************************************
 	DWORD COptionUI::GetSelectBkColor()
 	{
 		return m_dwSelectedBkColor;
