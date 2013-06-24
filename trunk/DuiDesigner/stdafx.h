@@ -105,10 +105,8 @@ enum UIClass
 	classPointer=100,
 	classWindow,
 	classControl,
-	classAnimation,
 	classButton,
 	classEdit,
-	classRichEdit,
 	classLabel,
 	classText,
 	classOption,
@@ -120,8 +118,11 @@ enum UIClass
 	classContainer,
 	classVerticalLayout,
 	classHorizontalLayout,
+	classChildLayout,
 	classTabLayout,
 	classTileLayout,
+	classRichEdit,
+	classAnimation,
 	classListHeader,
 	classListHeaderItem,
 	classListTextElement,
@@ -130,7 +131,6 @@ enum UIClass
 	classListContainerElement,
 	classItem,
 	classScrollBar,
-	classChildLayout,
 	classWebBrowser
 };
 

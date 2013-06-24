@@ -610,11 +610,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\ToolBox\icon1.ico"
+				RelativePath=".\res\icon1.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\icon1.ico"
+				RelativePath=".\res\ToolBox\icon1.ico"
 				>
 			</File>
 			<File
