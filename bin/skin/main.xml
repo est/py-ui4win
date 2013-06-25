@@ -10,12 +10,13 @@
         <VerticalLayout height="86">
             <Button name="BtnClose" tooltip="退出程序" float="true" pos="765,0,0,0" width="27" height="22" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;sys_button_close.png&apos; source=&apos;27,0,53,22&apos;" hotimage="file=&apos;sys_button_close.png&apos; source=&apos;54,0,80,22&apos;" />
             <Label name="LblIcon" float="true" pos="20,21,0,0" width="48" height="48" bkimage="xiaoniu48.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
-            <Option name="btnDriverDiagnose" text="检测手机" float="true" pos="79,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
-            <Option name="btnEncrypt" text="加密打包" float="true" pos="361,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
-            <Option name="btnDriverInstall" text="驱动安装" float="true" pos="220,19,0,0" width="127" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
-            <Option name="btnPyTest" text="自定义测试" float="true" pos="502,19,0,0" width="135" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnDriverDiagnose" text="检测手机" float="true" pos="79,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnEncrypt" text="加密打包" float="true" pos="300,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnDriverInstall" text="驱动安装" float="true" pos="189,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnPyTest" text="自定义测试" float="true" pos="413,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
+            <Option name="btnPyDec" text="解密" float="true" pos="526,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
         </VerticalLayout>
-        <TabLayout name="FunctionTabs" selectedid="3">
+        <TabLayout name="FunctionTabs" selectedid="4">
             <VerticalLayout name="FlushRomTab">
                 <Animation name="Juhua" float="true" pos="300,100,0,0" width="26" height="26" framesize="26,26" animationimage="ruu_ruu_pic_wait.png" frameinterval="200" />
                 <Button name="btnStartAnimation" text="开始动画" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
@@ -41,9 +42,15 @@
             </VerticalLayout>
             <VerticalLayout name="DriverDiagnoseTab">
                 <Pie name="Pie1" float="true" pos="150,50,0,0" width="210" height="210" corrdinate="100,100" piecolor="#00008000" angle="0,320" radius="100" />
-                <RichEdit name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" width="631" height="328" bordercolor="#00008000" inset="1,1,1,1" vscrollbar="true" autohscroll="true" autovscroll="true" />
+                <RichEdit name="txtDiagnose" bordersize="1" float="true" pos="80,21,0,0" width="631" height="328" bordercolor="#00008000" inset="1,1,1,1" hscrollbar="true" vscrollbar="true" autohscroll="true" autovscroll="true" />
                 <Button name="btnOpenLog" text="打开日志" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <Button name="btnClearLog" text="清空日志" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
+            </VerticalLayout>
+            <VerticalLayout name="DecTab">
+				<RichEdit name="txtEnc" bordersize="1" float="true" pos="86,73,0,0" width="611" height="43" bordercolor="#00008000" inset="1,1,1,1" hscrollbar="true" vscrollbar="true" autohscroll="true" autovscroll="true" />
+				<Label name="Label501" text="输入密文:" float="true" pos="87,35,0,0" width="337" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="1" />
+				<Button name="btnDecSolution" text="解密" float="true" pos="523,346,0,0" width="175" height="53" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="0" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
+				<RichEdit name="txtPlain" bordersize="1" float="true" pos="86,131,0,0" width="611" height="201" bordercolor="#00008000" inset="1,1,1,1" hscrollbar="true" vscrollbar="true" autohscroll="true" autovscroll="true" />					
             </VerticalLayout>
         </TabLayout>
         <Container height="77">
