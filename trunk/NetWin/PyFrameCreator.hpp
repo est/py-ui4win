@@ -27,6 +27,40 @@ protected:
 	CControlUI* m_pyControlUI;   // dui中实现的ui对象
 };
 
+class PyCheckBoxUI
+{
+public:
+	PyCheckBoxUI(ULONG pControlUI) {m_pyCheckBoxUI = (CCheckBoxUI*)pControlUI;}
+	~PyCheckBoxUI() {}
+
+	bool IsVisible() {return m_pyCheckBoxUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyCheckBoxUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyCheckBoxUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyCheckBoxUI->SetEnabled(bEnable);}
+	bool GetCheck() {return m_pyCheckBoxUI->GetCheck();}
+	void SetCheck(bool bCheck = true){m_pyCheckBoxUI->SetCheck(bCheck);}
+
+protected:
+	CCheckBoxUI* m_pyCheckBoxUI;   // dui中实现的ui对象
+};
+
+class PyProgressUI
+{
+public:
+	PyProgressUI(ULONG pControlUI) {m_pyProgressUI = (CProgressUI*)pControlUI;}
+	~PyProgressUI() {}
+
+	bool IsVisible() {return m_pyProgressUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyProgressUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyProgressUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyProgressUI->SetEnabled(bEnable);}
+	int GetValue() {return m_pyProgressUI->GetValue();}
+	void SetValue(int nValue) {m_pyProgressUI->SetValue(nValue);}
+
+protected:
+	CProgressUI* m_pyProgressUI;   // dui中实现的ui对象
+};
+
 class PyTabLayoutUI
 {
 public:
@@ -89,7 +123,7 @@ public:
 	virtual ULONG GetHWnd() { return m_hWnd;};
 	virtual void CloseWindow() { ::PostMessage((HWND)m_hWnd, WM_CLOSE, 0L, 0L); }
 	virtual void HideWindow() { ::ShowWindow((HWND)m_hWnd, SW_HIDE); }
-	virtual void ExitApp() { PostQuitMessage(0); }
+	virtual void ExitApp() { ::ExitProcess(0); }
 	ULONG ProcessMessages() { return m_pyFrameUI->ProcessMessages();}
 
 	ULONG FindControl(LPCSTR ControlName)

@@ -25,6 +25,8 @@ using namespace boost::python;
 
 typedef boost::shared_ptr < PyFrameCreator > PyFrame_ptr;  
 typedef boost::shared_ptr < PyControlUI > PyControlUI_ptr;  
+typedef boost::shared_ptr < PyCheckBoxUI > PyCheckBoxUI_ptr;  
+typedef boost::shared_ptr < PyProgressUI > PyProgressUI_ptr;  
 typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;  
 BOOST_PYTHON_MODULE(PyUI)
 {
@@ -37,6 +39,24 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetEnabled", &PyControlUI::SetEnabled)
 		.def("IsFocused", &PyControlUI::IsFocused)
 		.def("SetFocus", &PyControlUI::SetFocus)
+		; 
+
+	class_<PyCheckBoxUI>("PyCheckBoxUI", init<ULONG>())
+		.def("SetCheck", &PyCheckBoxUI::SetCheck)
+		.def("GetCheck", &PyCheckBoxUI::GetCheck)
+		.def("IsVisible", &PyCheckBoxUI::IsVisible)
+		.def("SetVisible", &PyCheckBoxUI::SetVisible)
+		.def("IsEnabled", &PyCheckBoxUI::IsEnabled)
+		.def("SetEnabled", &PyCheckBoxUI::SetEnabled)
+		; 
+
+	class_<PyProgressUI>("PyProgressUI", init<ULONG>())
+		.def("SetValue", &PyProgressUI::SetValue)
+		.def("GetValue", &PyProgressUI::GetValue)
+		.def("IsVisible", &PyProgressUI::IsVisible)
+		.def("SetVisible", &PyProgressUI::SetVisible)
+		.def("IsEnabled", &PyProgressUI::IsEnabled)
+		.def("SetEnabled", &PyProgressUI::SetEnabled)
 		; 
 
 	class_<PyAnimationUI>("PyAnimationUI", init<ULONG>())
@@ -147,6 +167,8 @@ BOOST_PYTHON_MODULE(PyUI)
 
 	register_ptr_to_python <PyFrame_ptr>();  
 	register_ptr_to_python <PyControlUI_ptr>();  
+	register_ptr_to_python <PyCheckBoxUI_ptr>();  
+	register_ptr_to_python <PyProgressUI_ptr>();  
 	register_ptr_to_python <PyTabLayoutUI_ptr>();  
 }
 
