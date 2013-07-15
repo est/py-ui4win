@@ -27,6 +27,21 @@ protected:
 	CControlUI* m_pyControlUI;   // dui中实现的ui对象
 };
 
+class PyOptionUI
+{
+public:
+	PyOptionUI(ULONG pControlUI) {m_pyOptionUI = (COptionUI*)pControlUI;}
+	~PyOptionUI() {}
+
+	bool IsVisible() {return m_pyOptionUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyOptionUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyOptionUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyOptionUI->SetEnabled(bEnable);}
+
+protected:
+	COptionUI* m_pyOptionUI;   // dui中实现的ui对象
+};
+
 class PyCheckBoxUI
 {
 public:
