@@ -47,6 +47,7 @@ namespace DuiLib
 	{
 		ASSERT(m_dwTimerID);
 		m_pManager->KillTimer(this, m_dwTimerID);
+		m_dwTimerID = -1;
 	}
 
 	void CAnimationUI::DoInit()
@@ -68,7 +69,7 @@ namespace DuiLib
 
 	void CAnimationUI::PaintBkImage(HDC hDC)
 	{
-		if (!m_bEnabled) return;
+		//if (!m_bEnabled) return;
 		if( m_sAnimationImage.IsEmpty() ) return;
 
 		RECT rcBmpPart = {0};
@@ -106,7 +107,7 @@ namespace DuiLib
 
 	void CAnimationUI::DoEvent(TEventUI& event)
 	{
-		if( event.Type == UIEVENT_TIMER ) {
+		if( event.Type == UIEVENT_TIMER && event.wParam == m_dwTimerID) {
 			ASSERT(m_nFrameCount);
 			m_nFrameIndex = (++m_nFrameIndex) % m_nFrameCount;
 			Invalidate();
