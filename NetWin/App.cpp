@@ -26,6 +26,34 @@
 #include "PyModuleImport.h"
 using namespace boost::python;
 
+extern "C" void SwitchToOtherPythonTread()
+{
+	static boost::python::handle<>* _module = NULL; // Module handle.
+	try
+	{
+		if (!_module)
+		{
+			_module = new boost::python::handle<>(
+				PyImport_ImportModule("PyFrameBase"));
+		}
+		bool ret = boost::python::call_method<bool>(_module->get(), "GiveUp");
+	}
+	catch(boost::python::error_already_set const &)
+	{  
+		std::string err = parse_python_exception();
+		PyLog().LogText(err.c_str());
+		PyErr_Clear();
+	}  
+	catch (...)
+	{
+		if (PyErr_Occurred())
+		{
+			std::string err = parse_python_exception();
+			PyLog().LogText(err.c_str());
+			PyErr_Clear();
+		}
+	}
+}
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int nCmdShow)
 {
@@ -104,7 +132,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*l
 		_module = new boost::python::handle<>(
 			PyImport_ImportModule("PyMain"));
 		bool ret = boost::python::call_method<bool>(_module->get(), "PyAppInit");
-		CPaintManagerUI::MessageLoop();
+		//CPaintManagerUI::MessageLoop();
 	}
 	catch(boost::python::error_already_set const &)
 	{  
