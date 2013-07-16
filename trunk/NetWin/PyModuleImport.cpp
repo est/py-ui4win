@@ -15,11 +15,6 @@
 #include "PyModuleImport.h"
 #include "PyException.h"
 
-#include "DriverStatus.h"
-#include "DriverInstaller.h"
-
-#include "DecEnc.h"
-
 using namespace std;
 using namespace boost::python;
 
@@ -27,6 +22,7 @@ typedef boost::shared_ptr < PyFrameCreator > PyFrame_ptr;
 typedef boost::shared_ptr < PyControlUI > PyControlUI_ptr;  
 typedef boost::shared_ptr < PyCheckBoxUI > PyCheckBoxUI_ptr;  
 typedef boost::shared_ptr < PyProgressUI > PyProgressUI_ptr;  
+typedef boost::shared_ptr < PyAnimationUI > PyAnimationUI_ptr;  
 typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;  
 BOOST_PYTHON_MODULE(PyUI)
 {
@@ -170,30 +166,13 @@ BOOST_PYTHON_MODULE(PyUI)
 	register_ptr_to_python <PyControlUI_ptr>();  
 	register_ptr_to_python <PyCheckBoxUI_ptr>();  
 	register_ptr_to_python <PyProgressUI_ptr>();  
+	register_ptr_to_python <PyAnimationUI_ptr>();  
 	register_ptr_to_python <PyTabLayoutUI_ptr>();  
 }
 
-BOOST_PYTHON_MODULE(PyDriverBiz)
-{
-	class_<CDriverStatus>("DriverStatus")
-		.def("DriverDiagnose", &CDriverStatus::DriverDiagnose)
-		;
-	class_<CDriverInstaller>("DriverInstaller")
-		.def("InstallDriverFromInf", &CDriverInstaller::InstallDriverFromInf)
-		;
-}
-
-BOOST_PYTHON_MODULE(PyEncBiz)
-{
-	class_<CDecEnc>("DecEnc")
-		.def("AESDecodeStr", &CDecEnc::AESDecodeStr)
-		;
-}
 void PyExtentInit()
 {
 	PyImport_AppendInittab("PyUI", initPyUI);
-	PyImport_AppendInittab("PyDriverBiz", initPyDriverBiz);
-	PyImport_AppendInittab("PyEncBiz", initPyEncBiz);
 }
 
 std::string PyScript::RunPy(std::string pyModule, std::string pyFunc)

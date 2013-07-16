@@ -86,6 +86,11 @@ std::string CWin32Api::SelectFile(int hwnd, std::string filter)
 		return "";
 }
 
+int CWin32Api::MessageBox(int hwnd, std::string text, std::string caption, int btntype)
+{
+	return ::MessageBoxA((HWND)hwnd, text.c_str(), caption.c_str(), btntype);
+}
+
 static int CALLBACK BrowseCallbackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM lpData)
 {
 	if(uMsg==BFFM_SELCHANGED||uMsg==BFFM_INITIALIZED)

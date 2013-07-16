@@ -21,5 +21,6 @@ public:
 		int nShowCmd
 		);
 	std::string SelectFile(int hwnd, std::string filter);
+	int MessageBox(int hwnd, std::string text, std::string caption, int btntype);
 	std::string SelectFolder(int hwnd, std::string title, std::string saveTag);
 };
