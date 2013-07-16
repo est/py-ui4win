@@ -18,6 +18,9 @@ class PyFrameBase(PyUIBase):
     def PyFindTabLayout(self, controlName):
         return PyTabLayoutUI(self.FindControl(controlName))
 
+    def PyFindCheckBox(self, controlName):
+        return PyCheckBoxUI(self.FindControl(controlName))
+
     #virtual void OnFinalMessage(HWND hWnd);
     def OnFinalMessage(self, hWnd):
 #        PyLog().LogText( 'OnFinalMessage()')
@@ -62,3 +65,7 @@ class PyFrameBase(PyUIBase):
             time.sleep(0)
             #PyLog().LogText( 'OnCustomTimer()')
         pass
+
+def GiveUp():
+    #PyLog().LogText( "GiveUp")
+    time.sleep(0)
