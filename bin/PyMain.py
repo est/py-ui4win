@@ -41,8 +41,8 @@ def ftp_up(filename, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.18.56.47','21')#连接
-            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.10.10.10','21')#连接
+            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             bufsize = 1024#设置缓冲块大小
@@ -64,8 +64,8 @@ def ftp_rename(filename1,filename2, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.18.56.47','21')#连接
-            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.10.10.10','21')#连接
+            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             ftp.rename(filename1,filename2)#上传文件
@@ -84,8 +84,8 @@ def ftp_delete(filename, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.18.56.47','21')#连接
-            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.10.10.10','21')#连接
+            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             ftp.delete(filename)#上传文件
@@ -102,8 +102,8 @@ def ftp_mkdir(ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.18.56.47','21')#连接
-            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.10.10.10','21')#连接
+            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
 
             try:
@@ -128,8 +128,8 @@ def ftp_down(filename, ftpdir):
                 os.remove(filename)
             ftp=FTP()
             ftp.set_debuglevel(2)
-            ftp.connect('10.18.56.47','21')#连接
-            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.10.10.10','21')#连接
+            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             bufsize = 1024
@@ -149,8 +149,8 @@ def ftp_exist(filename, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.18.56.47','21')#连接
-            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.10.10.10','21')#连接
+            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             fileNameList = ftp.nlst()
