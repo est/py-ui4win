@@ -29,6 +29,48 @@ protected:
 	CControlUI* m_pyControlUI;   // dui中实现的ui对象
 };
 
+class PyLabelUI
+{
+public:
+	PyLabelUI(ULONG pControlUI) {m_pyControlUI = (CLabelUI*)pControlUI;}
+	~PyLabelUI() {}
+
+	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
+	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
+	void SetText(LPCSTR caption) { m_pyControlUI->SetText(caption); }
+	std::string GetText() { return std::string(m_pyControlUI->GetText().GetData()); }
+	bool IsVisible() {return m_pyControlUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyControlUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyControlUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
+	bool IsFocused() {return m_pyControlUI->IsFocused();}
+	void SetFocus(){m_pyControlUI->SetFocus();}
+
+protected:
+	CLabelUI* m_pyControlUI;   // dui中实现的ui对象
+};
+
+class PyButtonUI
+{
+public:
+	PyButtonUI(ULONG pControlUI) {m_pyControlUI = (CButtonUI*)pControlUI;}
+	~PyButtonUI() {}
+
+	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
+	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
+	void SetText(LPCSTR caption) { m_pyControlUI->SetText(caption); }
+	std::string GetText() { return std::string(m_pyControlUI->GetText().GetData()); }
+	bool IsVisible() {return m_pyControlUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyControlUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyControlUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
+	bool IsFocused() {return m_pyControlUI->IsFocused();}
+	void SetFocus(){m_pyControlUI->SetFocus();}
+
+protected:
+	CButtonUI* m_pyControlUI;   // dui中实现的ui对象
+};
+
 class PyOptionUI
 {
 public:
@@ -84,6 +126,65 @@ protected:
 	CProgressUI* m_pyProgressUI;   // dui中实现的ui对象
 };
 
+class PyAnimationUI
+{
+public:
+	PyAnimationUI(ULONG pControlUI) {m_pyAnimationlUI = (CAnimationUI*)pControlUI;}
+	~PyAnimationUI() {}
+
+	void SetName(LPCSTR pstrName) {m_pyAnimationlUI->SetName(pstrName);};
+	void ApplyAttributeList(LPCSTR pstrList) {m_pyAnimationlUI->ApplyAttributeList(pstrList);}
+	bool IsVisible() {return m_pyAnimationlUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyAnimationlUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyAnimationlUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyAnimationlUI->SetEnabled(bEnable);}
+	void StartAnimation(){m_pyAnimationlUI->StartAnimation();}
+	void StopAnimation(){m_pyAnimationlUI->StopAnimation();}
+
+protected:
+	CAnimationUI* m_pyAnimationlUI;   // dui中实现的ui对象
+};
+
+class PyHorizontalLayoutUI
+{
+public:
+	PyHorizontalLayoutUI(ULONG pControlUI) {m_pyHorizontalLayoutUI = (CHorizontalLayoutUI*)pControlUI;}
+	~PyHorizontalLayoutUI() {}
+
+	void SetName(LPCSTR pstrName) {m_pyHorizontalLayoutUI->SetName(pstrName);};
+	void ApplyAttributeList(LPCSTR pstrList) {m_pyHorizontalLayoutUI->ApplyAttributeList(pstrList);}
+	bool IsVisible() {return m_pyHorizontalLayoutUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyHorizontalLayoutUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyHorizontalLayoutUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyHorizontalLayoutUI->SetEnabled(bEnable);}
+
+	void SetAttribute(LPCSTR pstrName, LPCSTR pstrValue) {m_pyHorizontalLayoutUI->SetAttribute(pstrName, pstrValue);}
+	bool Add(ULONG pControl) { return m_pyHorizontalLayoutUI->Add((CControlUI*)pControl); }
+
+protected:
+	CHorizontalLayoutUI* m_pyHorizontalLayoutUI;   // dui中实现的ui对象
+};
+
+class PyVerticalLayoutUI
+{
+public:
+	PyVerticalLayoutUI(ULONG pControlUI) {m_pyVerticalLayoutUI = (CVerticalLayoutUI*)pControlUI;}
+	~PyVerticalLayoutUI() {}
+
+	void SetName(LPCSTR pstrName) {m_pyVerticalLayoutUI->SetName(pstrName);};
+	void ApplyAttributeList(LPCSTR pstrList) {m_pyVerticalLayoutUI->ApplyAttributeList(pstrList);}
+	bool IsVisible() {return m_pyVerticalLayoutUI->IsVisible();}
+	void SetVisible(bool bVisible = true){m_pyVerticalLayoutUI->SetVisible(bVisible);}
+	bool IsEnabled() {return m_pyVerticalLayoutUI->IsEnabled();}
+	void SetEnabled(bool bEnable = true){m_pyVerticalLayoutUI->SetEnabled(bEnable);}
+
+	void SetAttribute(LPCSTR pstrName, LPCSTR pstrValue) {m_pyVerticalLayoutUI->SetAttribute(pstrName, pstrValue);}
+	bool Add(ULONG pControl) { return m_pyVerticalLayoutUI->Add((CControlUI*)pControl); }
+
+protected:
+	CVerticalLayoutUI* m_pyVerticalLayoutUI;   // dui中实现的ui对象
+};
+
 class PyTabLayoutUI
 {
 public:
@@ -106,25 +207,6 @@ public:
 
 protected:
 	CTabLayoutUI* m_pyControlUI;   // dui中实现的ui对象
-};
-
-class PyAnimationUI
-{
-public:
-	PyAnimationUI(ULONG pControlUI) {m_pyAnimationlUI = (CAnimationUI*)pControlUI;}
-	~PyAnimationUI() {}
-
-	void SetName(LPCSTR pstrName) {m_pyAnimationlUI->SetName(pstrName);};
-	void ApplyAttributeList(LPCSTR pstrList) {m_pyAnimationlUI->ApplyAttributeList(pstrList);}
-	bool IsVisible() {return m_pyAnimationlUI->IsVisible();}
-	void SetVisible(bool bVisible = true){m_pyAnimationlUI->SetVisible(bVisible);}
-	bool IsEnabled() {return m_pyAnimationlUI->IsEnabled();}
-	void SetEnabled(bool bEnable = true){m_pyAnimationlUI->SetEnabled(bEnable);}
-	void StartAnimation(){m_pyAnimationlUI->StartAnimation();}
-	void StopAnimation(){m_pyAnimationlUI->StopAnimation();}
-
-protected:
-	CAnimationUI* m_pyAnimationlUI;   // dui中实现的ui对象
 };
 
 class PyListUI
@@ -170,11 +252,15 @@ public:
 	~PyUIFactory() {}
 
 	ULONG CreateControlUI(){return (ULONG)(new CControlUI());}
+	ULONG CreateLabelUI(){return (ULONG)(new CLabelUI());}
+	ULONG CreateButtonUI(){return (ULONG)(new CButtonUI());}
 	ULONG CreateOptionUI(){return (ULONG)(new COptionUI());}
 	ULONG CreateCheckBoxUI(){return (ULONG)(new CCheckBoxUI());}
 	ULONG CreateProgressUI(){return (ULONG)(new CProgressUI());}
-	ULONG CreateTabLayoutUI(){return (ULONG)(new CTabLayoutUI());}
 	ULONG CreateAnimationUI(){return (ULONG)(new CAnimationUI());}
+	ULONG CreateTabLayoutUI(){return (ULONG)(new CTabLayoutUI());}
+	ULONG CreateHorizontalLayoutUI(){return (ULONG)(new CHorizontalLayoutUI());}
+	ULONG CreateVerticalLayoutUI(){return (ULONG)(new CVerticalLayoutUI());}
 	ULONG CreateListUI(){return (ULONG)(new CListUI());}
 	ULONG CreateListContainerElementUI(){return (ULONG)(new CListContainerElementUI());}
 };
