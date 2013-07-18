@@ -20,10 +20,19 @@ using namespace boost::python;
 
 typedef boost::shared_ptr < PyFrameCreator > PyFrame_ptr;  
 typedef boost::shared_ptr < PyControlUI > PyControlUI_ptr;  
+typedef boost::shared_ptr < PyLabelUI > PyLabelUI_ptr;  
+typedef boost::shared_ptr < PyButtonUI > PyButtonUI_ptr;  
+typedef boost::shared_ptr < PyOptionUI > PyOptionUI_ptr;  
 typedef boost::shared_ptr < PyCheckBoxUI > PyCheckBoxUI_ptr;  
 typedef boost::shared_ptr < PyProgressUI > PyProgressUI_ptr;  
 typedef boost::shared_ptr < PyAnimationUI > PyAnimationUI_ptr;  
+typedef boost::shared_ptr < PyHorizontalLayoutUI > PyHorizontalLayoutUI_ptr;  
+typedef boost::shared_ptr < PyVerticalLayoutUI > PyVerticalLayoutUI_ptr;  
 typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;  
+typedef boost::shared_ptr < PyListUI > PyListUI_ptr;  
+typedef boost::shared_ptr < PyListContainerElementUI > PyListContainerElementUI_ptr;  
+typedef boost::shared_ptr < PyUIFactory > PyUIFactory_ptr;  
+
 BOOST_PYTHON_MODULE(PyUI)
 {
 	class_<PyControlUI>("PyControlUI", init<ULONG>())
@@ -37,6 +46,32 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetEnabled", &PyControlUI::SetEnabled)
 		.def("IsFocused", &PyControlUI::IsFocused)
 		.def("SetFocus", &PyControlUI::SetFocus)
+		; 
+
+	class_<PyLabelUI>("PyLabelUI", init<ULONG>())
+		.def("SetName", &PyLabelUI::SetName)
+		.def("ApplyAttributeList", &PyLabelUI::ApplyAttributeList)
+		.def("SetText", &PyLabelUI::SetText)
+		.def("GetText", &PyLabelUI::GetText)
+		.def("IsVisible", &PyLabelUI::IsVisible)
+		.def("SetVisible", &PyLabelUI::SetVisible)
+		.def("IsEnabled", &PyLabelUI::IsEnabled)
+		.def("SetEnabled", &PyLabelUI::SetEnabled)
+		.def("IsFocused", &PyLabelUI::IsFocused)
+		.def("SetFocus", &PyLabelUI::SetFocus)
+		; 
+
+	class_<PyButtonUI>("PyButtonUI", init<ULONG>())
+		.def("SetName", &PyButtonUI::SetName)
+		.def("ApplyAttributeList", &PyButtonUI::ApplyAttributeList)
+		.def("SetText", &PyButtonUI::SetText)
+		.def("GetText", &PyButtonUI::GetText)
+		.def("IsVisible", &PyButtonUI::IsVisible)
+		.def("SetVisible", &PyButtonUI::SetVisible)
+		.def("IsEnabled", &PyButtonUI::IsEnabled)
+		.def("SetEnabled", &PyButtonUI::SetEnabled)
+		.def("IsFocused", &PyButtonUI::IsFocused)
+		.def("SetFocus", &PyButtonUI::SetFocus)
 		; 
 
 	class_<PyOptionUI>("PyOptionUI", init<ULONG>())
@@ -81,6 +116,28 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("StartAnimation", &PyAnimationUI::StartAnimation)
 		; 
 
+	class_<PyHorizontalLayoutUI>("PyHorizontalLayoutUI", init<ULONG>())
+		.def("SetName", &PyHorizontalLayoutUI::SetName)
+		.def("ApplyAttributeList", &PyHorizontalLayoutUI::ApplyAttributeList)
+		.def("SetAttribute", &PyHorizontalLayoutUI::SetAttribute)
+		.def("IsVisible", &PyHorizontalLayoutUI::IsVisible)
+		.def("SetVisible", &PyHorizontalLayoutUI::SetVisible)
+		.def("IsEnabled", &PyHorizontalLayoutUI::IsEnabled)
+		.def("SetEnabled", &PyHorizontalLayoutUI::SetEnabled)
+		.def("Add", &PyHorizontalLayoutUI::Add)
+		; 
+
+	class_<PyVerticalLayoutUI>("PyVerticalLayoutUI", init<ULONG>())
+		.def("SetName", &PyVerticalLayoutUI::SetName)
+		.def("ApplyAttributeList", &PyVerticalLayoutUI::ApplyAttributeList)
+		.def("SetAttribute", &PyVerticalLayoutUI::SetAttribute)
+		.def("IsVisible", &PyVerticalLayoutUI::IsVisible)
+		.def("SetVisible", &PyVerticalLayoutUI::SetVisible)
+		.def("IsEnabled", &PyVerticalLayoutUI::IsEnabled)
+		.def("SetEnabled", &PyVerticalLayoutUI::SetEnabled)
+		.def("Add", &PyVerticalLayoutUI::Add)
+		; 
+
 	class_<PyTabLayoutUI>("PyTabLayoutUI", init<ULONG>())
 		.def("SetName", &PyTabLayoutUI::SetName)
 		.def("ApplyAttributeList", &PyTabLayoutUI::ApplyAttributeList)
@@ -99,22 +156,34 @@ BOOST_PYTHON_MODULE(PyUI)
 	class_<PyListUI>("PyListUI", init<ULONG>())
 		.def("SetName", &PyListUI::SetName)
 		.def("ApplyAttributeList", &PyListUI::ApplyAttributeList)
+		.def("IsVisible", &PyListUI::IsVisible)
+		.def("SetVisible", &PyListUI::SetVisible)
+		.def("IsEnabled", &PyListUI::IsEnabled)
+		.def("SetEnabled", &PyListUI::SetEnabled)
 		.def("Add", &PyListUI::Add)
 		; 
 
 	class_<PyListContainerElementUI>("PyListContainerElementUI", init<ULONG>())
 		.def("SetName", &PyListContainerElementUI::SetName)
 		.def("ApplyAttributeList", &PyListContainerElementUI::ApplyAttributeList)
+		.def("IsVisible", &PyListContainerElementUI::IsVisible)
+		.def("SetVisible", &PyListContainerElementUI::SetVisible)
+		.def("IsEnabled", &PyListContainerElementUI::IsEnabled)
+		.def("SetEnabled", &PyListContainerElementUI::SetEnabled)
 		.def("Add", &PyListContainerElementUI::Add)
 		; 
 
 	class_<PyUIFactory>("PyUIFactory")
 		.def("CreateControlUI", &PyUIFactory::CreateControlUI)
+		.def("CreateLabelUI", &PyUIFactory::CreateLabelUI)
+		.def("CreateButtonUI", &PyUIFactory::CreateButtonUI)
 		.def("CreateOptionUI", &PyUIFactory::CreateOptionUI)
 		.def("CreateCheckBoxUI", &PyUIFactory::CreateCheckBoxUI)
 		.def("CreateProgressUI", &PyUIFactory::CreateProgressUI)
-		.def("CreateTabLayoutUI", &PyUIFactory::CreateTabLayoutUI)
 		.def("CreateAnimationUI", &PyUIFactory::CreateAnimationUI)
+		.def("CreateHorizontalLayoutUI", &PyUIFactory::CreateHorizontalLayoutUI)
+		.def("CreateVerticalLayoutUI", &PyUIFactory::CreateVerticalLayoutUI)
+		.def("CreateTabLayoutUI", &PyUIFactory::CreateTabLayoutUI)
 		.def("CreateListUI", &PyUIFactory::CreateListUI)
 		.def("CreateListContainerElementUI", &PyUIFactory::CreateListContainerElementUI)
 		; 
@@ -207,10 +276,18 @@ BOOST_PYTHON_MODULE(PyUI)
 
 	register_ptr_to_python <PyFrame_ptr>();  
 	register_ptr_to_python <PyControlUI_ptr>();  
+	register_ptr_to_python <PyLabelUI_ptr>();  
+	register_ptr_to_python <PyButtonUI_ptr>();  
+	register_ptr_to_python <PyOptionUI_ptr>();  
 	register_ptr_to_python <PyCheckBoxUI_ptr>();  
 	register_ptr_to_python <PyProgressUI_ptr>();  
 	register_ptr_to_python <PyAnimationUI_ptr>();  
+	register_ptr_to_python <PyHorizontalLayoutUI_ptr>();  
+	register_ptr_to_python <PyVerticalLayoutUI_ptr>();  
 	register_ptr_to_python <PyTabLayoutUI_ptr>();  
+	register_ptr_to_python <PyListUI_ptr>();  
+	register_ptr_to_python <PyListContainerElementUI_ptr>();  
+	register_ptr_to_python <PyUIFactory_ptr>();  
 }
 
 void PyExtentInit()
