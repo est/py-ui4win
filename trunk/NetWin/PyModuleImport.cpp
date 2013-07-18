@@ -27,6 +27,8 @@ typedef boost::shared_ptr < PyTabLayoutUI > PyTabLayoutUI_ptr;
 BOOST_PYTHON_MODULE(PyUI)
 {
 	class_<PyControlUI>("PyControlUI", init<ULONG>())
+		.def("SetName", &PyControlUI::SetName)
+		.def("ApplyAttributeList", &PyControlUI::ApplyAttributeList)
 		.def("SetText", &PyControlUI::SetText)
 		.def("GetText", &PyControlUI::GetText)
 		.def("IsVisible", &PyControlUI::IsVisible)
@@ -37,7 +39,18 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetFocus", &PyControlUI::SetFocus)
 		; 
 
+	class_<PyOptionUI>("PyOptionUI", init<ULONG>())
+		.def("SetName", &PyOptionUI::SetName)
+		.def("ApplyAttributeList", &PyOptionUI::ApplyAttributeList)
+		.def("IsVisible", &PyOptionUI::IsVisible)
+		.def("SetVisible", &PyOptionUI::SetVisible)
+		.def("IsEnabled", &PyOptionUI::IsEnabled)
+		.def("SetEnabled", &PyOptionUI::SetEnabled)
+		; 
+
 	class_<PyCheckBoxUI>("PyCheckBoxUI", init<ULONG>())
+		.def("SetName", &PyCheckBoxUI::SetName)
+		.def("ApplyAttributeList", &PyCheckBoxUI::ApplyAttributeList)
 		.def("SetCheck", &PyCheckBoxUI::SetCheck)
 		.def("GetCheck", &PyCheckBoxUI::GetCheck)
 		.def("IsVisible", &PyCheckBoxUI::IsVisible)
@@ -47,6 +60,8 @@ BOOST_PYTHON_MODULE(PyUI)
 		; 
 
 	class_<PyProgressUI>("PyProgressUI", init<ULONG>())
+		.def("SetName", &PyProgressUI::SetName)
+		.def("ApplyAttributeList", &PyProgressUI::ApplyAttributeList)
 		.def("SetValue", &PyProgressUI::SetValue)
 		.def("GetValue", &PyProgressUI::GetValue)
 		.def("IsVisible", &PyProgressUI::IsVisible)
@@ -56,6 +71,8 @@ BOOST_PYTHON_MODULE(PyUI)
 		; 
 
 	class_<PyAnimationUI>("PyAnimationUI", init<ULONG>())
+		.def("SetName", &PyAnimationUI::SetName)
+		.def("ApplyAttributeList", &PyAnimationUI::ApplyAttributeList)
 		.def("IsVisible", &PyAnimationUI::IsVisible)
 		.def("SetVisible", &PyAnimationUI::SetVisible)
 		.def("IsEnabled", &PyAnimationUI::IsEnabled)
@@ -65,6 +82,8 @@ BOOST_PYTHON_MODULE(PyUI)
 		; 
 
 	class_<PyTabLayoutUI>("PyTabLayoutUI", init<ULONG>())
+		.def("SetName", &PyTabLayoutUI::SetName)
+		.def("ApplyAttributeList", &PyTabLayoutUI::ApplyAttributeList)
 		.def("SetText", &PyTabLayoutUI::SetText)
 		.def("GetText", &PyTabLayoutUI::GetText)
 		.def("IsVisible", &PyTabLayoutUI::IsVisible)
@@ -74,6 +93,30 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("IsFocused", &PyTabLayoutUI::IsFocused)
 		.def("SetFocus", &PyTabLayoutUI::SetFocus)
 		.def("SelectItem", &PyTabLayoutUI::SelectItem)
+		.def("Add", &PyTabLayoutUI::Add)
+		; 
+
+	class_<PyListUI>("PyListUI", init<ULONG>())
+		.def("SetName", &PyListUI::SetName)
+		.def("ApplyAttributeList", &PyListUI::ApplyAttributeList)
+		.def("Add", &PyListUI::Add)
+		; 
+
+	class_<PyListContainerElementUI>("PyListContainerElementUI", init<ULONG>())
+		.def("SetName", &PyListContainerElementUI::SetName)
+		.def("ApplyAttributeList", &PyListContainerElementUI::ApplyAttributeList)
+		.def("Add", &PyListContainerElementUI::Add)
+		; 
+
+	class_<PyUIFactory>("PyUIFactory")
+		.def("CreateControlUI", &PyUIFactory::CreateControlUI)
+		.def("CreateOptionUI", &PyUIFactory::CreateOptionUI)
+		.def("CreateCheckBoxUI", &PyUIFactory::CreateCheckBoxUI)
+		.def("CreateProgressUI", &PyUIFactory::CreateProgressUI)
+		.def("CreateTabLayoutUI", &PyUIFactory::CreateTabLayoutUI)
+		.def("CreateAnimationUI", &PyUIFactory::CreateAnimationUI)
+		.def("CreateListUI", &PyUIFactory::CreateListUI)
+		.def("CreateListContainerElementUI", &PyUIFactory::CreateListContainerElementUI)
 		; 
 
 	//class_<PyUIBase, boost::noncopyable>("PyFrame")
