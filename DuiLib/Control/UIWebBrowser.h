@@ -4,6 +4,7 @@
 #pragma once
 
 #include "Utils/WebBrowserEventHandler.h"
+#include "Utils/downloadmgr.h"
 #include <ExDisp.h>
 
 namespace DuiLib
@@ -15,6 +16,7 @@ namespace DuiLib
 		, public IOleCommandTarget
 		, public IDispatch
 		, public ITranslateAccelerator
+		, public IDownloadManager
 	{
 	public:
 		/// ¹¹Ôìº¯Êý
