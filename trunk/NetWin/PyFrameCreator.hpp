@@ -13,6 +13,7 @@ class PyControlUI
 public:
 	PyControlUI(ULONG pControlUI) {m_pyControlUI = (CControlUI*)pControlUI;}
 	~PyControlUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -34,6 +35,7 @@ class PyLabelUI
 public:
 	PyLabelUI(ULONG pControlUI) {m_pyControlUI = (CLabelUI*)pControlUI;}
 	~PyLabelUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -55,6 +57,7 @@ class PyButtonUI
 public:
 	PyButtonUI(ULONG pControlUI) {m_pyControlUI = (CButtonUI*)pControlUI;}
 	~PyButtonUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -76,6 +79,7 @@ class PyOptionUI
 public:
 	PyOptionUI(ULONG pControlUI) {m_pyOptionUI = (COptionUI*)pControlUI;}
 	~PyOptionUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyOptionUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyOptionUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyOptionUI->ApplyAttributeList(pstrList);}
@@ -93,6 +97,7 @@ class PyCheckBoxUI
 public:
 	PyCheckBoxUI(ULONG pControlUI) {m_pyCheckBoxUI = (CCheckBoxUI*)pControlUI;}
 	~PyCheckBoxUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyCheckBoxUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyCheckBoxUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyCheckBoxUI->ApplyAttributeList(pstrList);}
@@ -112,6 +117,7 @@ class PyProgressUI
 public:
 	PyProgressUI(ULONG pControlUI) {m_pyProgressUI = (CProgressUI*)pControlUI;}
 	~PyProgressUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyProgressUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyProgressUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyProgressUI->ApplyAttributeList(pstrList);}
@@ -131,6 +137,7 @@ class PyAnimationUI
 public:
 	PyAnimationUI(ULONG pControlUI) {m_pyAnimationlUI = (CAnimationUI*)pControlUI;}
 	~PyAnimationUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyAnimationlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyAnimationlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyAnimationlUI->ApplyAttributeList(pstrList);}
@@ -150,6 +157,7 @@ class PyHorizontalLayoutUI
 public:
 	PyHorizontalLayoutUI(ULONG pControlUI) {m_pyHorizontalLayoutUI = (CHorizontalLayoutUI*)pControlUI;}
 	~PyHorizontalLayoutUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyHorizontalLayoutUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyHorizontalLayoutUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyHorizontalLayoutUI->ApplyAttributeList(pstrList);}
@@ -170,6 +178,7 @@ class PyVerticalLayoutUI
 public:
 	PyVerticalLayoutUI(ULONG pControlUI) {m_pyVerticalLayoutUI = (CVerticalLayoutUI*)pControlUI;}
 	~PyVerticalLayoutUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyVerticalLayoutUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyVerticalLayoutUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyVerticalLayoutUI->ApplyAttributeList(pstrList);}
@@ -190,6 +199,7 @@ class PyTabLayoutUI
 public:
 	PyTabLayoutUI(ULONG pControlUI) {m_pyControlUI = (CTabLayoutUI*)pControlUI;}
 	~PyTabLayoutUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -214,6 +224,7 @@ class PyListUI
 public:
 	PyListUI(ULONG pControlUI) {m_pyListUI = (CListUI*)pControlUI;}
 	~PyListUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyListUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyListUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyListUI->ApplyAttributeList(pstrList);}
@@ -232,6 +243,7 @@ class PyListContainerElementUI
 public:
 	PyListContainerElementUI(ULONG pControlUI) {m_pyListContainerElementUI = (CListContainerElementUI*)pControlUI;}
 	~PyListContainerElementUI() {}
+	ULONG GetSelf() {return (ULONG)m_pyListContainerElementUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyListContainerElementUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyListContainerElementUI->ApplyAttributeList(pstrList);}
