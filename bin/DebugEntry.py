@@ -1,15 +1,11 @@
 __author__ = 'huqinghua'
 # coding=gbk
 
-import string, os, commands, time
-import threading
-import shutil
-import random
-from distutils import dir_util
-from shutil import make_archive
-from ftplib import FTP
+import os
 import Dui4Win
+from CommonUtil import CommonUtils
 
 if __name__ == "__main__":
+    CommonUtils.SaveExePath()
     Dui4Win.Run()
 
