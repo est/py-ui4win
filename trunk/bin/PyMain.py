@@ -15,6 +15,8 @@ from MsgBox import *
 from PyFrameBase import *
 import UICommon
 
+from CommonUtil import CommonUtils
+
 TRUNC_DIR = r"E:\root_release"
 #TRUNC_DIR = r"E:\360mobile_svn\OneKeyRoot\trunk"
 YOURNAME = r"\\sign1\input\huqinghua"
@@ -41,8 +43,8 @@ def ftp_up(filename, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.10.10.10','21')#连接
-            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.18.56.47','21')#连接
+            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             bufsize = 1024#设置缓冲块大小
@@ -64,8 +66,8 @@ def ftp_rename(filename1,filename2, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.10.10.10','21')#连接
-            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.18.56.47','21')#连接
+            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             ftp.rename(filename1,filename2)#上传文件
@@ -84,8 +86,8 @@ def ftp_delete(filename, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.10.10.10','21')#连接
-            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.18.56.47','21')#连接
+            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             ftp.delete(filename)#上传文件
@@ -102,8 +104,8 @@ def ftp_mkdir(ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.10.10.10','21')#连接
-            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.18.56.47','21')#连接
+            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
 
             try:
@@ -128,8 +130,8 @@ def ftp_down(filename, ftpdir):
                 os.remove(filename)
             ftp=FTP()
             ftp.set_debuglevel(2)
-            ftp.connect('10.10.10.10','21')#连接
-            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.18.56.47','21')#连接
+            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             bufsize = 1024
@@ -149,8 +151,8 @@ def ftp_exist(filename, ftpdir):
         try:
             ftp=FTP()
             ftp.set_debuglevel(2)#打开调试级别2，显示详细信息;0为关闭调试信息
-            ftp.connect('10.10.10.10','21')#连接
-            ftp.login('*****','*******')#登录，如果匿名登录则用空串代替即可
+            ftp.connect('10.18.56.47','21')#连接
+            ftp.login('image','Image#4321')#登录，如果匿名登录则用空串代替即可
             #print ftp.getwelcome()#显示ftp服务器欢迎信息
             ftp.cwd(ftpdir) #选择操作目录
             fileNameList = ftp.nlst()
@@ -269,6 +271,7 @@ class MainFrame(PyFrameBase):
         self.ChkZsDebug = self.PyFindCheckBox("ChkZsDebug")
         self.ChkZsRelease = self.PyFindCheckBox("ChkZsRelease")
         self.ChkZsSign = self.PyFindCheckBox("ChkZsSign")
+        self.DecTab = self.PyFindVerticalLayout("DecTab")
         #self.btnPyTest.SetVisible(False)
         self.btnPyTest.SetText('程序打包')
         #PyWinUtils().SetTimer(self.GetHWnd(), 1, 10)
@@ -306,8 +309,16 @@ class MainFrame(PyFrameBase):
             elif sendor == "btnPyTest":
                 self.funcTabLayout.SelectItem(3)
 
+            elif sendor == "test_add_btn":
+                UICommon.ShowMessageBox(self.GetHWnd(), '对话框标题', '你点击了test_add_btn')
+
             elif sendor == "btnPyDec":
                 self.funcTabLayout.SelectItem(4)
+                self.newbtn = self.PyCreateButton()
+                attrlist = """name="test_add_btn" text="运行时生成" float="true" pos="278,346,0,0" width="175" height="53" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file='reboot-hot.png' corner='20,20,20,20'" pushedimage="reboot.png" focusedimage="reboot.png""
+                """
+                self.newbtn.ApplyAttributeList(attrlist)
+                self.DecTab.Add(self.newbtn.GetSelf())
 
             elif sendor == "btnEncrypt":
                 self.funcTabLayout.SelectItem(3)
@@ -412,15 +423,15 @@ class MainFrame(PyFrameBase):
             self.compile_featureUI_RELEASE()
         if self.ChkZsDebug.GetCheck():
             PyLog().LogText('compile_sjzs_DEBUG')
-            shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Debug\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\lib\share\UiAssistLib.lib")
+            shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Debug\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\lib\share\UiAssistLib.lib")
             shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Debug\UiFeatureKernel.dll" ,r"C:\Program Files\360\360Safe\mobilemgr\UiFeatureKernel.dll")
             shutil.copyfile(r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Debug\UiFeatureNormalControl.dll", r"C:\Program Files\360\360Safe\mobilemgr\UiFeatureNormalControl.dll")
             self.compile_sjzs_DEBUG()
         if self.ChkZsRelease.GetCheck():
             PyLog().LogText('compile_sjzs_RELEASE')
-            shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Release\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\lib\share\UiAssistLib.lib")
-            shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureKernel.dll" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\UiFeatureKernel.dll")
-            shutil.copyfile(r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureNormalControl.dll", r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\UiFeatureNormalControl.dll")
+            shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Release\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\lib\share\UiAssistLib.lib")
+            shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureKernel.dll" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureKernel.dll")
+            shutil.copyfile(r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureNormalControl.dll", r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureNormalControl.dll")
             self.compile_sjzs_RELEASE()
         if self.ChkZsSign.GetCheck():
             PyLog().LogText('SignZS')
@@ -433,10 +444,10 @@ class MainFrame(PyFrameBase):
         self.AnimationJuhua1.StartAnimation()
         self.ShowAndLog(time.strftime( '%Y-%m-%d %X', time.localtime() ))
         self.AppendAndLog("1 正在编译360手机助手...")
-        os.chdir(r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM')
-        os.system(r'TortoiseProc.exe /command:update /path:"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
-        output = os.popen(r'compile_debug.bat ' + r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\WholeAll.sln')
+        os.chdir(r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean')
+        os.system(r'TortoiseProc.exe /command:update /path:"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\" /closeonend:3')
+        CommonUtils.ReverseToExePath()
+        output = os.popen(r'compile_debug.bat ' + r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\WholeAll.sln')
         msg = self.txtDiagnose.GetText()
         for line in output:
             msg = msg + line
@@ -449,10 +460,10 @@ class MainFrame(PyFrameBase):
         self.AnimationJuhua1.StartAnimation()
         self.ShowAndLog(time.strftime( '%Y-%m-%d %X', time.localtime() ))
         self.AppendAndLog("1 正在编译360手机助手...")
-        os.chdir(r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM')
-        os.system(r'TortoiseProc.exe /command:update /path:"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
-        output = os.popen(r'compile.bat ' + r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\WholeAll.sln')
+        os.chdir(r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean')
+        os.system(r'TortoiseProc.exe /command:update /path:"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\" /closeonend:3')
+        CommonUtils.ReverseToExePath()
+        output = os.popen(r'compile.bat ' + r'E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\WholeAll.sln')
         msg = self.txtDiagnose.GetText()
         for line in output:
             msg = msg + line
@@ -469,7 +480,7 @@ class MainFrame(PyFrameBase):
         self.AppendAndLog("1 正在编译360DesktopUIKernel...")
         os.chdir(r'E:\360DesktopUIKernel')
         os.system(r'TortoiseProc.exe /command:update /path:"E:\360DesktopUIKernel\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         output = os.popen(r'compile.bat ' + r'E:\360DesktopUIKernel\UiFeature.sln')
         msg = self.txtDiagnose.GetText()
         for line in output:
@@ -486,12 +497,12 @@ class MainFrame(PyFrameBase):
         shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureBuilder.exe" ,r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureBuilder.exe")
         shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureRun.exe" ,r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureRun.exe")
         shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureKernel.dll" ,r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureKernel.dll")
-        shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Release\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\lib\share\UiAssistLib.lib")
+        shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Release\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\lib\share\UiAssistLib.lib")
 
         self.AppendAndLog("2 正在编译360MMUiFeatureControlSrc...")
         os.chdir(r'E:\360MMUiFeatureControlSrc')
         os.system(r'TortoiseProc.exe /command:update /path:"E:\360MMUiFeatureControlSrc\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         output = os.popen(r'compile.bat ' + r'E:\360MMUiFeatureControlSrc\360DesktopUi.sln')
         msg = self.txtDiagnose.GetText()
         for line in output:
@@ -505,8 +516,8 @@ class MainFrame(PyFrameBase):
 #            msg = msg + line
 #            self.txtDiagnose.SetText(msg)
 #        self.AppendAndLog( "  开始拷贝文件")
-        shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureKernel.dll" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\UiFeatureKernel.dll")
-        shutil.copyfile(r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureNormalControl.dll", r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\UiFeatureNormalControl.dll")
+        shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Release\UiFeatureKernel.dll" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureKernel.dll")
+        shutil.copyfile(r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Release\UiFeatureNormalControl.dll", r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureNormalControl.dll")
         self.AppendAndLog( "  结束 成功")
         self.AnimationJuhua1.StopAnimation()
 
@@ -516,7 +527,7 @@ class MainFrame(PyFrameBase):
         self.AppendAndLog("1 正在编译360DesktopUIKernel...")
         os.chdir(r'E:\360DesktopUIKernel')
         os.system(r'TortoiseProc.exe /command:update /path:"E:\360DesktopUIKernel\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         #os.system(r'compile.bat ' + TRUNC_DIR + r'\360MM\Src\360MM.sln')
         output = os.popen(r'compile_debug.bat ' + r'E:\360DesktopUIKernel\UiFeature.sln')
         msg = self.txtDiagnose.GetText()
@@ -534,12 +545,12 @@ class MainFrame(PyFrameBase):
         shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Debug\UiFeatureBuilder.exe" ,r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Debug\UiFeatureBuilder.exe")
         shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Debug\UiFeatureRun.exe" ,r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Debug\UiFeatureRun.exe")
         shutil.copyfile(r"E:\360DesktopUIKernel\Bin\Debug\UiFeatureKernel.dll" ,r"E:\360MMUiFeatureControlSrc\Bin\UiFeatureModule\Debug\UiFeatureKernel.dll")
-        shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Debug\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\lib\share\UiAssistLib.lib")
+        shutil.copyfile(r"E:\360DesktopUIKernel\Src\Lib\Debug\UiAssistLib.lib" ,r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\lib\share\UiAssistLib.lib")
 
         self.AppendAndLog("2 正在编译360MMUiFeatureControlSrc...")
         os.chdir(r'E:\360MMUiFeatureControlSrc')
         os.system(r'TortoiseProc.exe /command:update /path:"E:\360MMUiFeatureControlSrc\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         #os.system(r'compile.bat ' + TRUNC_DIR + r'\360MM\Src\360MM.sln')
         output = os.popen(r'compile_debug.bat ' + r'E:\360MMUiFeatureControlSrc\360DesktopUi.sln')
         msg = self.txtDiagnose.GetText()
@@ -562,7 +573,7 @@ class MainFrame(PyFrameBase):
         self.ShowAndLog(time.strftime( '%Y-%m-%d %X', time.localtime() ))
 
         #清空
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         self.sendSignal("clearall.txt")
         self.AppendAndLog( "1 等待金亭清空")
         self.waitForSignal("forcleared.txt")
@@ -572,12 +583,12 @@ class MainFrame(PyFrameBase):
         while True:
             try:
                 PyWinUtils().CreateDirectory(YOURNAME + r"\bin")
-                os.chdir(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\UiFeatureKernel.dll", YOURNAME + r"\bin\UiFeatureKernel.dll")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\UiFeatureNormalControl.dll", YOURNAME + r"\bin\UiFeatureNormalControl.dll")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\src\Release\360MobileMgr.exe", YOURNAME + r"\bin\360MobileMgr.exe")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\sign_config.ini", YOURNAME + r"\sign_config.ini")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_2.0.0.2160_2013.06.28_A_For_SHUAJIA_TEAM\upload.ok", YOURNAME + r"\upload.ok")
+                os.chdir(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release")
+                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureKernel.dll", YOURNAME + r"\bin\UiFeatureKernel.dll")
+                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureNormalControl.dll", YOURNAME + r"\bin\UiFeatureNormalControl.dll")
+                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\360MobileMgr.exe", YOURNAME + r"\bin\360MobileMgr.exe")
+                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\sign_config.ini", YOURNAME + r"\sign_config.ini")
+                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\upload.ok", YOURNAME + r"\upload.ok")
                 break
             except Exception, e:
                 PyLog().LogText(str(e))
@@ -614,7 +625,7 @@ class MainFrame(PyFrameBase):
             os.remove(TRUNC_DIR + "\\360MM\\Bin\\Release\\360Root.exe")
         os.chdir(TRUNC_DIR)
         os.system(r'TortoiseProc.exe /command:update /path:"E:\root_release\" /closeonend:3')
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         #os.system(r'compile.bat ' + TRUNC_DIR + r'\360MM\Src\360MM.sln')
         output = os.popen(r'compile.bat ' + TRUNC_DIR + r'\360MM\Src\360MM.sln')
         msg = self.txtDiagnose.GetText()
@@ -651,7 +662,7 @@ class MainFrame(PyFrameBase):
         self.AppendAndLog( "  成功")
 
         #清空
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         self.sendSignal("clearall.txt")
         self.AppendAndLog( "5 等待金亭清空")
         self.waitForSignal("forcleared.txt")
@@ -704,7 +715,7 @@ class MainFrame(PyFrameBase):
                 time.sleep(5)
             else:
                 break
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         self.AppendAndLog( "  改变状态binsinged -> exeuoloaded")
         self.changeSignal("binsinged.txt", "exeuoloaded.txt")
         self.AppendAndLog( "9 等待获取签名的安装包")
@@ -742,7 +753,7 @@ class MainFrame(PyFrameBase):
                 if ftp_exist("clearall.txt", "./root/sign/"):
                     self.ShowAndLog(time.strftime( '%Y-%m-%d %X', time.localtime() ))
                     self.AppendAndLog( "清空")
-                    PyWinUtils().SetCurrentDirectoryToExePath()
+                    CommonUtils.ReverseToExePath()
                     if os.path.isfile(r"\\sign1\output\huqinghua\360RootSetup.exe"):
                         os.remove(r"\\sign1\output\huqinghua\360RootSetup.exe")
                     if os.path.isdir(r"\\sign1\output\huqinghua\bin"):
@@ -755,7 +766,7 @@ class MainFrame(PyFrameBase):
                 if ftp_exist("binuploaded.txt", "./root/sign/"):
                     self.ShowAndLog(time.strftime( '%Y-%m-%d %X', time.localtime() ))
                     self.AppendAndLog( "获取bin")
-                    PyWinUtils().SetCurrentDirectoryToExePath()
+                    CommonUtils.ReverseToExePath()
                     if os.path.isdir(r"bin"):
                         dir_util.remove_tree(r"bin")
                     dir_util.copy_tree(r"\\sign1\output\huqinghua\bin", r"bin")
@@ -764,7 +775,7 @@ class MainFrame(PyFrameBase):
                         os.remove(r'bin.zip')
                     os.chdir(PyWinUtils().GetExeDirectory() + r"\bin")
                     make_archive(PyWinUtils().GetExeDirectory() + r"\bin", 'zip', '.', '.')
-                    PyWinUtils().SetCurrentDirectoryToExePath()
+                    CommonUtils.ReverseToExePath()
                     ftp_delete(r"bin.zip", "./root/sign/")
                     ftp_up(r"bin.zip", "./root/sign/")
                     self.changeSignal("binuploaded.txt", "binsinged.txt")
@@ -775,7 +786,7 @@ class MainFrame(PyFrameBase):
                 if ftp_exist("exeuoloaded.txt", "./root/sign/"):
                     self.ShowAndLog(time.strftime( '%Y-%m-%d %X', time.localtime() ))
                     self.AppendAndLog( "获取安装包")
-                    PyWinUtils().SetCurrentDirectoryToExePath()
+                    CommonUtils.ReverseToExePath()
                     if os.path.isfile(r'360RootSetup.exe'):
                         os.remove(r'360RootSetup.exe')
                     shutil.copyfile(r"\\sign1\output\huqinghua\360RootSetup.exe", r"360RootSetup.exe")
@@ -829,7 +840,7 @@ class MainFrame(PyFrameBase):
         self.txtDiagnose.SetText(line)
 
     def diagnose(self):
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         os.system('adb devices')
         #pid = subprocess.Popen(["adb", "devices"]).pid
         #subprocess.Popen("adb devices")
@@ -841,6 +852,7 @@ class MainFrame(PyFrameBase):
         output = os.popen('adb devices')
         for line in output:
             self.AppendAndLog( line)
+        self.AppendAndLog(os.linesep)
 
         self.AppendAndLog( 'fastboot devices 输出:')
         output = os.popen('fastboot devices')
@@ -935,7 +947,7 @@ class MainFrame(PyFrameBase):
         os.rename(solutionPath + '\\tmp.lua', solutionPath + '\\systemrestore.lua')
 
     def EncryptAndPack(self, solutionPath):
-        PyWinUtils().SetCurrentDirectoryToExePath()
+        CommonUtils.ReverseToExePath()
         ISOTIMEFORMAT='%Y-%m-%d %X'
         self.ShowAndLog(time.strftime( ISOTIMEFORMAT, time.localtime() ))
         self.AppendAndLog('打包目录 = %s' % solutionPath )
@@ -948,15 +960,11 @@ class MainFrame(PyFrameBase):
         dirname = dirs[-1]
         self.AppendAndLog( dirname)
         tmpdir = solutionPath + '_tmp'
-        PyLog().LogText( '1')
         if os.path.isdir(tmpdir):
             dir_util.remove_tree(tmpdir)
-        PyLog().LogText( '2')
         #PyWinUtils().CreateDirectory(tmpdir)
         dir_util.mkpath(tmpdir)
-        PyLog().LogText( '3')
 #        time.sleep(10)
-        PyLog().LogText( '3.5')
 #        i = 0
 #        while i<100:
 #            i = i + 1
@@ -964,7 +972,6 @@ class MainFrame(PyFrameBase):
 #            time.sleep(1)
         dir_util.copy_tree(solutionPath, tmpdir)
 
-        PyLog().LogText( '4')
         if os.path.isfile(tmpdir + '\\shuaji.lua'):
             self.AppendAndLog('合成刷机方案')
             self.generateConfig(tmpdir)
@@ -975,7 +982,6 @@ class MainFrame(PyFrameBase):
             self.AppendAndLog('合成恢复方案')
             self.generaterecovery(tmpdir)
 
-        PyLog().LogText( '5')
         os.remove(tmpdir + '\\common.lua')
 
         self.AppendAndLog('打包')
@@ -993,6 +999,7 @@ class MainFrame(PyFrameBase):
         self.AppendAndLog('成功')
 
 def PyAppInit():
+    CommonUtils.SaveExePath()
     pyFrameObj = PyFrameCreator()
     obj = pyFrameObj.CreateForm(0, 'PyMain', 'MainFrame')
     obj.TestObj('msg changed')

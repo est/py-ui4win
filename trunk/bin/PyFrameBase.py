@@ -8,18 +8,55 @@ class PyFrameBase(PyUIBase):
     def __init__(self):
         super(PyFrameBase, self).__init__()
         #PyUIBase.__init__(self)
+    def PyCreateControl(self):
+        return PyControlUI(PyUIFactory().CreateControlUI())
+    def PyCreateLabel(self):
+        return PyLabelUI(PyUIFactory().CreateLabelUI())
+    def PyCreateButton(self):
+        return PyButtonUI(PyUIFactory().CreateButtonUI())
+    def PyCreateOption(self):
+        return PyOptionUI(PyUIFactory().CreateOptionUI())
+    def PyCreateCheckBox(self):
+        return PyCheckBoxUI(PyUIFactory().CreateCheckBoxUI())
+    def PyCreateProgress(self):
+        return PyProgressUI(PyUIFactory().CreatProgressUI())
+    def PyCreateAnimation(self):
+        return PyAnimationUI(PyUIFactory().CreateAnimationUI())
+    def PyCreateHorizontalLayout(self):
+        return PyHorizontalLayoutUI(PyUIFactory().CreateHorizontalLayoutUI())
+    def PyCreateVerticalLayout(self):
+        return PyVerticalLayoutUI(PyUIFactory().CreateVerticalLayoutUI())
+    def PyCreateTabLayout(self):
+        return PyTabLayoutUI(PyUIFactory().CreateTabLayoutUI())
+    def PyCreateList(self):
+        return PyListUI(PyUIFactory().CreateListUI())
+    def PyCreateListContainerElement(self):
+        return PyListContainerElementUI(PyUIFactory().CreateListContainerElementUI())
 
     def PyFindControl(self, controlName):
         return PyControlUI(self.FindControl(controlName))
-
-    def PyFindAnimation(self, controlName):
-        return PyAnimationUI(self.FindControl(controlName))
-
-    def PyFindTabLayout(self, controlName):
-        return PyTabLayoutUI(self.FindControl(controlName))
-
+    def PyFindLabel(self, controlName):
+        return PyLabelUI(self.FindControl(controlName))
+    def PyFindButton(self, controlName):
+        return PyButtonUI(self.FindControl(controlName))
+    def PyFindOption(self, controlName):
+        return PyOptionUI(self.FindControl(controlName))
     def PyFindCheckBox(self, controlName):
         return PyCheckBoxUI(self.FindControl(controlName))
+    def PyFindProgress(self, controlName):
+        return PyProgressUI(self.FindControl(controlName))
+    def PyFindAnimation(self, controlName):
+        return PyAnimationUI(self.FindControl(controlName))
+    def PyFindHorizontalLayout(self, controlName):
+        return PyHorizontalLayoutUI(self.FindControl(controlName))
+    def PyFindVerticalLayout(self, controlName):
+        return PyVerticalLayoutUI(self.FindControl(controlName))
+    def PyFindTabLayout(self, controlName):
+        return PyTabLayoutUI(self.FindControl(controlName))
+    def PyFindList(self, controlName):
+        return PyListUI(self.FindControl(controlName))
+    def PyFindListContainerElement(self, controlName):
+        return PyListContainerElementUI(self.FindControl(controlName))
 
     #virtual void OnFinalMessage(HWND hWnd);
     def OnFinalMessage(self, hWnd):

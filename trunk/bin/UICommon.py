@@ -13,3 +13,4 @@ def ShowMessageBox(hwnd, title, caption):
     obj.SetText("LblCaption", title)
     obj.SetText("txtMsg", caption)
     mbox1.ShowModal()
+
