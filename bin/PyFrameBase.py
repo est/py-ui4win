@@ -4,6 +4,40 @@ __author__ = 'hqh'
 import string, time
 from PyUI import *
 
+DUI_MSGTYPE_MENU = "menu"
+DUI_MSGTYPE_LINK = "link"
+
+DUI_MSGTYPE_TIMER = "timer"
+DUI_MSGTYPE_CLICK = "click"
+
+DUI_MSGTYPE_RETURN = "return"
+DUI_MSGTYPE_SCROLL = "scroll"
+
+DUI_MSGTYPE_DROPDOWN = "dropdown"
+DUI_MSGTYPE_SETFOCUS = "setfocus"
+
+DUI_MSGTYPE_KILLFOCUS = "killfocus"
+DUI_MSGTYPE_ITEMCLICK = "itemclick"
+DUI_MSGTYPE_TABSELECT = "tabselect"
+
+DUI_MSGTYPE_ITEMSELECT = "itemselect"
+DUI_MSGTYPE_ITEMEXPAND = "itemexpand"
+DUI_MSGTYPE_WINDOWINIT = "windowinit"
+DUI_MSGTYPE_BUTTONDOWN = "buttondown"
+DUI_MSGTYPE_MOUSEENTER = "mouseenter"
+DUI_MSGTYPE_MOUSELEAVE = "mouseleave"
+
+DUI_MSGTYPE_TEXTCHANGED = "textchanged"
+DUI_MSGTYPE_HEADERCLICK = "headerclick"
+DUI_MSGTYPE_ITEMDBCLICK = "itemdbclick"
+DUI_MSGTYPE_SHOWACTIVEX = "showactivex"
+
+DUI_MSGTYPE_ITEMCOLLAPSE = "itemcollapse"
+DUI_MSGTYPE_ITEMACTIVATE = "itemactivate"
+DUI_MSGTYPE_VALUECHANGED = "valuechanged"
+
+DUI_MSGTYPE_SELECTCHANGED = "selectchanged"
+
 class PyFrameBase(PyUIBase):
     def __init__(self):
         super(PyFrameBase, self).__init__()

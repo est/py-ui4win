@@ -283,9 +283,9 @@ class MainFrame(PyFrameBase):
 
     #virtual void OnNotify(LPCSTR sendor, LPCSTR sType, WPARAM wParam, LPARAM lParam);
     def OnNotify(self, sendor, sType, wParam, lParam):
-        if sType == "itemselect":
+        if sType == DUI_MSGTYPE_ITEMSELECT:
             pass
-        if sType == "click":
+        if sType == DUI_MSGTYPE_CLICK:
             if sendor == "BtnClose":
                 #execute_dos_cmd('adb kill-server')
                 self.ExitApp()
