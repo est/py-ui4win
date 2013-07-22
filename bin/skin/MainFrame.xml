@@ -16,7 +16,7 @@
             <Option name="btnPyTest" text="自定义测试" float="true" pos="413,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
             <Option name="btnPyDec" text="解密" float="true" pos="526,19,0,0" width="100" height="47" bkcolor="#FFC0DCC0" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" group="action" selectedimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" />
         </VerticalLayout>
-        <TabLayout name="FunctionTabs" selectedid="3">
+        <TabLayout name="FunctionTabs" selectedid="5">
             <VerticalLayout name="FlushRomTab">
                 <Animation name="Juhua" float="true" pos="300,100,0,0" width="26" height="26" framesize="26,26" animationimage="ruu_ruu_pic_wait.png" frameinterval="200" />
                 <Button name="btnStartAnimation" text="开始动画" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
@@ -59,6 +59,10 @@
                 <Label name="Label501" text="输入密文:" float="true" pos="87,35,0,0" width="337" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="1" />
                 <Button name="btnDecSolution" text="解密" float="true" pos="523,346,0,0" width="175" height="53" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="0" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <RichEdit name="txtPlain" bordersize="1" float="true" pos="86,131,0,0" width="611" height="201" bordercolor="#00008000" inset="1,1,1,1" vscrollbar="true" hscrollbar="true" autohscroll="true" autovscroll="true" />
+            </VerticalLayout>
+            <VerticalLayout name="ListTab">
+                <Button name="btnStartAnimation2" text="开始动画" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
+                <Button name="btnStopAnimation2" text="停止动画" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
             </VerticalLayout>
         </TabLayout>
         <Container height="77">
