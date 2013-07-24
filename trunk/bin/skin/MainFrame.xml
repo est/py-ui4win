@@ -41,7 +41,7 @@
                 <Label name="LblWarn" text="You must insert another sdcard to flush rom." float="true" pos="169,179,0,0" width="450" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" />
             </VerticalLayout>
             <VerticalLayout name="DriverDiagnoseTab">
-	    	<Animation name="Juhua1" float="true" enabled="false" pos="350,150,0,0" width="95" height="95" framesize="95,95" animationimage="fw_update_soft_checking.png" frameinterval="200" />                
+                <Animation enabled="false" name="Juhua1" float="true" pos="350,150,0,0" width="95" height="95" framesize="95,95" animationimage="fw_update_soft_checking.png" frameinterval="200" />
                 <RichEdit name="txtDiagnose" bordersize="1" float="true" pos="80,55,0,0" width="631" height="294" bordercolor="#00008000" inset="1,1,1,1" vscrollbar="true" hscrollbar="true" autohscroll="true" autovscroll="true" />
                 <Button name="btnOpenLog" text="打开日志" float="true" pos="578,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
                 <Button name="btnClearLog" text="清空日志" float="true" pos="423,358,0,0" width="134" height="42" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" font="1" align="center" normalimage="reboot.png" hotimage="file=&apos;reboot-hot.png&apos; corner=&apos;20,20,20,20&apos;" pushedimage="reboot.png" focusedimage="reboot.png" />
