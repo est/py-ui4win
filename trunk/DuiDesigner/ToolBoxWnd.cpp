@@ -84,6 +84,7 @@ void CToolBoxWnd::InitToolList()
 	pControlTab->AddSubTool(new CToolElement(_T("Progress"),classProgress,IDI_TOOLBOX_PROGRESS));
 	pControlTab->AddSubTool(new CToolElement(_T("Slider"),classSlider,IDI_TOOLBOX_SLIDER));
 	pControlTab->AddSubTool(new CToolElement(_T("Animation"),classAnimation,IDI_TOOLBOX_ANIMATION));
+	pControlTab->AddSubTool(new CToolElement(_T("CheckBox"),classCheckBox,IDI_TOOLBOX_CHECKBOX));
 	pControlTab->AddSubTool(new CToolElement(_T("ActiveX"),classActiveX,IDI_TOOLBOX_ACTIVE));
 	m_ctlToolList.AddToolTab(pControlTab);
 

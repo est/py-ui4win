@@ -664,6 +664,13 @@ void CUIProperties::InitPropList()
 	m_wndPropList.AddProperty(pPropUI);
 #pragma endregion Animation
 
+	//Animation
+#pragma region Animation
+	pPropUI=new CMFCPropertyGridProperty(_T("CheckBox"),classCheckBox);
+
+	m_wndPropList.AddProperty(pPropUI);
+#pragma endregion Animation
+
 	//Button
 #pragma region Button
 	pPropUI=new CMFCPropertyGridProperty(_T("Button"),classButton);
@@ -1309,6 +1316,9 @@ void CUIProperties::ShowProperty(CControlUI* pControl)
 		break;
 	case classAnimation:
 		ShowAnimationProperty(pControl);
+		break;
+	case classCheckBox:
+		ShowOptionProperty(pControl);
 		break;
 	case classLabel:
 	case classText:

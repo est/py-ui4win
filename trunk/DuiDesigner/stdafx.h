@@ -109,7 +109,7 @@ enum UIClass
 	classEdit,
 	classLabel,
 	classText,
-	classOption,
+	classCheckBox,
 	classCombo,
 	classList,
 	classSlider,
@@ -123,6 +123,7 @@ enum UIClass
 	classTileLayout,
 	classRichEdit,
 	classAnimation,
+	classOption,
 	classListHeader,
 	classListHeaderItem,
 	classListTextElement,
@@ -174,6 +175,7 @@ using DuiLib::CRenderEngine;
 using DuiLib::CDialogBuilder;
 using DuiLib::CControlUI;
 using DuiLib::CAnimationUI;
+using DuiLib::CCheckBoxUI;
 using DuiLib::CRichEditUI;
 using DuiLib::CButtonUI;
 using DuiLib::CEditUI;
