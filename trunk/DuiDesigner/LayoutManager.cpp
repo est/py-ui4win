@@ -1510,11 +1510,6 @@ void CLayoutManager::SaveControlProperty(CControlUI* pControl, TiXmlElement* pNo
 {
 	TCHAR szBuf[MAX_PATH] = {0};
 
-	if (!pControl->IsEnabled())
-	{
-		pNode->SetAttribute("enabled", "false");
-	}
-
 	if(pControl->GetName() && _tcslen(pControl->GetName()) > 0)
 	{
 			CString strUIName=pControl->GetName();
@@ -1522,6 +1517,11 @@ void CLayoutManager::SaveControlProperty(CControlUI* pControl, TiXmlElement* pNo
 			{
 				pNode->SetAttribute("name", StringConvertor::WideToUtf8(pControl->GetName()));
 			}
+	}
+
+	if (!pControl->IsEnabled())
+	{
+		pNode->SetAttribute("enabled", "false");
 	}
 
 	if(pControl->GetText() && _tcslen(pControl->GetText()) > 0)
