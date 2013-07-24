@@ -584,8 +584,8 @@ class MainFrame(PyFrameBase):
             try:
                 PyWinUtils().CreateDirectory(YOURNAME + r"\bin")
                 os.chdir(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureKernel.dll", YOURNAME + r"\bin\UiFeatureKernel.dll")
-                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureNormalControl.dll", YOURNAME + r"\bin\UiFeatureNormalControl.dll")
+#                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureKernel.dll", YOURNAME + r"\bin\UiFeatureKernel.dll")
+#                shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\UiFeatureNormalControl.dll", YOURNAME + r"\bin\UiFeatureNormalControl.dll")
                 shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\src\Release\360MobileMgr.exe", YOURNAME + r"\bin\360MobileMgr.exe")
                 shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\sign_config.ini", YOURNAME + r"\sign_config.ini")
                 shutil.copyfile(r"E:\360mobile_svn\360mobilemgr\branches\360MobileMgr_For_SysClean\upload.ok", YOURNAME + r"\upload.ok")
@@ -600,6 +600,7 @@ class MainFrame(PyFrameBase):
                 time.sleep(5)
             else:
                 break
+        CommonUtils.ReverseToExePath()
         self.changeSignal("forcleared.txt", "binuploaded.txt")
         self.AppendAndLog( "7 等待取bin")
         self.waitForSignal("binsinged.txt")
@@ -636,7 +637,8 @@ class MainFrame(PyFrameBase):
 
         if os.path.isfile(TRUNC_DIR + "\\360MM\\Bin\\Release\\360Root.exe"):
             self.AppendAndLog( "  成功")
-            os.remove(TRUNC_DIR + "\\360MM\\Bin\\Release\\adb.exe")
+            if os.path.isfile(TRUNC_DIR + "\\360MM\\Bin\\Release\\adb.exe"):
+                os.remove(TRUNC_DIR + "\\360MM\\Bin\\Release\\adb.exe")
         else:
             self.AppendAndLog( "  失败")
             return
@@ -687,6 +689,7 @@ class MainFrame(PyFrameBase):
                 time.sleep(5)
             else:
                 break
+        CommonUtils.ReverseToExePath()
         self.changeSignal("forcleared.txt", "binuploaded.txt")
         self.AppendAndLog( "7 等待取bin")
         self.waitForSignal("binsinged.txt")
