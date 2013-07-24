@@ -1089,6 +1089,8 @@ void CUIDesignerView::ShowPropertyDialog(CControlUI* pControl)
 		break;
 	case classControl:
 		break;
+	case classCheckBox:
+		break;
 	case classAnimation:
 		break;
 	case classLabel:

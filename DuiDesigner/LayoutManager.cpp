@@ -682,6 +682,11 @@ CControlUI* CLayoutManager::NewUI(int nClass,CRect& rect,CControlUI* pParent, CL
 		pControl=new CAnimationUI;
 		pExtended->nClass=classAnimation;
 		pControl->SetFloat(true);
+		break;	
+	case classCheckBox:
+		pControl=new CCheckBoxUI;
+		pExtended->nClass=classCheckBox;
+		pControl->SetFloat(true);
 		break;
 	case classLabel:
 		pControl=new CLabelUI;
@@ -1021,6 +1026,9 @@ CControlUI* CLayoutManager::CloneControl(CControlUI* pControl)
 		break;	
 	case classAnimation:
 		pCopyControl = new CAnimationUI(*static_cast<CAnimationUI*>(pControl->GetInterface(_T("Animation"))));
+		break;	
+	case classCheckBox:
+		pCopyControl = new CCheckBoxUI(*static_cast<CCheckBoxUI*>(pControl->GetInterface(_T("CheckBox"))));
 		break;
 	case classLabel:
 		pCopyControl = new CLabelUI(*static_cast<CLabelUI*>(pControl->GetInterface(_T("Label"))));
@@ -2330,6 +2338,7 @@ void CLayoutManager::SaveProperties(CControlUI* pControl, TiXmlElement* pParentN
 	case classRichEdit:
 		SaveRichEditProperty(pControl, pNode);
 		break;
+	case classCheckBox:
 	case classOption:
 		SaveOptionProperty(pControl, pNode);
 		break;

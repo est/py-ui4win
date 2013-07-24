@@ -19,7 +19,7 @@
 // CUIDesignerApp
 
 BEGIN_MESSAGE_MAP(CUIDesignerApp, CWinAppEx)
-	ON_COMMAND(ID_APP_ABOUT, &CUIDesignerApp::OnAppAbout)
+	ON_COMMAND(ID_APP_ABOUT1, &CUIDesignerApp::OnAppAbout)
 	// 基于文件的标准文档命令
 	ON_COMMAND(ID_FILE_NEW, &CUIDesignerApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)

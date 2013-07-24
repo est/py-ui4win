@@ -103,6 +103,7 @@ IDI_TOOLBOX_TILE_LAYOUT ICON                    "res\\ToolBox\\TileLayout.ico"
 IDI_TOOLBOX_VERTICAL_LAYOUT ICON                    "res\\ToolBox\\VerticalLayout.ico"
 IDI_TOOLBOX_RICHEDIT    ICON                    "res\\toolbox\\RichEdit.ico"
 IDI_TOOLBOX_ANIMATION   ICON                    "res\\ToolBox\\Animation.ico"
+IDI_TOOLBOX_CHECKBOX    ICON                    "res\\ToolBox\\CheckBox.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -314,7 +315,7 @@ BEGIN
     POPUP "帮助(&H)"
     BEGIN
         MENUITEM "检查更新(&U)...",                 ID_APP_CHECK_UPDATE
-        MENUITEM "关于(&A)...",                   ID_APP_ABOUT
+        MENUITEM "关于(&A)...",                   ID_APP_ABOUT1
     END
 END
 
@@ -423,7 +424,7 @@ BEGIN
     POPUP "帮助(&H)"
     BEGIN
         MENUITEM "检查更新(&U)...",                 ID_APP_CHECK_UPDATE
-        MENUITEM "关于...",                       ID_APP_ABOUT
+        MENUITEM "关于...",                       ID_APP_ABOUT1
     END
 END
 
@@ -918,7 +919,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_APP_ABOUT            "显示程序信息、版本号和版权\n关于"
+    ID_APP_ABOUT1            "显示程序信息、版本号和版权\n关于"
     ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
 END
 
