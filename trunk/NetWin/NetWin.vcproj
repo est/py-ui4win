@@ -660,6 +660,18 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\ControlUI2py.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\dui-python.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DuiString2py.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\LuaExtScript.cpp"
 				>
 			</File>
@@ -766,6 +778,10 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl"
 			>
+			<File
+				RelativePath=".\duilib-python.h"
+				>
+			</File>
 			<File
 				RelativePath=".\file.h"
 				>

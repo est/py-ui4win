@@ -14,6 +14,7 @@
 #include "Win32Api.h"
 #include "PyModuleImport.h"
 #include "PyException.h"
+#include "duilib-python.h"
 
 using namespace std;
 using namespace boost::python;
@@ -304,6 +305,7 @@ BOOST_PYTHON_MODULE(PyUI)
 
 void PyExtentInit()
 {
+	duilib_registration();
 	PyImport_AppendInittab("PyUI", initPyUI);
 }
 
