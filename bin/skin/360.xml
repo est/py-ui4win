@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="936,699">
+    <VerticalLayout bordersize="2" width="936" height="654" bkimage="file=&apos;dialog_background_new.png&apos; corner=&apos;95,715,2,255&apos;">
+        <HorizontalLayout name="HLU_caption" width="936" height="95">
+            <HorizontalLayout width="179" height="95" />
+            <VerticalLayout>
+                <HorizontalLayout width="757" height="24">
+                    <VerticalLayout />
+                    <VerticalLayout width="79">
+                        <HorizontalLayout>
+                            <Button name="minbtn" width="25" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;sysmenu_.png&apos; source=&apos;0,0,24,23&apos;" hotimage="file=&apos;sysmenu_.png&apos; source=&apos;25,0,49,23&apos;" pushedimage="file=&apos;sysmenu_.png&apos; source=&apos;50,0,74,23&apos;" />
+                            <Button name="maxbtn" width="25" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;sysbtn_max.png&apos; source=&apos;0,0,24,23&apos;" hotimage="file=&apos;sysbtn_max.png&apos; source=&apos;25,0,49,23&apos;" pushedimage="file=&apos;sysbtn_max.png&apos; source=&apos;50,0,74,23&apos;" />
+                            <Button name="closebtn" width="29" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;sysmenu_close.png&apos; source=&apos;0,0,28,23&apos;" hotimage="file=&apos;sysmenu_close.png&apos; source=&apos;29,0,57,23&apos;" pushedimage="file=&apos;sysmenu_close.png&apos; source=&apos;58,0,86,23&apos;" />
+                        </HorizontalLayout>
+                    </VerticalLayout>
+                </HorizontalLayout>
+                <HorizontalLayout height="70">
+                    <Option name="OU_genPwd" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd1" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd2" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd3" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd4" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd5" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd6" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd7" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                    <Option name="OU_genPwd8" width="73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;tab_hover.png&apos; source=&apos;0,0,72,69&apos;" hotimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" group="mainfun" selectedimage="file=&apos;tab_hover.png&apos; source=&apos;73,0,145,69&apos;" />
+                </HorizontalLayout>
+            </VerticalLayout>
+        </HorizontalLayout>
+        <HorizontalLayout width="936" height="575">
+            <VerticalLayout width="179" height="575">
+                <TabLayout name="TLU_subFun">
+                    <VerticalLayout name="VLU_compile" width="180" height="575" inset="1,0,0,0">
+                        <Option width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                        <Option width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" />
+                    </VerticalLayout>
+                    <VerticalLayout name="FlushRomTab" />
+                </TabLayout>
+            </VerticalLayout>
+            <VerticalLayout>
+                <TabLayout name="TLU_client" selectedid="-1" />
+            </VerticalLayout>
+        </HorizontalLayout>
+        <HorizontalLayout width="936" />
+    </VerticalLayout>
+</Window>
