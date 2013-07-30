@@ -1,4 +1,4 @@
 #pragma once
 
-typedef CControlUI* PControlUI; 
+typedef ULONG PControlUI; 
 void duilib_registration();

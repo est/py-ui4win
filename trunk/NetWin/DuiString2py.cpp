@@ -35,27 +35,19 @@ PyTypeObject const *duistring_to_pystr::get_pytype() {
 }
 
 void *duistring_from_pystr::convertible( PyObject *object ) {
-	return object;
+	if (!PyString_Check(object))  
+		return NULL;  
+	return object;  
 }
 
 void duistring_from_pystr::construct( PyObject *object, boost::python::converter::rvalue_from_python_stage1_data *data ) {
-	int len( PyString_Size( object ) );
-	if ( len < 0 )
-	{
-		ATLASSERT(0);
-	}
-	char* ustr( new char[ len + 1 ] );
-	memset(ustr, 0, len+1);
-	strcpy(ustr, PyString_AsString( object ));
-	if (strlen(ustr) != len )
-	{
-		ATLASSERT(0);
-	}
-	
+	const char* value = PyString_AsString(object);  
+	if (!value)  
+		boost::python::throw_error_already_set();  
 	void *storage = reinterpret_cast<
 		boost::python::converter::rvalue_from_python_storage< CDuiString >*
 	>( data )->storage.bytes;
-	new (storage) CDuiString( ustr );
+	new (storage) CDuiString( value );
 	data->convertible = storage;
 }
 

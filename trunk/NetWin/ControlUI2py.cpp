@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include<boost/python.hpp>
+#include "duilib-python.h"
 
 namespace bp = boost::python;
-typedef CControlUI* PControlUI; 
 
 struct controlui_to_py {
 	static PyObject *convert( const PControlUI &s );

@@ -4,16 +4,16 @@
 
 #include<boost/python.hpp>
 #include "PyFrameUI.hpp"
+#include "duilib-python.h"
 
 using namespace boost::python;
-typedef CControlUI* PControlUI; 
 
 class PyControlUI
 {
 public:
-	PyControlUI(ULONG pControlUI) {m_pyControlUI = (CControlUI*)pControlUI;}
+	PyControlUI(PControlUI pControlUI) {m_pyControlUI = (CControlUI*)pControlUI;}
 	~PyControlUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -33,9 +33,9 @@ protected:
 class PyLabelUI
 {
 public:
-	PyLabelUI(ULONG pControlUI) {m_pyControlUI = (CLabelUI*)pControlUI;}
+	PyLabelUI(PControlUI pControlUI) {m_pyControlUI = (CLabelUI*)pControlUI;}
 	~PyLabelUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -55,9 +55,9 @@ protected:
 class PyButtonUI
 {
 public:
-	PyButtonUI(ULONG pControlUI) {m_pyControlUI = (CButtonUI*)pControlUI;}
+	PyButtonUI(PControlUI pControlUI) {m_pyControlUI = (CButtonUI*)pControlUI;}
 	~PyButtonUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -77,9 +77,9 @@ protected:
 class PyOptionUI
 {
 public:
-	PyOptionUI(ULONG pControlUI) {m_pyControlUI = (COptionUI*)pControlUI;}
+	PyOptionUI(PControlUI pControlUI) {m_pyControlUI = (COptionUI*)pControlUI;}
 	~PyOptionUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -95,9 +95,9 @@ protected:
 class PyCheckBoxUI
 {
 public:
-	PyCheckBoxUI(ULONG pControlUI) {m_pyControlUI = (CCheckBoxUI*)pControlUI;}
+	PyCheckBoxUI(PControlUI pControlUI) {m_pyControlUI = (CCheckBoxUI*)pControlUI;}
 	~PyCheckBoxUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -115,9 +115,9 @@ protected:
 class PyProgressUI
 {
 public:
-	PyProgressUI(ULONG pControlUI) {m_pyControlUI = (CProgressUI*)pControlUI;}
+	PyProgressUI(PControlUI pControlUI) {m_pyControlUI = (CProgressUI*)pControlUI;}
 	~PyProgressUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -135,9 +135,9 @@ protected:
 class PyAnimationUI
 {
 public:
-	PyAnimationUI(ULONG pControlUI) {m_pyControlUI = (CAnimationUI*)pControlUI;}
+	PyAnimationUI(PControlUI pControlUI) {m_pyControlUI = (CAnimationUI*)pControlUI;}
 	~PyAnimationUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -155,9 +155,9 @@ protected:
 class PyHorizontalLayoutUI
 {
 public:
-	PyHorizontalLayoutUI(ULONG pControlUI) {m_pyControlUI = (CHorizontalLayoutUI*)pControlUI;}
+	PyHorizontalLayoutUI(PControlUI pControlUI) {m_pyControlUI = (CHorizontalLayoutUI*)pControlUI;}
 	~PyHorizontalLayoutUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -167,7 +167,7 @@ public:
 	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
 
 	void SetAttribute(LPCSTR pstrName, LPCSTR pstrValue) {m_pyControlUI->SetAttribute(pstrName, pstrValue);}
-	bool Add(ULONG pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
+	bool Add(PControlUI pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
 
 protected:
 	CHorizontalLayoutUI* m_pyControlUI;   // dui中实现的ui对象
@@ -176,9 +176,9 @@ protected:
 class PyVerticalLayoutUI
 {
 public:
-	PyVerticalLayoutUI(ULONG pControlUI) {m_pyControlUI = (CVerticalLayoutUI*)pControlUI;}
+	PyVerticalLayoutUI(PControlUI pControlUI) {m_pyControlUI = (CVerticalLayoutUI*)pControlUI;}
 	~PyVerticalLayoutUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -188,7 +188,7 @@ public:
 	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
 
 	void SetAttribute(LPCSTR pstrName, LPCSTR pstrValue) {m_pyControlUI->SetAttribute(pstrName, pstrValue);}
-	bool Add(ULONG pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
+	bool Add(PControlUI pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
 
 protected:
 	CVerticalLayoutUI* m_pyControlUI;   // dui中实现的ui对象
@@ -197,9 +197,9 @@ protected:
 class PyTabLayoutUI
 {
 public:
-	PyTabLayoutUI(ULONG pControlUI) {m_pyControlUI = (CTabLayoutUI*)pControlUI;}
+	PyTabLayoutUI(PControlUI pControlUI) {m_pyControlUI = (CTabLayoutUI*)pControlUI;}
 	~PyTabLayoutUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -212,7 +212,7 @@ public:
 	bool IsFocused() {return m_pyControlUI->IsFocused();}
 	void SetFocus(){m_pyControlUI->SetFocus();}
 
-	bool Add(ULONG pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
+	bool Add(PControlUI pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
 	bool SelectItem(int iIndex) { return m_pyControlUI->SelectItem(iIndex); }
 
 protected:
@@ -222,9 +222,9 @@ protected:
 class PyListUI
 {
 public:
-	PyListUI(ULONG pControlUI) {m_pyControlUI = (CListUI*)pControlUI;}
+	PyListUI(PControlUI pControlUI) {m_pyControlUI = (CListUI*)pControlUI;}
 	~PyListUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -232,7 +232,7 @@ public:
 	void SetVisible(bool bVisible = true){m_pyControlUI->SetVisible(bVisible);}
 	bool IsEnabled() {return m_pyControlUI->IsEnabled();}
 	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
-	bool Add(ULONG pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
+	bool Add(PControlUI pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
 
 protected:
 	CListUI* m_pyControlUI;   // dui中实现的ui对象
@@ -241,9 +241,9 @@ protected:
 class PyListContainerElementUI
 {
 public:
-	PyListContainerElementUI(ULONG pControlUI) {m_pyControlUI = (CListContainerElementUI*)pControlUI;}
+	PyListContainerElementUI(PControlUI pControlUI) {m_pyControlUI = (CListContainerElementUI*)pControlUI;}
 	~PyListContainerElementUI() {}
-	ULONG GetSelf() {return (ULONG)m_pyControlUI;}
+	PControlUI GetSelf() {return (PControlUI)m_pyControlUI;}
 
 	void SetName(LPCSTR pstrName) {m_pyControlUI->SetName(pstrName);};
 	void ApplyAttributeList(LPCSTR pstrList) {m_pyControlUI->ApplyAttributeList(pstrList);}
@@ -251,7 +251,7 @@ public:
 	void SetVisible(bool bVisible = true){m_pyControlUI->SetVisible(bVisible);}
 	bool IsEnabled() {return m_pyControlUI->IsEnabled();}
 	void SetEnabled(bool bEnable = true){m_pyControlUI->SetEnabled(bEnable);}
-	bool Add(ULONG pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
+	bool Add(PControlUI pControl) { return m_pyControlUI->Add((CControlUI*)pControl); }
 
 protected:
 	CListContainerElementUI* m_pyControlUI;   // dui中实现的ui对象
@@ -263,18 +263,18 @@ public:
 	PyUIFactory() {}
 	~PyUIFactory() {}
 
-	ULONG CreateControlUI(){return (ULONG)(new CControlUI());}
-	ULONG CreateLabelUI(){return (ULONG)(new CLabelUI());}
-	ULONG CreateButtonUI(){return (ULONG)(new CButtonUI());}
-	ULONG CreateOptionUI(){return (ULONG)(new COptionUI());}
-	ULONG CreateCheckBoxUI(){return (ULONG)(new CCheckBoxUI());}
-	ULONG CreateProgressUI(){return (ULONG)(new CProgressUI());}
-	ULONG CreateAnimationUI(){return (ULONG)(new CAnimationUI());}
-	ULONG CreateTabLayoutUI(){return (ULONG)(new CTabLayoutUI());}
-	ULONG CreateHorizontalLayoutUI(){return (ULONG)(new CHorizontalLayoutUI());}
-	ULONG CreateVerticalLayoutUI(){return (ULONG)(new CVerticalLayoutUI());}
-	ULONG CreateListUI(){return (ULONG)(new CListUI());}
-	ULONG CreateListContainerElementUI(){return (ULONG)(new CListContainerElementUI());}
+	PControlUI CreateControlUI(){return (PControlUI)(new CControlUI());}
+	PControlUI CreateLabelUI(){return (PControlUI)(new CLabelUI());}
+	PControlUI CreateButtonUI(){return (PControlUI)(new CButtonUI());}
+	PControlUI CreateOptionUI(){return (PControlUI)(new COptionUI());}
+	PControlUI CreateCheckBoxUI(){return (PControlUI)(new CCheckBoxUI());}
+	PControlUI CreateProgressUI(){return (PControlUI)(new CProgressUI());}
+	PControlUI CreateAnimationUI(){return (PControlUI)(new CAnimationUI());}
+	PControlUI CreateTabLayoutUI(){return (PControlUI)(new CTabLayoutUI());}
+	PControlUI CreateHorizontalLayoutUI(){return (PControlUI)(new CHorizontalLayoutUI());}
+	PControlUI CreateVerticalLayoutUI(){return (PControlUI)(new CVerticalLayoutUI());}
+	PControlUI CreateListUI(){return (PControlUI)(new CListUI());}
+	PControlUI CreateListContainerElementUI(){return (PControlUI)(new CListContainerElementUI());}
 };
 
 // An abstract base class
@@ -304,10 +304,10 @@ public:
 	virtual void ExitApp() { ::ExitProcess(0); }
 	ULONG ProcessMessages() { return m_pyFrameUI->ProcessMessages();}
 
-	ULONG FindControl(LPCSTR ControlName)
+	PControlUI FindControl(LPCSTR ControlName)
 	{
 		CControlUI* pControl = m_pyFrameUI->FindControl(ControlName);
-		return (ULONG)pControl;
+		return (PControlUI)pControl;
 	}
 	// 为方便使用加入
 	virtual void SetText(LPCSTR ControlName, LPCSTR caption)
@@ -328,7 +328,7 @@ protected:
 // Familiar Boost.Python wrapper class for Base
 struct PyUIBaseWrap : PyUIBase, wrapper<PyUIBase>
 {
-	virtual ULONG FindControl(LPCSTR ControlName) { return this->PyUIBase::FindControl(ControlName); }
+	virtual PControlUI FindControl(LPCSTR ControlName) { return this->PyUIBase::FindControl(ControlName); }
 	virtual ULONG ProcessMessages() { return this->PyUIBase::ProcessMessages(); }
 	virtual UINT ShowModal() { return this->PyUIBase::ShowModal(); }
 	UINT default_ShowModal() { return this->PyUIBase::ShowModal(); }

@@ -17,6 +17,7 @@
 #include "duilib-python.h"
 
 using namespace std;
+using namespace DuiLib;
 using namespace boost::python;
 
 typedef boost::shared_ptr < PyFrameCreator > PyFrame_ptr;  
@@ -36,7 +37,20 @@ typedef boost::shared_ptr < PyUIFactory > PyUIFactory_ptr;
 
 BOOST_PYTHON_MODULE(PyUI)
 {
-	class_<PyControlUI>("PyControlUI", init<ULONG>())
+	class_<CControlUI, boost::noncopyable>("CControlUI")
+		.def("SetName", &CControlUI::SetName)
+		.def("ApplyAttributeList", &CControlUI::ApplyAttributeList, return_value_policy<reference_existing_object>())
+		.def("SetText", &CControlUI::SetText)
+		.def("GetText", &CControlUI::GetText)
+		.def("IsVisible", &CControlUI::IsVisible)
+		.def("SetVisible", &CControlUI::SetVisible)
+		.def("IsEnabled", &CControlUI::IsEnabled)
+		.def("SetEnabled", &CControlUI::SetEnabled)
+		.def("IsFocused", &CControlUI::IsFocused)
+		.def("SetFocus", &CControlUI::SetFocus)
+		; 
+
+	class_<PyControlUI>("PyControlUI", init<PControlUI>())
 		.def("SetName", &PyControlUI::SetName)
 		.def("GetSelf", &PyControlUI::GetSelf)
 		.def("ApplyAttributeList", &PyControlUI::ApplyAttributeList)
@@ -50,7 +64,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetFocus", &PyControlUI::SetFocus)
 		; 
 
-	class_<PyLabelUI>("PyLabelUI", init<ULONG>())
+	class_<PyLabelUI>("PyLabelUI", init<PControlUI>())
 		.def("SetName", &PyLabelUI::SetName)
 		.def("GetSelf", &PyLabelUI::GetSelf)
 		.def("ApplyAttributeList", &PyLabelUI::ApplyAttributeList)
@@ -64,7 +78,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetFocus", &PyLabelUI::SetFocus)
 		; 
 
-	class_<PyButtonUI>("PyButtonUI", init<ULONG>())
+	class_<PyButtonUI>("PyButtonUI", init<PControlUI>())
 		.def("SetName", &PyButtonUI::SetName)
 		.def("GetSelf", &PyButtonUI::GetSelf)
 		.def("ApplyAttributeList", &PyButtonUI::ApplyAttributeList)
@@ -78,7 +92,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetFocus", &PyButtonUI::SetFocus)
 		; 
 
-	class_<PyOptionUI>("PyOptionUI", init<ULONG>())
+	class_<PyOptionUI>("PyOptionUI", init<PControlUI>())
 		.def("SetName", &PyOptionUI::SetName)
 		.def("GetSelf", &PyOptionUI::GetSelf)
 		.def("ApplyAttributeList", &PyOptionUI::ApplyAttributeList)
@@ -88,7 +102,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetEnabled", &PyOptionUI::SetEnabled)
 		; 
 
-	class_<PyCheckBoxUI>("PyCheckBoxUI", init<ULONG>())
+	class_<PyCheckBoxUI>("PyCheckBoxUI", init<PControlUI>())
 		.def("SetName", &PyCheckBoxUI::SetName)
 		.def("GetSelf", &PyCheckBoxUI::GetSelf)
 		.def("ApplyAttributeList", &PyCheckBoxUI::ApplyAttributeList)
@@ -100,7 +114,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetEnabled", &PyCheckBoxUI::SetEnabled)
 		; 
 
-	class_<PyProgressUI>("PyProgressUI", init<ULONG>())
+	class_<PyProgressUI>("PyProgressUI", init<PControlUI>())
 		.def("SetName", &PyProgressUI::SetName)
 		.def("GetSelf", &PyProgressUI::GetSelf)
 		.def("ApplyAttributeList", &PyProgressUI::ApplyAttributeList)
@@ -112,7 +126,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("SetEnabled", &PyProgressUI::SetEnabled)
 		; 
 
-	class_<PyAnimationUI>("PyAnimationUI", init<ULONG>())
+	class_<PyAnimationUI>("PyAnimationUI", init<PControlUI>())
 		.def("SetName", &PyAnimationUI::SetName)
 		.def("GetSelf", &PyAnimationUI::GetSelf)
 		.def("ApplyAttributeList", &PyAnimationUI::ApplyAttributeList)
@@ -124,7 +138,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("StartAnimation", &PyAnimationUI::StartAnimation)
 		; 
 
-	class_<PyHorizontalLayoutUI>("PyHorizontalLayoutUI", init<ULONG>())
+	class_<PyHorizontalLayoutUI>("PyHorizontalLayoutUI", init<PControlUI>())
 		.def("SetName", &PyHorizontalLayoutUI::SetName)
 		.def("GetSelf", &PyHorizontalLayoutUI::GetSelf)
 		.def("ApplyAttributeList", &PyHorizontalLayoutUI::ApplyAttributeList)
@@ -136,7 +150,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("Add", &PyHorizontalLayoutUI::Add)
 		; 
 
-	class_<PyVerticalLayoutUI>("PyVerticalLayoutUI", init<ULONG>())
+	class_<PyVerticalLayoutUI>("PyVerticalLayoutUI", init<PControlUI>())
 		.def("SetName", &PyVerticalLayoutUI::SetName)
 		.def("GetSelf", &PyVerticalLayoutUI::GetSelf)
 		.def("ApplyAttributeList", &PyVerticalLayoutUI::ApplyAttributeList)
@@ -148,7 +162,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("Add", &PyVerticalLayoutUI::Add)
 		; 
 
-	class_<PyTabLayoutUI>("PyTabLayoutUI", init<ULONG>())
+	class_<PyTabLayoutUI>("PyTabLayoutUI", init<PControlUI>())
 		.def("SetName", &PyTabLayoutUI::SetName)
 		.def("GetSelf", &PyTabLayoutUI::GetSelf)
 		.def("ApplyAttributeList", &PyTabLayoutUI::ApplyAttributeList)
@@ -164,7 +178,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("Add", &PyTabLayoutUI::Add)
 		; 
 
-	class_<PyListUI>("PyListUI", init<ULONG>())
+	class_<PyListUI>("PyListUI", init<PControlUI>())
 		.def("SetName", &PyListUI::SetName)
 		.def("GetSelf", &PyListUI::GetSelf)
 		.def("ApplyAttributeList", &PyListUI::ApplyAttributeList)
@@ -175,7 +189,7 @@ BOOST_PYTHON_MODULE(PyUI)
 		.def("Add", &PyListUI::Add)
 		; 
 
-	class_<PyListContainerElementUI>("PyListContainerElementUI", init<ULONG>())
+	class_<PyListContainerElementUI>("PyListContainerElementUI", init<PControlUI>())
 		.def("SetName", &PyListContainerElementUI::SetName)
 		.def("GetSelf", &PyListContainerElementUI::GetSelf)
 		.def("ApplyAttributeList", &PyListContainerElementUI::ApplyAttributeList)
@@ -260,6 +274,10 @@ BOOST_PYTHON_MODULE(PyUI)
 
 	class_<PyLog>("PyLog")
 		.def("LogText", &PyLog::LogText)
+		;
+
+	class_<PyTest>("PyTest")
+		.def("Test", &PyTest::Test)
 		;
 
 	class_<PyScript>("PyScript")
