@@ -11,6 +11,18 @@
 #include "UIDesignerView.h"
 #include "afxwin.h"
 
+#include "PyException.h"
+#ifdef _DEBUG
+#undef _DEBUG
+#include <Python.h>
+#define _DEBUG
+#else
+#include <Python.h>
+#endif
+#include<boost/python.hpp>
+#include "PyModuleImport.h"
+using namespace boost::python;
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -66,6 +78,64 @@ BOOL CUIDesignerApp::InitInstance()
 		return FALSE;
 	}
 	AfxEnableControlContainer();
+
+	// 初始化python
+	Py_Initialize();
+	PyEval_InitThreads();
+
+	// 将当前目录加入python环境变量
+	//CString pathA = GetExeFolder();
+	//pathA.Replace('\\', '/');
+	try
+	{
+/*		PyRun_SimpleString("import sys");
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27')    \n").c_str());
+		PyRun_SimpleString((std::string("if not '") + (LPCSTR)pathA + "\\DLLs' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\DLLs')    \n").c_str()
+			);
+		PyRun_SimpleString("import sys");
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27')    \n").c_str());
+		PyRun_SimpleString(
+			"import pywintypes    \n"
+			"    pywintypes.__import_pywin32_system_module__(\"pythoncom\", globals())         \n"
+			);
+
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27\\win32' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27\\win32')    \n").c_str());
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27\\win32com' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27\\win32com')    \n").c_str());
+		PyRun_SimpleString(
+			(std::string("if not '") + (LPCSTR)pathA + "\\Python27\\win32comext' in sys.path: \n"
+			"    sys.path.append('" + (LPCSTR)pathA + "\\Python27\\win32comext')    \n").c_str());
+*/
+		//PyRun_SimpleString((std::string("if not '") + (LPCSTR)pathA + "\\DLLs' in sys.path: \n"
+		//	"    sys.path.append('" + (LPCSTR)pathA + "\\DLLs')    \n").c_str()
+		//	);
+	}
+	catch(boost::python::error_already_set const &)
+	{  
+		std::string err = parse_python_exception();
+		PyLog().LogText(err.c_str());
+		PyErr_Clear();
+	}  
+	catch (...)
+	{
+		if (PyErr_Occurred())
+		{
+			std::string err = parse_python_exception();
+			PyLog().LogText(err.c_str());
+			PyErr_Clear();
+		}
+	}
+	// 注册Py模块
+	PyExtentInit();
+
 	// 标准初始化
 	// 如果未使用这些功能并希望减小
 	// 最终可执行文件的大小，则应移除下列

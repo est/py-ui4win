@@ -357,6 +357,8 @@ BEGIN
         MENUITEM "复制(&C)\tCtrl+C",              ID_EDIT_COPY
         MENUITEM "粘贴(&P)\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "删除(&D)\t Delete",             ID_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "生成Python类",                   ID_GENERATE_CODE
     END
     POPUP "格式(&O)"
     BEGIN
@@ -919,7 +921,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_APP_ABOUT1            "显示程序信息、版本号和版权\n关于"
+    ID_APP_ABOUT1           "显示程序信息、版本号和版权\n关于"
+    ID_GENERATE_CODE        "为当前窗口生成Python处理类"
+END
+
+STRINGTABLE 
+BEGIN
     ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
 END
 

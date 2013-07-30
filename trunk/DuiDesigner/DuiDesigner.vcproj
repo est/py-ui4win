@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="2"
+			UseOfMFC="1"
 			CharacterSet="1"
 			>
 			<Tool
@@ -45,11 +45,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".\third_party\tinyxml"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
+				AdditionalIncludeDirectories=".\third_party\tinyxml;..\include\python;..\include\Lua"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;BOOST_PYTHON_STATIC_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -69,8 +69,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="libboost_python-vc90-mt-sgd-1_53.lib lua51.lib"
 				OutputFile="..\bin\DuiDesigner_d.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="..\libs\python; ..\Lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\$(ConfigurationName)\$(TargetName).pdb"
 				SubSystem="2"
@@ -103,7 +105,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="2"
+			UseOfMFC="1"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -129,10 +131,10 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories=".\third_party\tinyxml"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
+				AdditionalIncludeDirectories=".\third_party\tinyxml;..\include\python;..\include\Lua"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;BOOST_PYTHON_STATIC_LIB"
 				MinimalRebuild="false"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
@@ -153,8 +155,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="libboost_python-vc90-mt-s-1_53.lib lua51.lib"
 				OutputFile="..\bin\DuiDesigner.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="..\libs\python; ..\Lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\$(ConfigurationName)\$(TargetName).pdb"
 				SubSystem="2"
@@ -279,6 +283,14 @@
 			</File>
 			<File
 				RelativePath=".\PropertyTabLayoutUI.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PyException.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PyModuleImport.cpp"
 				>
 			</File>
 			<File
@@ -433,6 +445,14 @@
 			</File>
 			<File
 				RelativePath=".\PropertyTabLayoutUI.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PyException.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PyModuleImport.h"
 				>
 			</File>
 			<File
@@ -610,11 +630,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\ToolBox\icon1.ico"
+				RelativePath=".\res\icon1.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\icon1.ico"
+				RelativePath=".\res\ToolBox\icon1.ico"
 				>
 			</File>
 			<File
