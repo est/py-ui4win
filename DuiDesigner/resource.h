@@ -252,14 +252,16 @@
 #define ID_UI_CONTROL_RICHEDIT          32900
 #define ID_UI_CONTROL_ANIMATION         32901
 #define ID_UI_CONTROL_CHECKBOX          32902
-#define ID_APP_ABOUT1					32903
+#define ID_32902                        32902
+#define ID_APP_ABOUT1                   32903
+#define ID_GENERATE_CODE                32904
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        351
-#define _APS_NEXT_COMMAND_VALUE         32902
+#define _APS_NEXT_COMMAND_VALUE         32905
 #define _APS_NEXT_CONTROL_VALUE         1043
 #define _APS_NEXT_SYMED_VALUE           351
 #endif

@@ -144,6 +144,8 @@ public:
 	afx_msg void OnUpdateNeedClip(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateEditUndo(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateEditRedo(CCmdUI* pCmdUI);
+	afx_msg void OnGenerateCode();
+	afx_msg void OnUpdateGenerateCode(CCmdUI* pCmdUI);
 
 	afx_msg void OnDestroy();
 	afx_msg void OnTemplateSaveAs();

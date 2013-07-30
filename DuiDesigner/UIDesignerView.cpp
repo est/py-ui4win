@@ -14,6 +14,18 @@
 #include <io.h>
 #include <atlimage.h>
 
+#include "PyException.h"
+#ifdef _DEBUG
+#undef _DEBUG
+#include <Python.h>
+#define _DEBUG
+#else
+#include <Python.h>
+#endif
+#include<boost/python.hpp>
+#include "PyModuleImport.h"
+using namespace boost::python;
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -71,6 +83,8 @@ BEGIN_MESSAGE_MAP(CUIDesignerView, CScrollView)
 	ON_COMMAND(ID_EDIT_REDO, &CUIDesignerView::OnEditRedo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, &CUIDesignerView::OnUpdateEditRedo)
 	ON_COMMAND(ID_TEMPLATE_SAVE_AS, &CUIDesignerView::OnTemplateSaveAs)
+	ON_UPDATE_COMMAND_UI(ID_GENERATE_CODE, &CUIDesignerView::OnUpdateGenerateCode)
+	ON_COMMAND(ID_GENERATE_CODE, &CUIDesignerView::OnGenerateCode)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_SETCURSOR()
 	ON_WM_SIZE()
@@ -1011,6 +1025,11 @@ void CUIDesignerView::OnUpdateEditUndo(CCmdUI* pCmdUI)
 	pCmdUI->Enable(m_UICommandHistory.CanUndo());
 }
 
+void CUIDesignerView::OnUpdateGenerateCode(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(!m_LayoutManager.IsEmptyForm());
+}
+
 void CUIDesignerView::OnUpdateEditRedo(CCmdUI* pCmdUI)
 {
 	pCmdUI->Enable(m_UICommandHistory.CanRedo());
@@ -1240,4 +1259,48 @@ void CUIDesignerView::RemoveForm(CArray<CControlUI*,CControlUI*>& arrSelected)
 void CUIDesignerView::SetModifiedFlag(BOOL bModified/* = TRUE*/)
 {
 	this->GetDocument()->SetModifiedFlag(bModified);
+}
+
+void CUIDesignerView::OnGenerateCode()
+{
+	TCHAR szFileName[MAX_PATH];
+	CString strFilePath=GetDocument()->GetPathName();
+
+	boost::python::handle<>* _module = NULL; // Module handle.
+	try
+	{
+		_module = new boost::python::handle<>(
+			PyImport_ImportModule("GenerateCode"));
+		int ret = boost::python::call_method<int>(_module->get(), "GeneratePythonCode", std::string(CStringA(strFilePath).GetBuffer()));
+		switch (ret)
+		{
+		case 0:
+			MessageBox(_T("成功生成代码"), _T("提示"), MB_ICONINFORMATION);
+			break;
+		case -1:
+			MessageBox(_T("还未实现"), _T("提示"), MB_ICONERROR);
+			break;
+		default:
+			MessageBox(_T("出错啦"), _T("提示"), MB_ICONERROR);
+			break;
+		}
+	}
+	catch(boost::python::error_already_set const &)
+	{  
+		std::string err = parse_python_exception();
+		PyLog().LogText(err.c_str());
+		PyErr_Clear();
+	}  
+	catch (...)
+	{
+		if (PyErr_Occurred())
+		{
+			std::string err = parse_python_exception();
+			PyLog().LogText(err.c_str());
+			PyErr_Clear();
+		}
+	}
+
+	if (_module)
+		delete _module;
 }
