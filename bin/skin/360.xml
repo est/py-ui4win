@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<Window size="936,699">
+<Window size="936,699" caption="0,0,0,95">
     <VerticalLayout bordersize="2" width="936" height="654" bkimage="file=&apos;dialog_background_new.png&apos; corner=&apos;95,715,2,255&apos;">
         <HorizontalLayout name="HLU_caption" width="936" height="95">
             <HorizontalLayout width="179" height="95" />
@@ -27,20 +27,36 @@
                 </HorizontalLayout>
             </VerticalLayout>
         </HorizontalLayout>
-        <HorizontalLayout width="936" height="575">
-            <VerticalLayout width="179" height="575">
-                <TabLayout name="TLU_subFun">
-                    <VerticalLayout name="VLU_compile" width="180" height="575" inset="1,0,0,0">
-                        <Option width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
-                        <Option width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" />
-                    </VerticalLayout>
-                    <VerticalLayout name="FlushRomTab" />
-                </TabLayout>
-            </VerticalLayout>
-            <VerticalLayout>
-                <TabLayout name="TLU_client" selectedid="-1" />
-            </VerticalLayout>
-        </HorizontalLayout>
-        <HorizontalLayout width="936" />
+        <TabLayout name="TLU_client" width="936" height="575" selectedid="1">
+            <HorizontalLayout width="936" height="575">
+                <VerticalLayout width="179" height="575">
+                    <TabLayout name="TLU_subFun">
+                        <VerticalLayout name="VLU_compile" width="180" height="575" inset="1,0,0,0">
+                            <Option name="OU_subfun1" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun2" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun3" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun4" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun5" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun6" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun7" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                            <Option name="OU_subfun8" width="179" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;0,0,178,32&apos;" hotimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;179,0,357,31&apos;" group="subfun1" selectedimage="file=&apos;myphone_subtab_bg.png&apos; source=&apos;358,0,536,31&apos;" />
+                        </VerticalLayout>
+                        <VerticalLayout name="FlushRomTab" />
+                    </TabLayout>
+                </VerticalLayout>
+                <VerticalLayout>
+                    <TabLayout name="TLU_client_right" selectedid="-1" />
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout>
+                <Edit float="true" pos="294,84,0,0" width="486" height="44" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="主密码:" float="true" pos="179,84,0,0" width="110" height="44" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="right" />
+                <Label text="网站:" float="true" pos="179,138,0,0" width="110" height="44" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="right" />
+                <Label text="辅助:" float="true" pos="179,193,0,0" width="110" height="44" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="right" />
+                <Edit float="true" pos="294,138,0,0" width="486" height="44" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Edit float="true" pos="294,193,0,0" width="486" height="44" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+            </HorizontalLayout>
+        </TabLayout>
+        <HorizontalLayout name="HL_status_bar" width="936" height="29" />
     </VerticalLayout>
 </Window>

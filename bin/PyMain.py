@@ -287,6 +287,8 @@ class MainFrame(PyFrameBase):
             pass
         if sType == DUI_MSGTYPE_CLICK:
             if sendor == "BtnClose":
+                log = PyLog()
+                PyTest().Test(log)
                 #execute_dos_cmd('adb kill-server')
                 self.ExitApp()
 
@@ -388,6 +390,9 @@ class MainFrame(PyFrameBase):
                 infPath = PyWinUtils().SelectFile(self.GetHWnd(), "inf(*.inf)\0*.inf\0")
                 if len(infPath) > 0:
                     self.edtRomPath.SetText(infPath)
+                    UICommon.ShowMessageBox(self.GetHWnd(), self.edtRomPath.GetText(), '²»Ö§³Ö')
+                    infpaht = self.edtRomPath.GetText()
+
 
             elif sendor == 'btnDecSolution':
                 msg = self.txtEnc.GetText()

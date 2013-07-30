@@ -17,3 +17,14 @@ public:
 };
 
 void PyExtentInit();
+
+class PyTest
+{
+public:
+	void Test(PyLog* log)
+	{
+		log->LogText("from python");
+	}
+};
+
+
