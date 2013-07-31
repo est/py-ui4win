@@ -89,7 +89,7 @@
 #define UI_COMMAND_HISTORY 10
 
 #define UIDESIGNER_VERSION _T("1.0.6.158")
-#define UIDESIGNER_VERSION_CHECK_URL _T("http://www.taxue.org/uidesigner-version.txt")
+#define UIDESIGNER_VERSION_CHECK_URL _T("http://www.winclonesoftware.com/uidesigner-version.txt")
 
 //UI type
 enum UIType

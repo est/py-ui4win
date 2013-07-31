@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="1"
+			UseOfMFC="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -46,10 +46,10 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=".\third_party\tinyxml;..\include\python;..\include\Lua"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;BOOST_PYTHON_STATIC_LIB"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="1"
+				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -69,7 +69,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libboost_python-vc90-mt-sgd-1_53.lib lua51.lib"
+				AdditionalDependencies="boost_python-vc90-mt-gd-1_53.lib lua51.lib"
 				OutputFile="..\bin\DuiDesigner_d.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\libs\python; ..\Lib"
@@ -105,7 +105,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="1"
+			UseOfMFC="2"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -132,9 +132,9 @@
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories=".\third_party\tinyxml;..\include\python;..\include\Lua"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;BOOST_PYTHON_STATIC_LIB"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
 				MinimalRebuild="false"
-				RuntimeLibrary="0"
+				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
@@ -155,7 +155,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libboost_python-vc90-mt-s-1_53.lib lua51.lib"
+				AdditionalDependencies="boost_python-vc90-mt-1_53.lib lua51.lib"
 				OutputFile="..\bin\DuiDesigner.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\libs\python; ..\Lib"
@@ -630,11 +630,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\icon1.ico"
+				RelativePath=".\res\ToolBox\icon1.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\ToolBox\icon1.ico"
+				RelativePath=".\res\icon1.ico"
 				>
 			</File>
 			<File
