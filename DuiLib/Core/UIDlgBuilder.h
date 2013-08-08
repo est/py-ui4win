@@ -20,7 +20,8 @@ public:
         CPaintManagerUI* pManager = NULL, CControlUI* pParent = NULL);
     CControlUI* Create(IDialogBuilderCallback* pCallback = NULL, CPaintManagerUI* pManager = NULL,
         CControlUI* pParent = NULL);
-
+	CControlUI* Create(TCHAR *xml, LPCTSTR type = NULL, 
+		CPaintManagerUI* pManager = NULL, CControlUI* pParent = NULL);
     CMarkup* GetMarkup();
 
     void GetLastErrorMessage(LPTSTR pstrMessage, SIZE_T cchMax) const;
