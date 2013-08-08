@@ -39,6 +39,11 @@ CControlUI* CDialogBuilder::Create(STRINGorID xml, LPCTSTR type, IDialogBuilderC
     return Create(pCallback, pManager, pParent);
 }
 
+CControlUI* CDialogBuilder::Create(TCHAR *xml, LPCTSTR type, CPaintManagerUI* pManager, CControlUI* pParent)
+{
+	return Create(xml, type, NULL, pManager, pParent);
+}
+
 CControlUI* CDialogBuilder::Create(IDialogBuilderCallback* pCallback, CPaintManagerUI* pManager, CControlUI* pParent)
 {
     m_pCallback = pCallback;
