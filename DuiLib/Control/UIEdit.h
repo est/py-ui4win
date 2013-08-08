@@ -12,6 +12,7 @@ namespace DuiLib
 		friend class CEditWnd;
 	public:
 		CEditUI();
+		~CEditUI(){};
 
 		LPCTSTR GetClass() const;
 		LPVOID GetInterface(LPCTSTR pstrName);
